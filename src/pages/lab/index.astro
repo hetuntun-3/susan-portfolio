@@ -1,0 +1,78 @@
+---
+import Base from '../../layouts/Base.astro';
+import TitleBar from '../../components/TitleBar.astro';
+import { getCollection } from 'astro:content';
+import { hasBody } from '../../lib/lab';
+
+const all = (await getCollection('lab', (e) => !e.data.draft))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const lab = all.filter((e) => e.data.kind === 'lab');
+const writing = all.filter((e) => e.data.kind === 'writing');
+---
+<Base title="Lab & writing" description="Analytics projects I'm building at Columbia, and cultural writing on Gen Z, wellness and brands.">
+  <TitleBar title="lab & writing" subtitle="where I test what I'm learning" />
+
+  <div class="container">
+    <p class="hero-intro" style="margin-top: var(--s-8)">
+      My internships taught me why people buy. At Columbia I'm learning to prove it: Python, regression, experiment design, web scraping, and SQL. This is where those projects live as I build them.
+    </p>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>lab</h2>
+        <span class="label">analytics projects</span>
+      </div>
+      <div class="lab-list" style="--block: var(--block-lab)">
+        {lab.map((e) => {
+          const d = e.data;
+          const linked = hasBody(e) || d.status === 'published';
+          const Tag = linked ? 'a' : 'div';
+          return (
+            <Tag class="lab-card" href={linked ? `/lab/${e.id}` : undefined} data-ga={linked ? 'lab_project_click' : undefined} data-ga-project={e.id}>
+              <div class="lab-meta">
+                <span class={`badge ${d.status === 'published' ? 'published' : 'progress'}`}>
+                  {d.status === 'published' ? 'Published' : 'In progress'}
+                </span>
+                {d.statusNote && <span class="label">{d.statusNote}</span>}
+              </div>
+              <h3>{d.title}</h3>
+              <p>{d.summary}</p>
+              <ul class="chips small">{d.skills.map((s) => <li class="chip">{s}</li>)}</ul>
+              {linked && <span class="lab-link">Read more →</span>}
+            </Tag>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>writing</h2>
+        <span class="label">cultural insight</span>
+      </div>
+      <div class="lab-list" style="--block: var(--block-writing)">
+        {writing.map((e) => {
+          const d = e.data;
+          return (
+            <article class="lab-card">
+              <div class="lab-meta"><span class="micro">{d.type}</span></div>
+              <h3>{d.title}</h3>
+              <p>{d.summary}</p>
+              {d.link ? (
+                <a class="lab-link" href={d.link} target="_blank" rel="noopener" data-ga="lab_project_click" data-ga-project={e.id}>
+                  {d.linkLabel ?? 'Open ↗'}
+                </a>
+              ) : (
+                d.linkPending && <span class="lab-link label">{d.linkPending}</span>
+              )}
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+</Base>

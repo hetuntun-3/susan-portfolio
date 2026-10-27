@@ -1,0 +1,71 @@
+---
+import Base from '../layouts/Base.astro';
+import TitleBar from '../components/TitleBar.astro';
+import site from '../data/site.json';
+import { getEntry, render } from 'astro:content';
+
+const about = await getEntry('pages', 'about');
+if (!about) throw new Error('Missing src/content/pages/about.md');
+const d = about.data;
+const { Content } = await render(about);
+// fixed tilts so photos look the same on every load
+const tilts = [-1.5, 1.2, -0.6, 1.8, -1.9, 0.8];
+---
+<Base title="About" description="Susan Su: Gender Studies at UCLA, Marketing Science at Columbia. Why I think culture and data belong together in marketing.">
+  <TitleBar title={d.title} subtitle={d.subtitle} />
+
+  <section class="about-open">
+    <div class="container">
+      <h2>{d.opening}</h2>
+      <p>{d.intro}</p>
+    </div>
+  </section>
+
+  <section class="section fade-up">
+    <div class="container">
+      <div class="section-head"><h2>my path</h2><span class="label">past = insight · now = measurement</span></div>
+      <ol class="timeline">
+        {d.timeline.map((t) => (
+          <li class={t.highlight ? 'hl' : undefined}>
+            <span class="label">{t.when}</span>
+            <div class="where">{t.where}</div>
+            <p class="added">{t.added}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="prose" style="margin: 0">
+        <Content />
+      </div>
+    </div>
+  </section>
+
+  {d.photos.length > 0 && (
+    <section class="section fade-up">
+      <div class="container">
+        <div class="photo-grid">
+          {d.photos.map((p, i) => (
+            <figure class="polaroid" style={`margin:0; transform: rotate(${tilts[i % tilts.length]}deg)`}>
+              <img src={p.src} alt={p.alt} loading="lazy" />
+              {p.caption && <figcaption>{p.caption}</figcaption>}
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-head"><h2>contact</h2><span class="label">the fastest way to reach me</span></div>
+      <ul class="contact-list">
+        <li><span class="label">email</span><a href={`mailto:${site.email}`} data-ga="contact_click" data-ga-method="email">{site.email}</a></li>
+        <li><span class="label">linkedin</span><a href={site.linkedin} target="_blank" rel="noopener" data-ga="contact_click" data-ga-method="linkedin">linkedin.com/in/shan-susan-su</a></li>
+      </ul>
+    </div>
+  </section>
+</Base>

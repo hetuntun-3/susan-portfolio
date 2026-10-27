@@ -1,0 +1,146 @@
+---
+import '../styles/global.css';
+import site from '../data/site.json';
+
+interface Props {
+  title?: string;
+  description?: string;
+  caseSlug?: string; // set on case-study pages for analytics
+}
+const { title, description = site.description, caseSlug } = Astro.props;
+const pageTitle = title ? `${title} · ${site.name}` : `${site.name} · Marketing, insight & analytics`;
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const nav = [
+  { href: '/work', label: 'work' },
+  { href: '/lab', label: 'lab' },
+  { href: '/about', label: 'about' },
+  { href: '/resume', label: 'resume' },
+];
+const isActive = (href: string) => path === href || path.startsWith(href + '/');
+const gaOn = site.gaId && !site.gaId.includes('XXXX');
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,600..700,50&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+    {gaOn && (
+      <>
+        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${site.gaId}`}></script>
+        <script is:inline define:vars={{ id: site.gaId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          window.gtag = gtag;
+          gtag('js', new Date());
+          gtag('config', id);
+        </script>
+      </>
+    )}
+  </head>
+  <body data-case={caseSlug}>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container">
+        <a class="wordmark" href="/">{site.wordmark}</a>
+        <nav class="nav" aria-label="Main">
+          {nav.map((n) => (
+            <a href={n.href} aria-current={isActive(n.href) ? 'page' : undefined}>{n.label}</a>
+          ))}
+        </nav>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav">menu</button>
+      </div>
+    </header>
+    <div class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Menu">
+      <div class="mobile-nav-top">
+        <a class="wordmark" href="/">{site.wordmark}</a>
+        <button class="menu-btn close-btn" type="button">close</button>
+      </div>
+      <a class="m-link" href="/" aria-current={path === '/' ? 'page' : undefined}>home</a>
+      {nav.map((n) => (
+        <a class="m-link" href={n.href} aria-current={isActive(n.href) ? 'page' : undefined}>{n.label}</a>
+      ))}
+    </div>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-boxes">
+          <div class="footer-box">© 2026 {site.name}</div>
+          <div class="footer-box contact">
+            contact: <a href={`mailto:${site.email}`} data-ga="contact_click" data-ga-method="email">{site.email}</a>
+            {' · '}
+            <a href={site.linkedin} target="_blank" rel="noopener" data-ga="contact_click" data-ga-method="linkedin">LinkedIn</a>
+          </div>
+          <div class="footer-box">built with Claude</div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu
+      const menu = document.getElementById('mobile-nav');
+      const openBtn = document.querySelector<HTMLButtonElement>('.site-header .menu-btn');
+      const closeBtn = document.querySelector<HTMLButtonElement>('.close-btn');
+      const setOpen = (open: boolean) => {
+        menu?.classList.toggle('open', open);
+        openBtn?.setAttribute('aria-expanded', String(open));
+        document.body.style.overflow = open ? 'hidden' : '';
+        if (open) closeBtn?.focus(); else openBtn?.focus();
+      };
+      openBtn?.addEventListener('click', () => setOpen(true));
+      closeBtn?.addEventListener('click', () => setOpen(false));
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && menu?.classList.contains('open')) setOpen(false); });
+
+      // Fade-up sections as they enter the viewport
+      const items = document.querySelectorAll('.fade-up');
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+        }, { rootMargin: '0px 0px -40px 0px' });
+        items.forEach((el) => io.observe(el));
+      } else {
+        items.forEach((el) => el.classList.add('in'));
+      }
+
+      // Analytics (GA4). Events only send once a real GA4 ID is set in src/data/site.json.
+      const send = (name: string, params: Record<string, string> = {}) => {
+        const g = (window as any).gtag;
+        if (typeof g === 'function') g('event', name, params);
+      };
+      document.addEventListener('click', (e) => {
+        const el = (e.target as HTMLElement).closest<HTMLElement>('[data-ga]');
+        if (!el) return;
+        const params: Record<string, string> = {};
+        if (el.dataset.gaMethod) params.method = el.dataset.gaMethod;
+        if (el.dataset.gaProject) params.project = el.dataset.gaProject;
+        send(el.dataset.ga!, params);
+      });
+      const caseSlug = document.body.dataset.case;
+      if (caseSlug) {
+        send('case_study_view', { case: caseSlug });
+        let sent = false;
+        window.addEventListener('scroll', () => {
+          if (sent) return;
+          const depth = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+          if (depth >= 0.9) { sent = true; send('scroll_depth_90', { case: caseSlug }); }
+        }, { passive: true });
+      }
+    </script>
+  </body>
+</html>

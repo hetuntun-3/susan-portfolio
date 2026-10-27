@@ -1,0 +1,37 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+import { hasBody } from '../../lib/lab';
+
+export async function getStaticPaths() {
+  const entries = await getCollection(
+    'lab',
+    (e) => !e.data.draft && e.data.kind === 'lab' && (hasBody(e) || e.data.status === 'published'),
+  );
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const d = entry.data;
+const { Content } = await render(entry);
+---
+<Base title={d.title} description={d.summary}>
+  <article style="--block: var(--block-lab)">
+    <header class="case-head">
+      <div class="container">
+        <a class="back-link" href="/lab">← all lab projects</a>
+        <div class="lab-meta" style="margin-top: var(--s-4)">
+          <span class={`badge ${d.status === 'published' ? 'published' : 'progress'}`}>
+            {d.status === 'published' ? 'Published' : 'In progress'}
+          </span>
+          {d.statusNote && <span class="label">{d.statusNote}</span>}
+        </div>
+        <h1>{d.title}</h1>
+        <p class="lead">{d.summary}</p>
+        <ul class="chips small" style="margin-top: var(--s-5)">{d.skills.map((s) => <li class="chip">{s}</li>)}</ul>
+      </div>
+    </header>
+    <div class="container reading">
+      <div class="prose"><Content /></div>
+    </div>
+  </article>
+</Base>

@@ -1,0 +1,77 @@
+---
+import Base from '../layouts/Base.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import site from '../data/site.json';
+import { getCollection } from 'astro:content';
+
+const work = (await getCollection('work', (e) => !e.data.draft))
+  .sort((a, b) => a.data.order - b.data.order);
+const featured = work.filter((e) => e.data.featured && !e.data.comingSoon);
+const h = site.hero;
+---
+<Base>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1>{h.headline}</h1>
+        <p class="hero-intro">{h.intro}</p>
+        <p class="label hero-avail">{h.availability}</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="/work">See my work</a>
+          <a class="btn btn-secondary" href="/resume">Resume</a>
+        </div>
+      </div>
+      <figure class={`polaroid${h.headshot ? '' : ' no-photo'}`} style="margin:0">
+        {h.headshot ? (
+          <img src={h.headshot} alt={h.headshotAlt} />
+        ) : (
+          <div class="ph">headshot<br />coming soon</div>
+        )}
+        <figcaption>susan · new york</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section fade-up">
+    <div class="container">
+      <div class="section-head">
+        <h2>featured work</h2>
+        <a class="label" href="/work">all case studies →</a>
+      </div>
+      <div class="card-grid">
+        {featured.map((e) => <ProjectCard entry={e} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade-up">
+    <div class="container">
+      <div class="section-head">
+        <h2>tools</h2>
+        <span class="label">solid = used in work · dashed = learning now</span>
+      </div>
+      <div class="tools-group">
+        <span class="micro">Tools</span>
+        <ul class="chips">{site.skills.tools.map((s) => <li class="chip">{s}</li>)}</ul>
+      </div>
+      <div class="tools-group">
+        <span class="micro">Currently learning</span>
+        <ul class="chips">{site.skills.learning.map((s) => <li class="chip learning">{s}</li>)}</ul>
+      </div>
+      <div class="tools-group">
+        <span class="micro">Certified</span>
+        <ul class="chips">{site.skills.certified.map((s) => <li class="chip">{s}</li>)}</ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band fade-up">
+    <div class="container">
+      <p>{site.cta.line}</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href={`mailto:${site.email}`} data-ga="contact_click" data-ga-method="email">Email me</a>
+        <a class="btn btn-secondary" href={site.linkedin} target="_blank" rel="noopener" data-ga="contact_click" data-ga-method="linkedin">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+</Base>

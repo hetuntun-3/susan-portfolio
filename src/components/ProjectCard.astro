@@ -1,0 +1,38 @@
+---
+interface Props {
+  entry: {
+    id: string;
+    data: {
+      title: string; timeline: string; tag: string; block: string; comingSoon: boolean;
+      cover?: string; coverAlt?: string; coverStat?: string; coverStatLabel?: string;
+    };
+  };
+}
+const { entry } = Astro.props;
+const d = entry.data;
+const style = `--block: var(--block-${d.block})`;
+---
+{d.comingSoon ? (
+  <div class="card soon" style={style} aria-disabled="true">
+    <div class="label">{d.timeline}</div>
+    <div class="card-title">{d.title}</div>
+    <div class="card-cover"><div class="cover-stat">case study in progress</div></div>
+    <div class="card-tag">{d.tag}</div>
+  </div>
+) : (
+  <a class="card" href={`/work/${entry.id}`} style={style}>
+    <div class="label">{d.timeline}</div>
+    <div class="card-title">{d.title}</div>
+    <div class="card-cover">
+      {d.cover ? (
+        <img src={d.cover} alt={d.coverAlt ?? ''} loading="lazy" />
+      ) : (
+        <div class="cover-stat" aria-hidden={d.coverStat ? undefined : 'true'}>
+          <span class="num">{d.coverStat}</span>
+          <span class="label">{d.coverStatLabel}</span>
+        </div>
+      )}
+    </div>
+    <div class="card-tag">{d.tag}</div>
+  </a>
+)}
