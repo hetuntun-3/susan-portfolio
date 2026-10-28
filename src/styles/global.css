@@ -135,7 +135,7 @@ strong { font-weight: 600; }
   display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-5); align-items: baseline; justify-content: space-between;
   border-bottom: var(--rule); padding-bottom: var(--s-3); margin-bottom: var(--s-6);
 }
-.section-head h2 { font-size: 26px; text-transform: lowercase; }
+.section-head h2 { font-size: 22px; text-transform: lowercase; }
 
 /* ---------- hero ---------- */
 .hero { padding: var(--s-8) 0 0; }
@@ -185,7 +185,7 @@ a.card:hover .card-title, a.card:focus-visible .card-title { text-decoration: un
 .card-cover img { width: 100%; height: 100%; object-fit: cover; }
 .cover-stat {
   height: 100%; display: flex; flex-direction: column; justify-content: flex-end; gap: var(--s-2);
-  padding: var(--s-5); background: repeating-linear-gradient(0deg, transparent 0 27px, var(--rule-soft) 27px 28px), var(--paper);
+  padding: var(--s-5); background: var(--paper);
 }
 .cover-stat .num { font-family: var(--font-display); font-variation-settings: 'SOFT' 50; font-weight: 700; font-size: 72px; line-height: 1; letter-spacing: -0.02em; }
 .cover-stat .num::after { content: ''; display: block; width: 48px; height: 6px; background: var(--block); margin-top: var(--s-3); }
@@ -360,8 +360,7 @@ a.lab-card:hover { color: var(--ink); transform: translate(-3px, -3px); box-shad
 
 /* ---------- motion ---------- */
 @media (prefers-reduced-motion: no-preference) {
-  html.js .fade-up { opacity: 0; transform: translateY(12px); transition: opacity 300ms ease-out, transform 300ms ease-out; }
-  html.js .fade-up.in { opacity: 1; transform: none; }
+  html { scroll-behavior: smooth; }
 }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
@@ -404,3 +403,38 @@ a.lab-card:hover { color: var(--ink); transform: translate(-3px, -3px); box-shad
 .intro { padding: var(--section-gap) 0 0; }
 .intro-headline { font-size: clamp(28px, 3.4vw, 40px); line-height: 1.15; font-weight: 600; max-width: 22ch; }
 .intro .hero-intro { font-size: 18px; max-width: 58ch; }
+
+/* ---------- scroll reveal (smooth, like gracesportfolio.com) ----------
+   Which elements reveal is set in Base.astro (data-reveal list).
+   Keep this selector list in sync with it. */
+@media (prefers-reduced-motion: no-preference) {
+  html.js :is(.reveal, .section-head, .card, .tools-group, .lab-card, .timeline li, .prose > *, .tldr,
+    .case-head .container > *, .about-open .container > *, .intro .container > *, .cta-band .container > *,
+    .contact-list li, .case-nav):not(.done) {
+    opacity: 0;
+    transform: translateY(44px) scale(0.97);
+    transition: opacity 1.1s cubic-bezier(0.165, 0.84, 0.44, 1), transform 1.1s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  html.js :is(.reveal, .section-head, .card, .tools-group, .lab-card, .timeline li, .prose > *, .tldr,
+    .case-head .container > *, .about-open .container > *, .intro .container > *, .cta-band .container > *,
+    .contact-list li, .case-nav).in:not(.done) {
+    opacity: 1; transform: none;
+  }
+  /* prose moves less, so long case studies don't feel jumpy */
+  html.js .prose > *:not(.in):not(.done) { transform: translateY(20px); }
+
+  /* first screen: name letters rise one by one, then the rest fades in */
+  .splash-name .ch { display: inline-block; animation: rise 0.9s cubic-bezier(0.165, 0.84, 0.44, 1) both; animation-delay: calc(var(--i) * 45ms + 100ms); }
+  .splash-kicker, .splash-keywords { animation: fadein 0.9s cubic-bezier(0.165, 0.84, 0.44, 1) both; }
+  .splash-kicker { animation-delay: 0.05s; }
+  .splash-keywords { animation-delay: 0.6s; }
+  .splash-photo { animation: photoin 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) 0.35s both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(0.35em); } to { opacity: 1; transform: none; } }
+  @keyframes fadein { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+  @keyframes photoin { from { opacity: 0; transform: translateY(32px) rotate(-2deg) scale(0.96); } to { opacity: 1; transform: rotate(2deg); } }
+}
+
+/* calmer first screen */
+.splash { border-bottom: 0; }
+.splash-name { font-size: clamp(56px, 8.5vw, 116px); line-height: 1; letter-spacing: -0.025em; }
+.splash-keywords li { font-size: 14px; padding: 6px 12px; }

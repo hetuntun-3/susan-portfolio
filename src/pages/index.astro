@@ -15,7 +15,11 @@ const h = site.hero;
     <div class="container splash-grid">
       <div class="splash-text">
         <p class="label splash-kicker">{h.kicker}</p>
-        <h1 class="splash-name">{site.name}</h1>
+        <h1 class="splash-name" aria-label={site.name}>
+          {site.name.split('').map((c, i) => (
+            <span class="ch" style={`--i:${i}`} aria-hidden="true">{c === ' ' ? '\u00a0' : c}</span>
+          ))}
+        </h1>
         <ul class="splash-keywords">
           {h.keywords.map((k) => <li>{k}</li>)}
         </ul>
@@ -33,7 +37,7 @@ const h = site.hero;
   </section>
 
   <!-- Screen 2: the pitch -->
-  <section class="intro fade-up" id="intro">
+  <section class="intro" id="intro">
     <div class="container">
       <h2 class="intro-headline">{h.headline}</h2>
       <p class="hero-intro">{h.intro}</p>
@@ -45,7 +49,7 @@ const h = site.hero;
     </div>
   </section>
 
-  <section class="section fade-up">
+  <section class="section">
     <div class="container">
       <div class="section-head">
         <h2>featured work</h2>
@@ -57,7 +61,7 @@ const h = site.hero;
     </div>
   </section>
 
-  <section class="section fade-up">
+  <section class="section">
     <div class="container">
       <div class="section-head">
         <h2>tools</h2>
@@ -77,7 +81,7 @@ const h = site.hero;
     </div>
   </section>
 
-  <section class="cta-band fade-up">
+  <section class="cta-band">
     <div class="container">
       <p>{site.cta.line}</p>
       <div class="btn-row">

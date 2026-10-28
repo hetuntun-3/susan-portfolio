@@ -35,7 +35,7 @@ const gaOn = site.gaId && !site.gaId.includes('XXXX');
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,600..700,50&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <script is:inline>document.documentElement.classList.add('js');</script>
+    <script is:inline>document.documentElement.classList.add('js');document.documentElement.dataset.reveal='.reveal, .section-head, .card, .tools-group, .lab-card, .timeline li, .prose > *, .tldr, .case-head .container > *, .about-open .container > *, .intro .container > *, .cta-band .container > *, .contact-list li, .case-nav';</script>
     {gaOn && (
       <>
         <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${site.gaId}`}></script>
@@ -108,15 +108,31 @@ const gaOn = site.gaId && !site.gaId.includes('XXXX');
       closeBtn?.addEventListener('click', () => setOpen(false));
       document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && menu?.classList.contains('open')) setOpen(false); });
 
-      // Fade-up sections as they enter the viewport
-      const items = document.querySelectorAll('.fade-up');
+      // Scroll reveal: each block rises and fades in as it enters the screen.
+      // The list of revealed elements lives in global.css (search "scroll reveal").
+      const revealSel = document.documentElement.dataset.reveal || '';
+      const targets = Array.from(document.querySelectorAll<HTMLElement>(revealSel));
+      // stagger items that sit side by side (cards, chips rows, timeline)
+      targets.forEach((el) => {
+        if (el.matches('.card, .lab-card, .timeline li, .tools-group')) {
+          const sibs = Array.from(el.parentElement?.children ?? []);
+          el.style.transitionDelay = `${(sibs.indexOf(el) % 3) * 110}ms`;
+        }
+        el.addEventListener('transitionend', (ev) => {
+          if (ev.target === el && el.classList.contains('in')) { el.classList.add('done'); el.style.transitionDelay = ''; }
+        });
+      });
+      const show = (el: HTMLElement) => {
+        el.classList.add('in');
+        setTimeout(() => el.classList.add('done'), 1800); // safety net
+      };
       if ('IntersectionObserver' in window) {
         const io = new IntersectionObserver((entries) => {
-          entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
-        }, { rootMargin: '0px 0px -40px 0px' });
-        items.forEach((el) => io.observe(el));
+          entries.forEach((en) => { if (en.isIntersecting) { show(en.target as HTMLElement); io.unobserve(en.target); } });
+        }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+        targets.forEach((el) => io.observe(el));
       } else {
-        items.forEach((el) => el.classList.add('in'));
+        targets.forEach(show);
       }
 
       // Analytics (GA4). Events only send once a real GA4 ID is set in src/data/site.json.
