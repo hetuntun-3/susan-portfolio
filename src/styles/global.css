@@ -799,8 +799,8 @@ a.pcard:hover .pmore { text-decoration: underline; text-underline-offset: 4px; }
 /* Writing lets the work itself lead: video thumbnail and complete zine cover. */
 .writing-list { grid-template-columns: minmax(0, 1fr); }
 .writing-card { padding: 0; gap: 0; min-width: 0; overflow: hidden; }
-.writing-cover { position: relative; aspect-ratio: 16 / 9; border-bottom: var(--border); background: #f3efeb; }
-.writing-cover img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.writing-cover { position: relative; flex-shrink: 0; aspect-ratio: 16 / 9; border-bottom: var(--border); background: #f3efeb; }
+.writing-cover img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; }
 .writing-cover.video { background: #171717; }
 .writing-cover.video img { object-fit: cover; }
 .writing-play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; border: 2px solid var(--ink); border-radius: 50%; display: grid; place-items: center; background: var(--paper); color: var(--ink); box-shadow: 4px 4px 0 var(--block-writing); }
