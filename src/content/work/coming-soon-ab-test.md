@@ -6,4 +6,7 @@ tag: Columbia Digital Marketing × client company
 block: soon
 order: 3
 comingSoon: true
+coverTitle: A / B
+coverNote: test in progress
+summary: Digital campaign A/B test with a client company, Columbia Digital Marketing.
 ---

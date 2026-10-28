@@ -21,7 +21,8 @@ const about = await getEntry('pages', 'about');
             <span class="ch" style={`--i:${i}`} aria-hidden="true">{c === ' ' ? '\u00a0' : c}</span>
           ))}
         </h1>
-        <p class="splash-line">{h.line}</p>
+        <p class="splash-headline">{h.headline}</p>
+        <p class="splash-line">{h.sub}</p>
         <a class="splash-link" href="#work">see my work ↓</a>
       </div>
       <figure class={`polaroid splash-photo${h.headshot ? '' : ' no-photo'}`} style="margin:0">

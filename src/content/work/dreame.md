@@ -10,8 +10,12 @@ order: 2
 featured: true
 # cover: /images/dreame-cover.jpg
 # coverAlt: Concept mockup, not launched
-coverStat: "8"
-coverStatLabel: nano-creators seeded · 40+ screened
+coverKicker: u.s. · summer 2025
+coverTitle: Back-to-School
+coverSteps: ["pre-heat", "launch", "engage", "convert"]
+coverNote: one season, two buyers
+summary: Built the creator shortlist and a four-phase social concept.
+metrics: ["8 creators seeded", "40+ screened"]
 tldr:
   - label: Role
     value: Marketing & PR Intern, Dreame Technology (U.S. team, working with Shenzhen)

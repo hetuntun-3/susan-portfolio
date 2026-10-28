@@ -11,8 +11,11 @@ featured: true
 # To use a photo instead of the big number, add it to public/images/ and uncomment:
 # cover: /images/insta360-cover.jpg
 # coverAlt: Riders in yellow jerseys on the Champs-Élysées
-coverStat: "100"
-coverStatLabel: riders selected · 200+ rider ride · 90 km
+coverKicker: paris · jul 24–26, 2026
+coverTitle: Versailles → Champs-Élysées
+coverNote: 90 km · tour de france finale route
+summary: Picked the 100 riders who filmed the ride, and wrote the workshop decks.
+metrics: ["100 riders selected", "200+ rider event"]
 tldr:
   - label: Role
     value: Marketing Intern, Insta360

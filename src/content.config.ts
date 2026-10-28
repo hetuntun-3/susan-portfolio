@@ -17,7 +17,15 @@ const work = defineCollection({
     draft: z.boolean().default(false),
     cover: z.string().optional(), // e.g. /images/insta360-cover.jpg
     coverAlt: z.string().optional(),
-    coverStat: z.string().optional(), // big number shown until a cover photo exists
+    coverPosition: z.string().optional(), // focal point for the photo crop, e.g. "50% 30%"
+    // Typography cover (used until an approved photo exists). Only verified facts.
+    coverKicker: z.string().optional(),
+    coverTitle: z.string().optional(),
+    coverSteps: z.array(z.string()).optional(),
+    coverNote: z.string().optional(),
+    summary: z.string().optional(), // one line: what I did
+    metrics: z.array(z.string()).optional(), // 1–2 short numbers
+    coverStat: z.string().optional(), // legacy, unused
     coverStatLabel: z.string().optional(),
     description: z.string().optional(),
     tldr: z.array(z.object({ label: z.string(), value: z.string() })).default([]),

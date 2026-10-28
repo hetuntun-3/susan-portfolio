@@ -641,3 +641,57 @@ strong { font-weight: 600; }
 /* closing line */
 .home-end p { font-size: 15px; margin: 0; padding-top: var(--s-5); border-top: var(--rule); }
 .home-end a { white-space: nowrap; }
+
+/* ---------- home v3: stronger positioning line, less empty space ---------- */
+.home .splash { min-height: 0; padding: var(--s-8) 0 var(--s-8); }
+@media (min-width: 1024px) {
+  .home .splash { padding: 112px 0 96px; }
+  .home .splash-grid { grid-template-columns: minmax(0, 540px) 260px; align-items: center; gap: clamp(48px, 7vw, 112px); }
+}
+.home .splash-name { font-size: clamp(40px, 4.4vw, 56px); margin-bottom: var(--s-4); }
+.home .splash-headline {
+  font-family: var(--font-display); font-variation-settings: 'SOFT' 50; font-weight: 600;
+  font-size: clamp(26px, 2.9vw, 38px); line-height: 1.15; letter-spacing: -0.015em;
+  max-width: 17ch; margin: 0 0 var(--s-5); text-wrap: balance;
+  animation: fadein 0.9s cubic-bezier(0.165, 0.84, 0.44, 1) 0.4s both;
+}
+.home .splash-headline::after { content: ''; display: block; width: 56px; height: 3px; background: var(--accent); margin-top: var(--s-4); }
+.home .splash-line { font-size: 14px; color: var(--muted); max-width: 52ch; margin-bottom: var(--s-5); }
+.home .splash-photo { max-width: 260px; }
+@media (max-width: 1023px) { .home .splash-photo { max-width: 220px; margin-top: var(--s-2); } }
+@media (prefers-reduced-motion: reduce) { .home .splash-headline { animation: none; } }
+
+/* ---------- project cards v3 (Home + /work) ---------- */
+.pcard > * { padding: 14px 20px; }
+.pcard .card-title { font-size: clamp(26px, 2.4vw, 32px); }
+.pcard.soon .card-title { font-size: 22px; }
+.pcover { padding: 0 !important; aspect-ratio: 4 / 3; overflow: hidden; background: var(--block); position: relative; }
+.pcover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pc-type {
+  position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between;
+  padding: 20px; color: var(--ink);
+}
+.pc-kicker, .pc-note { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.02em; }
+.pc-title {
+  font-family: var(--font-display); font-variation-settings: 'SOFT' 50; font-weight: 700;
+  font-size: clamp(30px, 3.1vw, 42px); line-height: 1.02; letter-spacing: -0.02em; text-wrap: balance;
+  margin-top: auto; margin-bottom: var(--s-3);
+}
+.pc-steps { list-style: none; margin: 0 0 var(--s-3); padding: 0; display: flex; flex-wrap: wrap; gap: 4px 6px; font-family: var(--font-mono); font-size: 12px; }
+.pc-steps li { border: 1px solid var(--ink); padding: 2px 8px; background: rgba(255, 255, 255, 0.55); }
+.pc-steps li:last-child { background: var(--ink); color: var(--paper); }
+.pc-steps li + li::before { content: none; }
+.pcard.soon .pcover { background: var(--paper); }
+.pcard.soon .pc-title { font-size: clamp(48px, 5vw, 64px); color: transparent; -webkit-text-stroke: 1.5px var(--ink); }
+.pcard.soon .pc-type { border-bottom: 0; }
+.pbody { display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.psum { margin: 0; font-size: 14px; line-height: 1.55; }
+.pmetrics { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.pmetrics li { font-family: var(--font-mono); font-size: 12px; font-weight: 500; border: 1px solid var(--ink); padding: 3px 8px; background: var(--surface); }
+.pmore { margin-top: auto; padding-top: 4px; font-family: var(--font-mono); font-size: 13px; color: var(--accent); }
+a.pcard:hover .pmore { text-decoration: underline; text-underline-offset: 4px; }
+.pcard.soon .badge { align-self: flex-start; margin-top: auto; }
+/* keep the cover panel the same size in every card */
+.pc-title { font-size: clamp(24px, 2.3vw, 31px); line-height: 1.05; hyphens: manual; }
+.pcard.soon .pc-title { font-size: clamp(44px, 4.4vw, 58px); }
+@media (min-width: 1024px) { .home .splash { padding-bottom: 72px; } }
