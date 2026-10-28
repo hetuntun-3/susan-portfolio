@@ -1,7 +1,7 @@
 ---
 title: Insta360
 headline: Picking the 100 riders who filmed Paris for Insta360
-lead: Insta360's first cycling community event put 200+ riders on the Tour de France finale route. I chose the 100 who rode with cameras, and wrote the workshop decks that showed them what to film with.
+lead: I selected 100 camera-equipped riders and prepared two audience-specific workshop decks for Insta360’s Paris cycling activation.
 description: How I selected the 100 camera-equipped riders for Insta360's 200+ rider Paris event, and wrote the cycling and running workshop decks.
 timeline: Summer 2026
 tag: Community event · rider selection + launch decks
@@ -14,8 +14,8 @@ featured: true
 coverKicker: paris · jul 24–26, 2026
 coverTitle: Paris, in motion
 coverNote: 100 camera riders selected · 2 workshop decks
-summary: Picked the 100 riders who filmed the ride, and wrote the workshop decks.
-metrics: ["100 riders selected", "200+ rider event"]
+summary: Rider selection + workshop positioning
+metrics: ["100 riders selected", "2 audience decks"]
 tldr:
   - label: Role
     value: Marketing Intern, Insta360
@@ -31,66 +31,50 @@ tldr:
     value: "**200+ riders**, **90 km** Versailles → Champs-Élysées · covered by PR Newswire, Paris Zigzag, Cyclism'Actu and RideApart"
 ---
 
-## Context & Problem
+<nav class="case-jumps" aria-label="Case study sections"><a href="#rider-selection">01 · Rider selection ↓</a><a href="#workshop-positioning">02 · Workshop positioning ↓</a></nav>
 
-The event's content would only be as good as the people filming it. Insta360 planned a three-day pop-up for the Tour de France finale weekend: creator workshops, a small group run, and a Sunday "Hero Ride" from Versailles to the Champs-Élysées. The goals were brand awareness, rider-made content, and a cycling community around the brand.
+## The brief
 
-Two problems landed on my desk:
+For the Tour de France finale weekend, Insta360 planned a three-day Paris pop-up with workshops, a group run, and a 90 km Hero Ride. My work addressed two questions: **who should film the ride, and how do we make the cameras relevant to each audience?**
 
-- **Who rides with a camera?** Selected riders got a branded jersey and an Insta360 camera to film the route. The sign-up form drew far more people than there were cameras. We needed riders who ride often and have stories worth filming.
-- **What do we show them?** The product team's brochure covered every feature for every use. Workshop attendees were cyclists and runners who needed to know, in a few minutes, which camera fits their sport and why.
+<h2 id="rider-selection">01 · Choose the people behind the footage</h2>
 
-## Approach
+There were more sign-ups than cameras. I cleaned duplicate and incomplete responses, then reviewed riders on **riding frequency** and **the quality of their cycling stories**. The aim was to find people comfortable on the route who could tell a story from inside it.
 
-I treated rider selection as a data problem and the decks as a positioning problem.
-
-1. **Clean the sign-up data.** I removed duplicate and incomplete responses from the Hero Ride sign-up survey, so every remaining row was one real, reachable rider.
-2. **Score for content potential, not just fitness.** I read each rider on two signals:
-   - **Riding frequency.** Regular riders are comfortable on a 90 km route and know what's worth filming.
-   - **Answer quality.** Their replies to "Why do you want to join?" and "Tell us a cycling story" showed who could tell a story on camera.
-
-   I selected **100 riders** and flagged the **10 strongest stories** for post-event promotional material.
-3. **Cut the brochure down to what riders need.** For the cycling deck I chose four cameras: GO Ultra, X5, Ace Pro 2 and X4 Air. They are the core lineup, they fit riding, and each has bike accessories that go with it. For each camera I kept the features that matter on a bike and paired them with three creator videos from Instagram and TikTok.
-4. **Write the belief, then adapt it.** I wrote the partnership story for both decks. The cycling version: "Cycling isn't just about the ride. It's about the people you meet and the memories you create." For the run deck I rewrote it around movement and added a slide on the five moments of a run worth capturing.
-
-## Analysis
-
-### The selection funnel
-
-<div class="visual funnel" role="img" aria-label="Selection funnel: sign-up responses, then cleaned responses, then 100 selected riders, then 10 featured stories">
-  <div class="funnel-step">Sign-up responses</div>
-  <div class="funnel-step">Cleaned (duplicates and incompletes removed)</div>
-  <div class="funnel-step strong"><span class="n">100</span>selected riders</div>
-  <div class="funnel-step strong"><span class="n">10</span>featured stories</div>
+<div class="visual selection-process" aria-label="Rider selection process">
+  <div><span class="micro">01 · Clean</span><h3>One rider, one response</h3><p>Remove duplicate and incomplete sign-ups.</p></div>
+  <div><span class="micro">02 · Review</span><h3>Habit + story</h3><p>Look for regular riding and thoughtful answers.</p></div>
+  <div class="process-key"><strong>100</strong><span>camera-equipped riders selected</span></div>
+  <div class="process-key"><strong>10</strong><span>rider stories flagged for promotion</span></div>
 </div>
 
-> **So what:** The camera riders were the event's content team. Choosing them on riding habit and storytelling, not first-come-first-served, was a bet on better footage from the same 100 cameras.
+<p class="note">Process illustration; box sizes do not represent conversion rates. Starting response counts are not shown.</p>
 
-### What made the cut (cycling deck)
+> **The decision:** Select for riding habit and storytelling rather than first-come-first-served. The camera riders would become the event’s content team.
 
-| Camera | What the deck led with |
-|---|---|
-| GO Ultra | 53g hands-free POV · Stats Dashboard · multi-angle bike mounting · 200-min run time · FlowState + Horizon Lock |
-| X5 | 360° video, reframe after filming · "one camera, any perspective" · 208-min run time |
-| Ace Pro 2 | Leica lens · low-light performance · flip touchscreen · 4K60 Sport HDR |
-| X4 Air | Hands-free POV · invisible selfie stick · wind guard · InstaFrame |
+<h2 id="workshop-positioning">02 · Turn product features into reasons to film</h2>
 
-> **So what:** Every slide answers one rider question: can I film the ride without touching the camera? Photo specs and studio features stayed in the brochure.
+The product brochure covered every use case. Workshop attendees needed a shorter answer: **which camera fits my sport, and what could I capture with it?** I prepared a cycling deck and a running deck, curated 18 creator demo videos, and adapted the partnership story for each audience.
 
-### One event, two audiences
+<div class="visual audience-panels">
+  <section><span class="micro">Audience 01</span><h3>On the bike</h3><p class="audience-belief">“Cycling isn’t just about the ride.”</p><dl><dt>Product focus</dt><dd>4 cameras: GO Ultra, X5, Ace Pro 2, X4 Air</dd><dt>Show, then explain</dt><dd>Bike-relevant features and three creator videos per camera</dd><dt>Story</dt><dd>The people you meet and the memories you create</dd></dl></section>
+  <section><span class="micro">Audience 02</span><h3>On the run</h3><p class="audience-belief">“Movement is about more than the distance.”</p><dl><dt>Product focus</dt><dd>2 cameras: GO Ultra, X4 Air</dd><dt>Moments to capture</dt><dd>People, stops, places, journey, memories</dd><dt>Next action</dt><dd>Connect the run audience to the weekend pop-up and Hero Ride</dd></dl></section>
+</div>
 
-| | Cycling deck | Run deck |
-|---|---|---|
-| Cameras | 4 (GO Ultra, X5, Ace Pro 2, X4 Air) | 2 (GO Ultra, X4 Air) |
-| Belief line | "Cycling isn't just about the ride" | "Movement is about more than the distance" |
-| Extra slide | — | "How Insta360 Fits Running": people, stops, places, journey, memories |
-| GO Ultra edition shown | Tadej Pogačar Edition | Hello Kitty Edition |
-| Lucky draw entry | Attend, buy, or post | Post a carousel or Reel with #Insta360RideBold |
-| Cross-promotion | — | Weekend pop-up + Sunday Hero Ride |
+<p class="note">Original portfolio summaries of my deck decisions; these panels are not reproductions of the workshop slides.</p>
 
-> **So what:** The run deck did two jobs. It sold cameras to runners, and it pointed a smaller audience toward the weekend's main event.
+### What I emphasized in the cycling deck
 
-## Recommendation & Impact
+<div class="camera-decisions">
+<div><h4>GO Ultra</h4><p>Hands-free POV and bike mounting</p></div>
+<div><h4>X5</h4><p>360° footage; choose the perspective after filming</p></div>
+<div><h4>Ace Pro 2</h4><p>Low-light performance and a flip touchscreen</p></div>
+<div><h4>X4 Air</h4><p>Hands-free capture and an invisible selfie stick</p></div>
+</div>
+
+> **The positioning choice:** Lead with what a rider can capture, then use features and creator examples to make that benefit concrete.
+
+## Event results & what I would measure next
 
 On July 26, **200+ riders** rode **90 km** to the Champs-Élysées, and the riders I selected filmed it from the inside.
 

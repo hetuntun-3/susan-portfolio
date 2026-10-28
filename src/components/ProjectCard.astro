@@ -24,16 +24,19 @@ const Tag = d.comingSoon ? 'div' : 'a';
   aria-disabled={d.comingSoon ? 'true' : undefined}
   style={style}
 >
-  <div class="label">{d.timeline}</div>
-  <div class="card-title">{d.title}</div>
+  <div class="project-heading"><h3 class="card-title">{d.title}</h3><span class="label">{d.timeline}</span></div>
 
   <div class="pcover">
     {d.cover ? (
       <img src={d.cover} alt={d.coverAlt ?? ''} loading="lazy" style={d.coverPosition ? `object-position:${d.coverPosition}` : undefined} />
     ) : (
-      <div class="pc-type" aria-hidden="true">
+      <div class={`pc-type pc-${entry.id}`} aria-hidden="true">
         {d.coverKicker && <span class="pc-kicker">{d.coverKicker}</span>}
         {d.coverTitle && <span class="pc-title">{d.coverTitle}</span>}
+        {entry.id === 'insta360' && <>
+          <span class="rider-stamp"><strong>100</strong><span>camera riders</span></span>
+          <svg class="ride-path" viewBox="0 0 500 90" fill="none"><path d="M8 70C80 70 85 5 170 20S285 100 350 50S420 4 490 20" stroke="currentColor" stroke-width="2" stroke-dasharray="8 7"/><circle cx="8" cy="70" r="5" fill="currentColor"/><circle cx="490" cy="20" r="5" fill="currentColor"/></svg>
+        </>}
         {d.coverSteps && d.coverSteps.length > 0 && (
           <ol class="pc-steps">{d.coverSteps.map((s) => <li>{s}</li>)}</ol>
         )}
@@ -50,7 +53,7 @@ const Tag = d.comingSoon ? 'div' : 'a';
     {d.comingSoon ? (
       <span class="badge progress">In progress</span>
     ) : (
-      <span class="pmore">read the case →</span>
+      <span class="pmore">explore the case →</span>
     )}
   </div>
 </Tag>
