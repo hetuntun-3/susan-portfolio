@@ -12,8 +12,8 @@ featured: true
 # cover: /images/insta360-cover.jpg
 # coverAlt: Riders in yellow jerseys on the Champs-Élysées
 coverKicker: paris · jul 24–26, 2026
-coverTitle: Versailles → Champs-Élysées
-coverNote: 90 km · tour de france finale route
+coverTitle: Paris, in motion
+coverNote: 100 camera riders selected · 2 workshop decks
 summary: Picked the 100 riders who filmed the ride, and wrote the workshop decks.
 metrics: ["100 riders selected", "200+ rider event"]
 tldr:
@@ -99,6 +99,14 @@ On July 26, **200+ riders** rode **90 km** to the Champs-Élysées, and the ride
 - **The coverage:** [Paris Zigzag](https://www.pariszigzag.fr/paris-au-quotidien/actualites-paris/insta360-tour-france-2026/), [Cyclism'Actu](https://www.cyclismactu.net/news-cyclisme-route-materiel-think-bold-ride-bold-insta360-presente-dans-paris-avec-250-cyclistes-95254.html), [Presse Agence](https://presseagence.fr/paris-cyclisme-insta360-reunit-250-passionnes-pour-une-experience-immersive-en-marge-du-tour-de-france/) and [RideApart](https://www.rideapart.com/news/803889/insta360s-paris-pop-up-cycling-event-was-crazy-good-please-make-one-for-motorcyclists/). RideApart noted it was Insta360's first event of its kind.
 
 **My recommendation for the next edition: measure the community, not just the crowd.** Tag each sign-up with its source and selection score. Then compare which riders actually posted. That turns rider selection from a judgment call into a model the team can improve every year.
+
+## See the real event
+
+The photographs and reporting below are hosted by their original publishers. I link to them rather than reproducing third-party images on this portfolio.
+
+- [Insta360's official event announcement (PR Newswire)](https://www.prnewswire.com/news-releases/think-bold-ride-bold-insta360-takes-over-the-champs-elysees-with-200-rider-community-event-302833050.html)
+- [Paris Zigzag: the Paris pop-up](https://www.pariszigzag.fr/paris-au-quotidien/actualites-paris/insta360-tour-france-2026/)
+- [RideApart: event photos and recap](https://www.rideapart.com/news/803889/insta360s-paris-pop-up-cycling-event-was-crazy-good-please-make-one-for-motorcyclists/)
 
 ## Reflection
 
