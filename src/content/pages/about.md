@@ -57,7 +57,7 @@ now:
   - label: learning
     value: SQL, so I can pull my own data
   - label: clubs
-    value: Board, Columbia Entrepreneurs Organization · CBS AI and Technology clubs
+    value: Events AVP, Columbia Entrepreneurs Organization · member, CBS AI and Technology clubs
   - label: recruiting
     value: Summer 2027 · Growth/GTM, Product Marketing, Marketing Analytics
 
