@@ -438,3 +438,9 @@ a.lab-card:hover { color: var(--ink); transform: translate(-3px, -3px); box-shad
 .splash { border-bottom: 0; }
 .splash-name { font-size: clamp(56px, 8.5vw, 116px); line-height: 1; letter-spacing: -0.025em; }
 .splash-keywords li { font-size: 14px; padding: 6px 12px; }
+
+/* splash: name and photo sit together in the middle */
+@media (min-width: 1024px) {
+  .splash-grid { grid-template-columns: auto auto; justify-content: center; gap: clamp(48px, 7vw, 112px); }
+  .splash-photo { justify-self: start; }
+}
