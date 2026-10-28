@@ -286,7 +286,7 @@ Susan requested a closer, centered portrait/intro composition and a sequential u
 - Center an approximately 816px intro/photo composition inside a 960px container; desktop gap 48–56px.
 - Give each chapter at least one viewport, allowing longer sections to grow with their content.
 - Native sticky sheets let incoming chapters cover outgoing ones; the outgoing content gently recedes by up to 3.5%, shifts 32px, and fades to 75% opacity. Wheel/touch scrolling stays native. No scroll hijacking or mandatory snapping.
-- Calculate negative sticky offsets for tall sections so their entire content remains reachable. Keyboard focus returns covered chapters to view.
+- Calculate negative sticky offsets for tall sections so their entire content remains reachable. Keyboard tab navigation switches sheets to normal document flow so covered links remain reachable.
 - Warm cream, pale sage, and pale lavender distinguish chapters. Small numbered footers help orientation.
 - Disable stacking and movement for reduced motion; content is readable without JavaScript. Use chapter movement instead of nested homepage entrance animations.
 - References reviewed: Refero’s Studio.Design DESIGN.md (overlapping work on neutral gallery surfaces), Intercom DESIGN.md (warm editorial rhythm), and Apple iPhone Duo DESIGN.md (distinct storytelling chapters). These informed the composition; the uncovering implementation is original.

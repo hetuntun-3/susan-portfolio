@@ -882,3 +882,7 @@ html.js .chapter-home :is(.band, .think-item, .tools-group) { opacity: 1 !import
   .chapter-home .chapter-content { transform: none; opacity: 1; }
   .chapter-home .splash-photo, .chapter-home .splash-link, .chapter-home .splash-name .ch { animation: none; }
 }
+
+/* Keyboard browsing follows the document rather than the overlapping sheets. */
+.chapter-home.keyboard-navigation .home-chapter { position: relative; top: auto; }
+.chapter-home.keyboard-navigation .chapter-content { transform: none; opacity: 1; }
