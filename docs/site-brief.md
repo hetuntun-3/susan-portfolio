@@ -365,7 +365,7 @@ You'll find me surfing, scuba diving, hiking, or mixing a new cocktail. Mixology
 [Photo collage: 4–6 personal photos in a polaroid style, as in the reference site. TODO: Susan to supply.]
 
 **Contact** (anchor `#contact`)
-- Email: ssu28@gsb.columbia.edu
+- Email: shansuSS@outlook.com
 - LinkedIn: https://www.linkedin.com/in/shan-susan-su
 
 ---

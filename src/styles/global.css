@@ -154,7 +154,7 @@ strong { font-weight: 600; }
   background: var(--surface); padding: 12px 12px 40px; border-radius: 2px;
   box-shadow: 0 6px 18px rgba(20, 20, 20, .12); position: relative;
 }
-.polaroid img, .polaroid .ph { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.polaroid img, .polaroid .ph { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 15%; }
 .polaroid figcaption { position: absolute; left: 12px; right: 12px; bottom: 10px; font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
 .hero .polaroid { max-width: 320px; margin: 0 auto; transform: rotate(1.5deg); }
 @media (max-width: 1023px) { .hero .polaroid.no-photo { display: none; } .hero .polaroid { max-width: 240px; } }
@@ -366,3 +366,6 @@ a.lab-card:hover { color: var(--ink); transform: translate(-3px, -3px); box-shad
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
 }
+
+/* hero photo keeps its full 3:4 frame (whole outfit in view) */
+.hero .polaroid img { aspect-ratio: 3 / 4; object-position: center; }

@@ -1,7 +1,7 @@
 {
   "name": "Susan Su",
   "wordmark": "susan su",
-  "email": "ssu28@gsb.columbia.edu",
+  "email": "shansuSS@outlook.com",
   "linkedin": "https://www.linkedin.com/in/shan-susan-su",
   "resumePdf": "/Susan-Su-Resume.pdf",
   "gaId": "G-XXXXXXXXXX",
@@ -11,8 +11,8 @@
     "headline": "I find why customers buy, then test it with data.",
     "intro": "Columbia Marketing Science MS. I turn customer data into decisions: ~300 survey responses into product insights and a 100-rider selection at Insta360, weekly sentiment and share-of-voice reports at Dreame, trend research at SHEIN.",
     "availability": "Open to Summer 2027 internships in Growth/GTM, Product Marketing, and Marketing Analytics.",
-    "headshot": "",
-    "headshotAlt": "Portrait of Susan Su"
+    "headshot": "/images/headshot.jpg",
+    "headshotAlt": "Susan Su in a yellow shirt, laughing with her arms out"
   },
 
   "skills": {

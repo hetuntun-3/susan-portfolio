@@ -17,7 +17,7 @@ Built with [Astro](https://astro.build). Every push to `main` on GitHub redeploy
 | Publish the GA4 project | Delete the `draft: true` line in `src/content/lab/ga4-funnel.md` |
 | Add the That Girl zine | Put the PDF in `public/`, then follow the note in `src/content/lab/that-girl.md` |
 | Edit the About page or add photos | `src/content/pages/about.md` |
-| Update my resume | Replace `public/Susan-Su-Resume.pdf` (keep the same file name) |
+| Update my resume | Replace `public/Susan-Su-Resume.pdf` (keep the same file name). The "resume" link downloads it directly |
 | Change colors or fonts | `src/styles/global.css` (top of the file) |
 | Turn on Google Analytics | Replace `G-XXXXXXXXXX` in `src/data/site.json` with your GA4 Measurement ID |
 

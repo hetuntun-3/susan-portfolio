@@ -26,6 +26,9 @@ function wrapTables() {
 export default defineConfig({
   // After the site is live, put its address here, e.g. 'https://susansu.com'
   // site: 'https://susan-portfolio.vercel.app',
+  redirects: {
+    '/resume': '/Susan-Su-Resume.pdf',
+  },
   markdown: {
     rehypePlugins: [wrapTables],
   },

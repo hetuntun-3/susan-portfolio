@@ -214,7 +214,7 @@ A full-width band between two `1px` ink rules, with 24px vertical padding. The p
 - Year in mono 14px, place in display 20px, "what it added" in body 16px.
 
 ### Footer
-- Three bordered boxes in a row, separated by space, like the reference: `© 2026 Susan Su` · `contact: ssu28@gsb.columbia.edu` · `built with Claude`.
+- Three bordered boxes in a row, separated by space, like the reference: `© 2026 Susan Su` · `contact: shansuSS@outlook.com` · `built with Claude`.
 - The middle (contact) box gets a 6px 6px offset block in `--accent`, the one playful touch at the bottom of every page.
 - Mono 14px, padding 12px 16px.
 

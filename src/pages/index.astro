@@ -18,7 +18,7 @@ const h = site.hero;
         <p class="label hero-avail">{h.availability}</p>
         <div class="btn-row">
           <a class="btn btn-primary" href="/work">See my work</a>
-          <a class="btn btn-secondary" href="/resume">Resume</a>
+          <a class="btn btn-secondary" href={site.resumePdf} download="Susan-Su-Resume.pdf" data-ga="resume_download">Resume</a>
         </div>
       </div>
       <figure class={`polaroid${h.headshot ? '' : ' no-photo'}`} style="margin:0">
@@ -48,7 +48,6 @@ const h = site.hero;
     <div class="container">
       <div class="section-head">
         <h2>tools</h2>
-        <span class="label">solid = used in work · dashed = learning now</span>
       </div>
       <div class="tools-group">
         <span class="micro">Tools</span>
