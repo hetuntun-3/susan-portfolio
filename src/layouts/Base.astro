@@ -135,6 +135,11 @@ const gaOn = site.gaId && !site.gaId.includes('XXXX');
         targets.forEach(show);
       }
 
+      // Respect "reduce motion": don't autoplay looping clips
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelectorAll<HTMLVideoElement>('video[autoplay]').forEach((v) => { v.removeAttribute('autoplay'); v.pause(); v.controls = true; });
+      }
+
       // Analytics (GA4). Events only send once a real GA4 ID is set in src/data/site.json.
       const send = (name: string, params: Record<string, string> = {}) => {
         const g = (window as any).gtag;

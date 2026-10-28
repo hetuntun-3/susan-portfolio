@@ -444,3 +444,11 @@ a.lab-card:hover { color: var(--ink); transform: translate(-3px, -3px); box-shad
   .splash-grid { grid-template-columns: auto auto; justify-content: center; gap: clamp(48px, 7vw, 112px); }
   .splash-photo { justify-self: start; }
 }
+
+/* about: outside-work photos */
+.photo-grid { max-width: none; grid-template-columns: repeat(2, 1fr); padding: var(--s-2) var(--s-2) 0; }
+@media (min-width: 900px) { .photo-grid { grid-template-columns: repeat(4, 1fr); gap: var(--s-6); } }
+.polaroid video.about-clip { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; background: var(--paper); }
+/* captions sit under the photo (never on top of it, even when they wrap) */
+.polaroid { padding: 12px 12px 14px; }
+.polaroid figcaption { position: static; margin-top: 10px; line-height: 1.35; }

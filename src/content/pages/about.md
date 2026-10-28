@@ -20,11 +20,24 @@ timeline:
     where: Columbia Business School, MS Marketing Science
     added: The models and measurement to prove an insight, not just argue it
     highlight: true
-# Add 4–6 photos to public/images/ and list them here, e.g.
-#   - src: /images/about-1.jpg
-#     alt: Surfing in Santa Barbara
-#     caption: santa barbara
-photos: []
+# Photos for "Outside work". Add a file to public/images/ and a new entry here.
+# position = which part of the photo stays in the frame (x% y%)
+photos:
+  - src: /images/about-hiking.jpg
+    alt: Susan smiling on a forest hiking trail in a UCLA cap
+    caption: on the trail
+    position: 50% 50%
+  - src: /images/about-diving.jpg
+    alt: Scuba divers hovering behind a green sea turtle on a reef
+    caption: diving with a sea turtle
+  - src: /images/about-glacier.jpg
+    alt: Susan in an orange jacket touching a wall of glacier ice
+    caption: glacier day
+    position: 66% 40%
+  - src: /images/about-sidecar.jpg
+    video: /images/about-sidecar.mp4
+    alt: Short clip of a sidecar cocktail being strained into a coupe glass
+    caption: shaking a sidecar
 ---
 
 I grew up speaking Mandarin and work in English, so I've spent most of my career translating, between U.S. and China teams, and between what a product does and why someone would care.

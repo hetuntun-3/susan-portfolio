@@ -50,7 +50,11 @@ const tilts = [-1.5, 1.2, -0.6, 1.8, -1.9, 0.8];
         <div class="photo-grid">
           {d.photos.map((p, i) => (
             <figure class="polaroid" style={`margin:0; transform: rotate(${tilts[i % tilts.length]}deg)`}>
-              <img src={p.src} alt={p.alt} loading="lazy" />
+              {p.video ? (
+                <video class="about-clip" src={p.video} poster={p.src} muted loop playsinline autoplay preload="metadata" aria-label={p.alt} style={p.position ? `object-position:${p.position}` : undefined}></video>
+              ) : (
+                <img src={p.src} alt={p.alt} loading="lazy" style={p.position ? `object-position:${p.position}` : undefined} />
+              )}
               {p.caption && <figcaption>{p.caption}</figcaption>}
             </figure>
           ))}

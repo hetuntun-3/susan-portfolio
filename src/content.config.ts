@@ -54,7 +54,9 @@ const pages = defineCollection({
     timeline: z
       .array(z.object({ when: z.string(), where: z.string(), added: z.string(), highlight: z.boolean().default(false) }))
       .default([]),
-    photos: z.array(z.object({ src: z.string(), alt: z.string(), caption: z.string().optional() })).default([]),
+    photos: z
+      .array(z.object({ src: z.string(), alt: z.string(), caption: z.string().optional(), video: z.string().optional(), position: z.string().optional() }))
+      .default([]),
   }),
 });
 
