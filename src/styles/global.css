@@ -452,3 +452,10 @@ a.lab-card:hover { color: var(--ink); transform: translate(-3px, -3px); box-shad
 /* captions sit under the photo (never on top of it, even when they wrap) */
 .polaroid { padding: 12px 12px 14px; }
 .polaroid figcaption { position: static; margin-top: 10px; line-height: 1.35; }
+
+/* small label so the cocktail clip reads as a video */
+.polaroid .clip-badge {
+  position: absolute; top: 20px; left: 20px; z-index: 1;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em;
+  background: rgba(20, 20, 20, 0.72); color: var(--paper); padding: 3px 8px;
+}

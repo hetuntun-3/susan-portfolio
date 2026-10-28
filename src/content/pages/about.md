@@ -25,14 +25,14 @@ timeline:
 photos:
   - src: /images/about-hiking.jpg
     alt: Susan smiling on a forest hiking trail in a UCLA cap
-    caption: on the trail
+    caption: on the trail · big bear, ca
     position: 50% 50%
   - src: /images/about-diving.jpg
     alt: Scuba divers hovering behind a green sea turtle on a reef
-    caption: diving with a sea turtle
+    caption: diving with a sea turtle · hawaii
   - src: /images/about-glacier.jpg
     alt: Susan in an orange jacket touching a wall of glacier ice
-    caption: glacier day
+    caption: glacier day · alaska
     position: 66% 40%
   - src: /images/about-sidecar.jpg
     video: /images/about-sidecar.mp4
