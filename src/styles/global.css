@@ -793,3 +793,24 @@ a.pcard:hover .pmore { text-decoration: underline; text-underline-offset: 4px; }
 @media (min-width: 700px) { .pc-insta360 .pc-title { max-width: calc(100% - 116px); } }
 @media (min-width: 1024px) { .pc-insta360 .pc-title { max-width: calc(100% - 140px); } }
 @media (max-width: 399px) { .pc-insta360 .pc-title { max-width: calc(100% - 88px); } }
+
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+
+/* Writing lets the work itself lead: video thumbnail and complete zine cover. */
+.writing-list { grid-template-columns: minmax(0, 1fr); }
+.writing-card { padding: 0; gap: 0; min-width: 0; overflow: hidden; }
+.writing-cover { position: relative; aspect-ratio: 16 / 9; border-bottom: var(--border); background: #f3efeb; }
+.writing-cover img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.writing-cover.video { background: #171717; }
+.writing-cover.video img { object-fit: cover; }
+.writing-play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; border: 2px solid var(--ink); border-radius: 50%; display: grid; place-items: center; background: var(--paper); color: var(--ink); box-shadow: 4px 4px 0 var(--block-writing); }
+.writing-cover-label { position: absolute; bottom: 12px; right: 12px; padding: 6px 9px; border: var(--rule); background: var(--paper); color: var(--ink); font: 11px/1.4 var(--font-mono); }
+.writing-cover.zine .writing-cover-label { display: none; }
+.writing-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 24px; flex: 1; }
+.writing-card h3 { font-size: clamp(23px, 2.4vw, 30px); line-height: 1.15; }
+.writing-card p { font-size: 14px; line-height: 1.65; max-width: 52ch; }
+.writing-credit { color: var(--muted); font: 11px/1.5 var(--font-mono); }
+.writing-card .lab-link { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; min-height: 44px; display: flex; align-items: center; }
+.writing-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
+.writing-card:hover .lab-link { color: var(--ink); }
+@media (min-width: 760px) { .writing-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
