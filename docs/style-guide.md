@@ -278,18 +278,15 @@ a:hover { color: var(--accent-dark); }
 ```
 
 
-## Homepage chapter update · Oct 28, 2026
+## Homepage continuous-scroll update · Oct 28, 2026
 
-Susan requested a closer, centered portrait/intro composition and a sequential uncovering effect for Introduction → Selected work → How I think → Skills. This supersedes the earlier homepage motion limits in section 6.
+Susan prefers the feeling of gradually unrolling an ancient Chinese silk scroll. This supersedes the earlier stacked-chapter treatment and homepage motion limits in section 6.
 
-- Keep Fraunces, IBM Plex Mono, warm paper, rust accents, Polaroid photography, and colored offset card shadows.
-- Center an approximately 816px intro/photo composition inside a 960px container; desktop gap 48–56px.
-- Give each chapter at least one viewport, allowing longer sections to grow with their content.
-- Native sticky sheets let incoming chapters cover outgoing ones; the outgoing content gently recedes by up to 3.5%, shifts 32px, and fades to 75% opacity. Wheel/touch scrolling stays native. No scroll hijacking or mandatory snapping.
-- Calculate negative sticky offsets for tall sections so their entire content remains reachable. Keyboard tab navigation switches sheets to normal document flow so covered links remain reachable.
-- Warm cream, pale sage, and pale lavender distinguish chapters. Small numbered footers help orientation.
-- Disable stacking and movement for reduced motion; content is readable without JavaScript. Use chapter movement instead of nested homepage entrance animations.
-- References reviewed: Refero’s Studio.Design DESIGN.md (overlapping work on neutral gallery surfaces), Intercom DESIGN.md (warm editorial rhythm), and Apple iPhone Duo DESIGN.md (distinct storytelling chapters). These informed the composition; the uncovering implementation is original.
+- Preserve the closer centered intro/Polaroid composition, Fraunces, IBM Plex Mono, warm paper, rust accents, and colored card shadows.
+- Use one unbroken paper canvas. Remove section boundary lines, different background panels, numbered footers, overlapping sheets, and forced viewport heights below the hero.
+- Native scrolling gradually resolves headings, project cards, beliefs, and skill groups as they enter the lower third of the viewport: opacity 12% → 100%, vertical shift 30px → 0. There is no outgoing fade or stacking; revealed content remains fully legible above the entrance area.
+- Keep related content together and separate sections with measured whitespace. Maintain ordinary anchor links and document order.
+- Motion is driven by scroll position without wheel interception, delayed scrolling, or snapping. Reduced motion and no-JavaScript views display content normally; keyboard focus fully reveals its content.
+- Refero DESIGN.md references informed editorial typography and spacing; the silk-scroll motion is an original adaptation of Susan’s feedback.
   - https://styles.refero.design/style/bb2e29c9-d20a-4b8d-8959-5b506f517ec4
   - https://styles.refero.design/style/12255b63-e506-4bc1-a4cd-d05487de32f3
-  - https://styles.refero.design/style/a73148b9-449b-42cd-9f38-86ef694f500e

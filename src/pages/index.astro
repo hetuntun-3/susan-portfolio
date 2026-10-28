@@ -13,7 +13,7 @@ const about = await getEntry('pages', 'about');
 <Base>
 <div class="home chapter-home">
   <!-- Hero: name, one short line, photo -->
-  <section class="splash home-chapter" id="intro" aria-label="Introduction" style="--chapter-order: 1">
+  <section class="splash home-chapter" id="intro" aria-label="Introduction">
     <div class="chapter-content hero-content">
     <div class="container splash-grid">
       <div class="splash-text">
@@ -36,23 +36,21 @@ const about = await getEntry('pages', 'about');
       </figure>
     </div>
     </div>
-    <div class="container chapter-foot"><span>01 / 04 · introduction</span><a href="#work">scroll to uncover ↓</a></div>
   </section>
 
   <!-- Work -->
-  <section class="home-block home-chapter work-chapter" id="work" aria-labelledby="work-title" style="--chapter-order: 2">
+  <section class="home-block home-chapter work-chapter" id="work" aria-labelledby="work-title">
     <div class="chapter-content">
     <div class="band"><div class="container"><h2 id="work-title">selected work</h2><span class="label">ideas → decisions → execution</span></div></div>
     <div class="container">
       <WorkProjects entries={work} />
     </div>
     </div>
-    <div class="container chapter-foot"><span>02 / 04 · selected work</span><a href="#thinking">how i think ↓</a></div>
   </section>
 
   <!-- How I think: titles only (full text lives in src/content/pages/about.md) -->
   {about && about.data.beliefs.length > 0 && (
-    <section class="home-block home-chapter thinking-chapter" id="thinking" aria-labelledby="thinking-title" style="--chapter-order: 3">
+    <section class="home-block home-chapter thinking-chapter" id="thinking" aria-labelledby="thinking-title">
       <div class="chapter-content">
       <div class="band"><div class="container"><h2 id="thinking-title">how i think</h2><span class="label">{about.data.beliefsIntro}</span></div></div>
       <div class="container">
@@ -63,12 +61,11 @@ const about = await getEntry('pages', 'about');
         </ul>
       </div>
       </div>
-      <div class="container chapter-foot"><span>03 / 04 · how i think</span><a href="#skills">skills ↓</a></div>
     </section>
   )}
 
   <!-- Skills -->
-  <section class="home-block home-chapter skills-chapter" id="skills" aria-labelledby="skills-title" style="--chapter-order: 4">
+  <section class="home-block home-chapter skills-chapter" id="skills" aria-labelledby="skills-title">
     <div class="chapter-content">
     <div class="band"><div class="container"><h2 id="skills-title">skills</h2><span class="label">dashed = learning now</span></div></div>
     <div class="container">
@@ -86,7 +83,6 @@ const about = await getEntry('pages', 'about');
       </div>
     </div>
     </div>
-    <div class="container chapter-foot"><span>04 / 04 · skills</span><a href={`mailto:${site.email}`}>let’s talk ↗</a></div>
   </section>
 
   <section class="home-block home-end">
@@ -96,64 +92,36 @@ const about = await getEntry('pages', 'about');
   </section>
 </div>
 <script>
-  // Native sticky sheets retain normal wheel, touch, keyboard, and anchor scrolling.
+  // One continuous canvas: content gradually resolves as it enters the viewport.
   const home = document.querySelector<HTMLElement>('.chapter-home');
   if (home) {
-    const chapters = Array.from(home.querySelectorAll<HTMLElement>('.home-chapter'));
+    const targets = Array.from(home.querySelectorAll<HTMLElement>(
+      '.home-block .band, .pcard, .upcoming-project, .think-item, .tools-group, .home-end p'
+    ));
     const motion = window.matchMedia('(prefers-reduced-motion: no-preference)');
-    const starts = new Map<HTMLElement, number>();
     let frame = 0;
     const paint = () => {
       frame = 0;
-      const viewport = window.innerHeight;
-      chapters.forEach((chapter, index) => {
-        const next = chapters[index + 1];
-        const progress = next ? Math.max(0, Math.min(1, 1 - next.getBoundingClientRect().top / viewport)) : 0;
-        chapter.style.setProperty('--chapter-exit', motion.matches ? progress.toFixed(4) : '0');
+      const height = window.innerHeight;
+      // Read every position before updating styles to avoid layout thrashing.
+      const progress = targets.map((target) => {
+        const transform = getComputedStyle(target).transform;
+        const shift = transform === 'none' ? 0 : new DOMMatrixReadOnly(transform).m42;
+        const top = target.getBoundingClientRect().top - shift;
+        return motion.matches ? Math.max(0, Math.min(1, (height * .96 - top) / (height * .30))) : 1;
       });
+      targets.forEach((target, index) => target.style.setProperty('--unfurl', progress[index].toFixed(4)));
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(paint); };
-    const measure = () => {
-      let start = home.getBoundingClientRect().top + window.scrollY;
-      chapters.forEach((chapter) => {
-        starts.set(chapter, start);
-        start += chapter.offsetHeight;
-        // A tall chapter scrolls to its last line before the following sheet covers it.
-        chapter.style.setProperty('--chapter-top', `${Math.min(0, window.innerHeight - chapter.offsetHeight)}px`);
-      });
-      home.classList.toggle('chapters-ready', motion.matches);
-      schedule();
-    };
-    const observer = new ResizeObserver(measure);
-    chapters.forEach((chapter) => observer.observe(chapter));
+    targets.forEach((target) => target.classList.add('unfurl-item'));
+    paint();
+    home.classList.add('unfurl-ready');
     window.addEventListener('scroll', schedule, { passive: true });
-    window.addEventListener('resize', measure, { passive: true });
-    motion.addEventListener('change', measure);
-    // Keep normal document flow while tabbing, so covered links remain reachable.
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Tab') home.classList.add('keyboard-navigation');
-    });
-    document.addEventListener('pointerdown', () => home.classList.remove('keyboard-navigation'), { passive: true });
-    const scrollToChapter = (hash: string, behavior: ScrollBehavior) => {
-      const chapter = chapters.find((item) => `#${item.id}` === hash);
-      if (!chapter) return false;
-      window.scrollTo({ top: starts.get(chapter) ?? 0, behavior });
-      return true;
-    };
-    home.addEventListener('click', (event) => {
-      const link = (event.target as HTMLElement).closest<HTMLAnchorElement>('a[href^="#"]');
-      if (!link || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
-      if (scrollToChapter(link.hash, motion.matches ? 'smooth' : 'instant')) {
-        event.preventDefault();
-        history.pushState(null, '', link.hash);
-      }
-    });
-    window.addEventListener('hashchange', () => scrollToChapter(location.hash, 'instant'));
-    measure();
-    document.fonts.ready.then(() => {
-      measure();
-      if (location.hash) scrollToChapter(location.hash, 'instant');
-    });
+    window.addEventListener('resize', schedule, { passive: true });
+    motion.addEventListener('change', schedule);
+    document.fonts.ready.then(schedule);
+    // Newly focused content should always be fully legible.
+    home.addEventListener('focusin', schedule);
   }
 </script>
 </Base>
