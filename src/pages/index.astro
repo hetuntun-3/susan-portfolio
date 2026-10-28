@@ -10,18 +10,17 @@ const featured = work.filter((e) => e.data.featured && !e.data.comingSoon);
 const h = site.hero;
 ---
 <Base>
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <h1>{h.headline}</h1>
-        <p class="hero-intro">{h.intro}</p>
-        <p class="label hero-avail">{h.availability}</p>
-        <div class="btn-row">
-          <a class="btn btn-primary" href="/work">See my work</a>
-          <a class="btn btn-secondary" href={site.resumePdf} download="Susan-Su-Resume.pdf" data-ga="resume_download">Resume</a>
-        </div>
+  <!-- Screen 1: name + keywords -->
+  <section class="splash">
+    <div class="container splash-grid">
+      <div class="splash-text">
+        <p class="label splash-kicker">{h.kicker}</p>
+        <h1 class="splash-name">{site.name}</h1>
+        <ul class="splash-keywords">
+          {h.keywords.map((k) => <li>{k}</li>)}
+        </ul>
       </div>
-      <figure class={`polaroid${h.headshot ? '' : ' no-photo'}`} style="margin:0">
+      <figure class={`polaroid splash-photo${h.headshot ? '' : ' no-photo'}`} style="margin:0">
         {h.headshot ? (
           <img src={h.headshot} alt={h.headshotAlt} />
         ) : (
@@ -29,6 +28,20 @@ const h = site.hero;
         )}
         <figcaption>susan · new york</figcaption>
       </figure>
+    </div>
+    <a class="scroll-cue label" href="#intro">scroll ↓</a>
+  </section>
+
+  <!-- Screen 2: the pitch -->
+  <section class="intro fade-up" id="intro">
+    <div class="container">
+      <h2 class="intro-headline">{h.headline}</h2>
+      <p class="hero-intro">{h.intro}</p>
+      <p class="label hero-avail">{h.availability}</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="/work">See my work</a>
+        <a class="btn btn-secondary" href={site.resumePdf} download="Susan-Su-Resume.pdf" data-ga="resume_download">Resume</a>
+      </div>
     </div>
   </section>
 

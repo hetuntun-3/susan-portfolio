@@ -369,3 +369,38 @@ a.lab-card:hover { color: var(--ink); transform: translate(-3px, -3px); box-shad
 
 /* hero photo keeps its full 3:4 frame (whole outfit in view) */
 .hero .polaroid img { aspect-ratio: 3 / 4; object-position: center; }
+
+/* ---------- home: splash screen (name + keywords) ---------- */
+.splash {
+  min-height: calc(100svh - 72px); display: flex; flex-direction: column; justify-content: center;
+  position: relative; padding: var(--s-7) 0 var(--s-9); border-bottom: var(--rule);
+}
+.splash-grid { display: grid; gap: var(--s-7); align-items: center; width: 100%; }
+.splash-kicker { margin: 0 0 var(--s-4); }
+.splash-name {
+  font-size: clamp(72px, 15vw, 184px); line-height: 0.92; font-weight: 700; letter-spacing: -0.03em; margin: 0;
+}
+.splash-keywords {
+  list-style: none; margin: var(--s-6) 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-3);
+  font-family: var(--font-mono); font-size: 15px;
+}
+.splash-keywords li { border: var(--border); padding: 8px 14px; background: var(--surface); }
+.splash-keywords li + li::before { content: none; }
+.splash-photo { max-width: 260px; transform: rotate(2deg); justify-self: center; }
+.splash-photo img { aspect-ratio: 3 / 4; object-position: center; }
+.splash-photo.no-photo { display: none; }
+.scroll-cue { position: absolute; left: 50%; bottom: var(--s-5); transform: translateX(-50%); text-decoration: none; color: var(--muted); }
+.scroll-cue:hover { color: var(--accent); }
+@media (prefers-reduced-motion: no-preference) {
+  .scroll-cue { animation: nudge 2.2s ease-in-out infinite; }
+  @keyframes nudge { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 6px); } }
+}
+@media (min-width: 1024px) {
+  .splash-grid { grid-template-columns: 1fr 300px; }
+  .splash-photo { max-width: 300px; justify-self: end; }
+}
+
+/* ---------- home: intro (screen 2) ---------- */
+.intro { padding: var(--section-gap) 0 0; }
+.intro-headline { font-size: clamp(28px, 3.4vw, 40px); line-height: 1.15; font-weight: 600; max-width: 22ch; }
+.intro .hero-intro { font-size: 18px; max-width: 58ch; }
