@@ -1,10 +1,18 @@
 # style-guide.md: Susan Su Portfolio
 
-Version 1 · Oct 27, 2026
+Version 2 · Oct 27, 2026
 
 **Direction: "Editorial notebook."** The look borrows a researcher's field notebook (warm paper, typewriter labels, ruled lines) and the polish of a magazine (a confident serif, generous white space). It should feel professional enough for a hiring manager at a tech company, and personal enough that people remember it.
 
 **Inspired by:** gracesportfolio.com (the reference Susan shared). We keep its structure: serif wordmark and nav, monospace labels, thin black rules, bordered project cards with a colored block offset behind them, bordered skill chips, polaroid photos, and boxed footer items. We change three things to make it Susan's: warmer paper, a serif with more character, and a sans body font so long case studies read easily.
+
+> **Version 2 changes (Oct 27, Susan's feedback: "too many words, too many fonts", match gracesportfolio.com more closely):**
+> - **Two fonts only.** Fraunces for wordmark, nav and headings; **IBM Plex Mono for everything else, including body text** (body 15px desktop / 14px mobile, line-height 1.7). IBM Plex Sans is removed.
+> - **Home is minimal:** name + one lowercase mono line + photo → "work" band with all case cards → "how i think" (3 titles with icons, no body text) → "skills" band (serif group labels + chips) → one closing line with an email link. No stats strip, no long intro, no CTA band on Home.
+> - **Section bands on Home:** full-width band between two 1px ink rules, serif title left (lowercase), mono note right, like the reference.
+> - Case cards on Home: cover panel is a light wash of the project color (`color-mix(var(--block) 22%, white)`).
+> - Motion actually shipped: per-block scroll reveal (rise 44px + fade, 1.1s ease-out-quart), letter-by-letter name on load, icons that draw themselves, count-up numbers (not on Home anymore). All disabled under `prefers-reduced-motion`.
+> - Footer contact email is shansuSS@outlook.com.
 
 ---
 
@@ -61,8 +69,8 @@ These are decorative and never carry text, except dark ink placed on top of them
 | Role | Font | Weights | Why |
 |---|---|---|---|
 | Display: wordmark, nav, H1–H3, card titles | **Fraunces** | 600, 700 (opsz on, SOFT 50) | A warm serif with character. It reads as editorial and confident, and it's softer than Garamond. |
-| Body: paragraphs, case studies | **IBM Plex Sans** | 400, 500, 600 | Clean and readable at length, and designed as a family with Plex Mono |
-| Labels: chips, dates, tags, captions, nav subtitles, footer | **IBM Plex Mono** | 400, 500 | The "notebook and data" voice, and the link to the reference site |
+| ~~Body: IBM Plex Sans~~ | removed in v2 | — | Body text now uses IBM Plex Mono |
+| Body text, labels, chips, dates, tags, captions, buttons, footer | **IBM Plex Mono** | 400, 500, 600 | The "notebook and data" voice, and the link to the reference site |
 
 ```html
 <link rel="preconnect" href="https://fonts.googleapis.com">
