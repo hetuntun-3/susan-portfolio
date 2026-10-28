@@ -85,13 +85,10 @@ const tilts = [-1.5, 1.2, -0.6, 1.8, -1.9, 0.8];
     </div>
   </section>
 
-  <section class="section" id="contact">
+  <section class="section say-hi" id="contact">
     <div class="container">
-      <div class="section-head"><h2>contact</h2><span class="label">the fastest way to reach me</span></div>
-      <ul class="contact-list">
-        <li><span class="label">email</span><a href={`mailto:${site.email}`} data-ga="contact_click" data-ga-method="email">{site.email}</a></li>
-        <li><span class="label">linkedin</span><a href={site.linkedin} target="_blank" rel="noopener" data-ga="contact_click" data-ga-method="linkedin">linkedin.com/in/shan-susan-su</a></li>
-      </ul>
+      <p class="say-hi-line">{d.sayHi ?? "Want a hiking buddy, a dive partner, or a bartender for your startup's next party? Say hi."}</p>
+      <a class="say-hi-link" href={`mailto:${site.email}`} data-ga="contact_click" data-ga-method="email">{site.email} →</a>
     </div>
   </section>
 </Base>

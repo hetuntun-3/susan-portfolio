@@ -61,6 +61,7 @@ const pages = defineCollection({
     habits: z.array(z.object({ icon: z.string(), title: z.string(), body: z.string() })).default([]),
     now: z.array(z.object({ label: z.string(), value: z.string(), link: z.string().optional() })).default([]),
     outside: z.string().optional(),
+    sayHi: z.string().optional(),
     photos: z
       .array(z.object({ src: z.string(), alt: z.string(), caption: z.string().optional(), video: z.string().optional(), position: z.string().optional() }))
       .default([]),

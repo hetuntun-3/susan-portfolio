@@ -410,14 +410,14 @@ a.lab-card:hover { color: var(--ink); transform: translate(-3px, -3px); box-shad
 @media (prefers-reduced-motion: no-preference) {
   html.js :is(.reveal, .idea-card, .stat, .section-lead, .now-row, .section-head, .card, .tools-group, .lab-card, .timeline li, .prose > *, .tldr,
     .case-head .container > *, .about-open .container > *, .intro .container > *, .cta-band .container > *,
-    .contact-list li, .case-nav):not(.done) {
+    .contact-list li, .say-hi-line, .case-nav):not(.done) {
     opacity: 0;
     transform: translateY(44px) scale(0.97);
     transition: opacity 1.1s cubic-bezier(0.165, 0.84, 0.44, 1), transform 1.1s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
   html.js :is(.reveal, .idea-card, .stat, .section-lead, .now-row, .section-head, .card, .tools-group, .lab-card, .timeline li, .prose > *, .tldr,
     .case-head .container > *, .about-open .container > *, .intro .container > *, .cta-band .container > *,
-    .contact-list li, .case-nav).in:not(.done) {
+    .contact-list li, .say-hi-line, .case-nav).in:not(.done) {
     opacity: 1; transform: none;
   }
   /* prose moves less, so long case studies don't feel jumpy */
@@ -505,3 +505,12 @@ html.js .idea-card:is(.in, .done) .ico .dashed { opacity: 1; }
 .now-row:first-child { padding-top: 0; }
 .now-row dd { margin: 0; font-size: 17px; }
 @media (min-width: 640px) { .now-row { grid-template-columns: 160px 1fr; gap: var(--s-5); align-items: baseline; } }
+
+/* about: playful sign-off instead of a second contact block */
+.say-hi-line { padding-top: var(--s-6); border-top: var(--rule); max-width: none !important; text-wrap: balance; }
+
+.say-hi-line {
+  font-family: var(--font-display); font-variation-settings: 'SOFT' 50; font-weight: 600;
+  font-size: clamp(26px, 3.2vw, 38px); line-height: 1.2; letter-spacing: -0.01em; margin: 0 0 var(--s-4);
+}
+.say-hi-link { font-family: var(--font-mono); font-size: 16px; }

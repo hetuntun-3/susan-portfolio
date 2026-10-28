@@ -61,6 +61,9 @@ now:
   - label: recruiting
     value: Summer 2027 · Growth/GTM, Product Marketing, Marketing Analytics
 
+# Last line of the About page (the email link sits under it)
+sayHi: Want a hiking buddy, a dive partner, or a bartender for your startup's next party? Say hi.
+
 outside: Surfing, scuba diving, hiking, and mixing cocktails. Mixology is a lot like marketing, you test, adjust, and watch people's faces. I speak English and Mandarin, and I'm working on my French.
 
 # Photos for "Outside work". Add a file to public/images/ and a new entry here.
