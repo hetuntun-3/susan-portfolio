@@ -54,22 +54,25 @@ const writing = all.filter((e) => e.data.kind === 'writing');
         <h2>writing</h2>
         <span class="label">cultural insight</span>
       </div>
-      <div class="lab-list" style="--block: var(--block-writing)">
+      <div class="lab-list writing-list" style="--block: var(--block-writing)">
         {writing.map((e) => {
           const d = e.data;
+          const Tag = d.link ? 'a' : 'article';
           return (
-            <article class="lab-card">
-              <div class="lab-meta"><span class="micro">{d.type}</span></div>
-              <h3>{d.title}</h3>
-              <p>{d.summary}</p>
-              {d.link ? (
-                <a class="lab-link" href={d.link} target="_blank" rel="noopener" data-ga="lab_project_click" data-ga-project={e.id}>
-                  {d.linkLabel ?? 'Open ↗'}
-                </a>
-              ) : (
-                d.linkPending && <span class="lab-link label">{d.linkPending}</span>
-              )}
-            </article>
+            <Tag class="lab-card writing-card" href={d.link} target={d.link ? '_blank' : undefined} rel={d.link ? 'noopener noreferrer' : undefined} data-ga={d.link ? 'lab_project_click' : undefined} data-ga-project={e.id}>
+              {d.cover && <div class={`writing-cover ${d.coverStyle ?? ''}`}>
+                <img src={d.cover} alt={d.coverAlt ?? ''} width="1400" height="788" loading="lazy" decoding="async" />
+                {d.coverStyle === 'video' && <span class="writing-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="25" height="25"><path d="M8 4.5v15l12-7.5z" fill="currentColor" /></svg></span>}
+                <span class="writing-cover-label" aria-hidden="true">{d.coverStyle === 'video' ? 'Watch on YouTube ↗' : 'Open full zine ↗'}</span>
+              </div>}
+              <div class="writing-copy">
+                <span class="micro">{d.type}</span>
+                <h3>{d.title}</h3>
+                <p>{d.summary}</p>
+                {d.credit && <span class="writing-credit">{d.credit}</span>}
+                {d.link ? <span class="lab-link">{d.linkLabel ?? 'Open ↗'}<span class="sr-only"> (opens in a new tab)</span></span> : d.linkPending && <span class="lab-link label">{d.linkPending}</span>}
+              </div>
+            </Tag>
           );
         })}
       </div>

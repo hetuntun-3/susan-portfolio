@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import ProjectCard from '../components/ProjectCard.astro';
+import WorkProjects from '../components/WorkProjects.astro';
 import site from '../data/site.json';
 import Icon from '../components/Icon.astro';
 import { getCollection, getEntry } from 'astro:content';
@@ -22,7 +22,7 @@ const about = await getEntry('pages', 'about');
           ))}
         </h1>
         <p class="splash-headline">{h.headline}</p>
-        <p class="splash-line">{h.sub}</p>
+        <div class="hero-details"><p>{h.kicker}</p><p>Open to summer 2027 internships</p><p class="hero-roles">Growth / Product Marketing / Marketing Analytics</p></div>
         <a class="splash-link" href="#work">see my work ↓</a>
       </div>
       <figure class={`polaroid splash-photo${h.headshot ? '' : ' no-photo'}`} style="margin:0">
@@ -38,11 +38,9 @@ const about = await getEntry('pages', 'about');
 
   <!-- Work -->
   <section class="home-block" id="work">
-    <div class="band"><div class="container"><h2>work</h2><span class="label">case studies, newest first</span></div></div>
+    <div class="band"><div class="container"><h2>selected work</h2><span class="label">ideas → decisions → execution</span></div></div>
     <div class="container">
-      <div class="card-grid three">
-        {work.map((e) => <ProjectCard entry={e} />)}
-      </div>
+      <WorkProjects entries={work} />
     </div>
   </section>
 

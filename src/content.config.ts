@@ -46,6 +46,10 @@ const lab = defineCollection({
     summary: z.string(),
     link: z.string().optional(),
     linkLabel: z.string().optional(),
+    cover: z.string().optional(),
+    coverAlt: z.string().optional(),
+    coverStyle: z.enum(['video', 'zine']).optional(),
+    credit: z.string().optional(),
     linkPending: z.string().optional(), // text shown when the link isn't ready
     draft: z.boolean().default(false), // true = hidden from the live site
   }),

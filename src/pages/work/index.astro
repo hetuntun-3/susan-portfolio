@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import TitleBar from '../../components/TitleBar.astro';
-import ProjectCard from '../../components/ProjectCard.astro';
+import WorkProjects from '../../components/WorkProjects.astro';
 import { getCollection } from 'astro:content';
 
 const work = (await getCollection('work', (e) => !e.data.draft))
@@ -11,9 +11,7 @@ const work = (await getCollection('work', (e) => !e.data.draft))
   <TitleBar title="work" subtitle="case studies, newest first" />
   <section class="section" style="padding-top: var(--s-8)">
     <div class="container">
-      <div class="card-grid three">
-        {work.map((e) => <ProjectCard entry={e} />)}
-      </div>
+      <WorkProjects entries={work} />
     </div>
   </section>
 </Base>

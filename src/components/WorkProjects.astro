@@ -1,0 +1,16 @@
+---
+import ProjectCard from './ProjectCard.astro';
+import type { CollectionEntry } from 'astro:content';
+interface Props { entries: CollectionEntry<'work'>[] }
+const { entries } = Astro.props;
+---
+<div class="card-grid selected-grid">
+  {entries.filter((e) => !e.data.comingSoon).map((entry) => <ProjectCard entry={entry} />)}
+</div>
+{entries.filter((e) => e.data.comingSoon).map((entry) => (
+  <aside class="upcoming-project" aria-label="Upcoming project">
+    <span class="micro upcoming-label">In progress</span>
+    <h3>{entry.data.title.replace('Coming soon: ', '')}</h3>
+    <span class="label">Columbia · coming soon</span>
+  </aside>
+))}

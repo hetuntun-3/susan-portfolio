@@ -276,3 +276,8 @@ a { color: var(--accent); text-underline-offset: 3px; }
 a:hover { color: var(--accent-dark); }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 ```
+
+
+## Homepage composition · Oct 28, 2026
+
+Keep the original homepage sections, spacing, and shared reveal behavior. Susan requested removal of the experimental scroll effects. Retain only the closer, centered introduction and Polaroid composition: a 960px maximum container, 500px text column, 260px portrait, and 48–56px desktop gap. No stacked sheets, custom scroll listeners, full-screen sections, new section backgrounds, or chapter footers.
