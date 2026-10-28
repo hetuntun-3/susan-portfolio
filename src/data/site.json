@@ -20,7 +20,7 @@
   "skills": {
     "tools": ["GA4", "Meltwater", "SurveyMonkey", "Excel", "R", "Canva", "ChatGPT", "Claude"],
     "learning": ["SQL", "Python", "Regression", "Web scraping"],
-    "certified": ["Google Analytics (renewing Nov 2026)", "Meta Social Media Marketing"]
+    "certified": ["Google Analytics", "Meta Social Media Marketing"]
   },
 
   "cta": {
