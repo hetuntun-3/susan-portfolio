@@ -11,10 +11,9 @@ const h = site.hero;
 const about = await getEntry('pages', 'about');
 ---
 <Base>
-<div class="home chapter-home">
+<div class="home">
   <!-- Hero: name, one short line, photo -->
-  <section class="splash home-chapter" id="intro" aria-label="Introduction">
-    <div class="chapter-content hero-content">
+  <section class="splash">
     <div class="container splash-grid">
       <div class="splash-text">
         <h1 class="splash-name" aria-label={site.name}>
@@ -35,24 +34,20 @@ const about = await getEntry('pages', 'about');
         <figcaption>susan · new york</figcaption>
       </figure>
     </div>
-    </div>
   </section>
 
   <!-- Work -->
-  <section class="home-block home-chapter work-chapter" id="work" aria-labelledby="work-title">
-    <div class="chapter-content">
-    <div class="band"><div class="container"><h2 id="work-title">selected work</h2><span class="label">ideas → decisions → execution</span></div></div>
+  <section class="home-block" id="work">
+    <div class="band"><div class="container"><h2>selected work</h2><span class="label">ideas → decisions → execution</span></div></div>
     <div class="container">
       <WorkProjects entries={work} />
-    </div>
     </div>
   </section>
 
   <!-- How I think: titles only (full text lives in src/content/pages/about.md) -->
   {about && about.data.beliefs.length > 0 && (
-    <section class="home-block home-chapter thinking-chapter" id="thinking" aria-labelledby="thinking-title">
-      <div class="chapter-content">
-      <div class="band"><div class="container"><h2 id="thinking-title">how i think</h2><span class="label">{about.data.beliefsIntro}</span></div></div>
+    <section class="home-block">
+      <div class="band"><div class="container"><h2>how i think</h2><span class="label">{about.data.beliefsIntro}</span></div></div>
       <div class="container">
         <ul class="think-list">
           {about.data.beliefs.map((b) => (
@@ -60,14 +55,12 @@ const about = await getEntry('pages', 'about');
           ))}
         </ul>
       </div>
-      </div>
     </section>
   )}
 
   <!-- Skills -->
-  <section class="home-block home-chapter skills-chapter" id="skills" aria-labelledby="skills-title">
-    <div class="chapter-content">
-    <div class="band"><div class="container"><h2 id="skills-title">skills</h2><span class="label">dashed = learning now</span></div></div>
+  <section class="home-block">
+    <div class="band"><div class="container"><h2>skills</h2><span class="label">dashed = learning now</span></div></div>
     <div class="container">
       <div class="tools-group">
         <h3>Tools</h3>
@@ -82,7 +75,6 @@ const about = await getEntry('pages', 'about');
         <ul class="chips">{site.skills.certified.map((s) => <li class="chip">{s}</li>)}</ul>
       </div>
     </div>
-    </div>
   </section>
 
   <section class="home-block home-end">
@@ -91,37 +83,4 @@ const about = await getEntry('pages', 'about');
     </div>
   </section>
 </div>
-<script>
-  // One continuous canvas: content gradually resolves as it enters the viewport.
-  const home = document.querySelector<HTMLElement>('.chapter-home');
-  if (home) {
-    const targets = Array.from(home.querySelectorAll<HTMLElement>(
-      '.home-block .band, .pcard, .upcoming-project, .think-item, .tools-group, .home-end p'
-    ));
-    const motion = window.matchMedia('(prefers-reduced-motion: no-preference)');
-    let frame = 0;
-    const paint = () => {
-      frame = 0;
-      const height = window.innerHeight;
-      // Read every position before updating styles to avoid layout thrashing.
-      const progress = targets.map((target) => {
-        const transform = getComputedStyle(target).transform;
-        const shift = transform === 'none' ? 0 : new DOMMatrixReadOnly(transform).m42;
-        const top = target.getBoundingClientRect().top - shift;
-        return motion.matches ? Math.max(0, Math.min(1, (height * .96 - top) / (height * .30))) : 1;
-      });
-      targets.forEach((target, index) => target.style.setProperty('--unfurl', progress[index].toFixed(4)));
-    };
-    const schedule = () => { if (!frame) frame = requestAnimationFrame(paint); };
-    targets.forEach((target) => target.classList.add('unfurl-item'));
-    paint();
-    home.classList.add('unfurl-ready');
-    window.addEventListener('scroll', schedule, { passive: true });
-    window.addEventListener('resize', schedule, { passive: true });
-    motion.addEventListener('change', schedule);
-    document.fonts.ready.then(schedule);
-    // Newly focused content should always be fully legible.
-    home.addEventListener('focusin', schedule);
-  }
-</script>
 </Base>

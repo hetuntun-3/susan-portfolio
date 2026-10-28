@@ -278,15 +278,6 @@ a:hover { color: var(--accent-dark); }
 ```
 
 
-## Homepage continuous-scroll update · Oct 28, 2026
+## Homepage composition · Oct 28, 2026
 
-Susan prefers the feeling of gradually unrolling an ancient Chinese silk scroll. This supersedes the earlier stacked-chapter treatment and homepage motion limits in section 6.
-
-- Preserve the closer centered intro/Polaroid composition, Fraunces, IBM Plex Mono, warm paper, rust accents, and colored card shadows.
-- Use one unbroken paper canvas. Remove section boundary lines, different background panels, numbered footers, overlapping sheets, and forced viewport heights below the hero.
-- Native scrolling gradually resolves headings, project cards, beliefs, and skill groups as they enter the lower third of the viewport: opacity 12% → 100%, vertical shift 30px → 0. There is no outgoing fade or stacking; revealed content remains fully legible above the entrance area.
-- Keep related content together and separate sections with measured whitespace. Maintain ordinary anchor links and document order.
-- Motion is driven by scroll position without wheel interception, delayed scrolling, or snapping. Reduced motion and no-JavaScript views display content normally; keyboard focus fully reveals its content.
-- Refero DESIGN.md references informed editorial typography and spacing; the silk-scroll motion is an original adaptation of Susan’s feedback.
-  - https://styles.refero.design/style/bb2e29c9-d20a-4b8d-8959-5b506f517ec4
-  - https://styles.refero.design/style/12255b63-e506-4bc1-a4cd-d05487de32f3
+Keep the original homepage sections, spacing, and shared reveal behavior. Susan requested removal of the experimental scroll effects. Retain only the closer, centered introduction and Polaroid composition: a 960px maximum container, 500px text column, 260px portrait, and 48–56px desktop gap. No stacked sheets, custom scroll listeners, full-screen sections, new section backgrounds, or chapter footers.
