@@ -1,13 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
 import TitleBar from '../components/TitleBar.astro';
+import IdeaCards from '../components/IdeaCards.astro';
 import site from '../data/site.json';
-import { getEntry, render } from 'astro:content';
+import { getEntry } from 'astro:content';
 
 const about = await getEntry('pages', 'about');
 if (!about) throw new Error('Missing src/content/pages/about.md');
 const d = about.data;
-const { Content } = await render(about);
 // fixed tilts so photos look the same on every load
 const tilts = [-1.5, 1.2, -0.6, 1.8, -1.9, 0.8];
 ---
@@ -18,6 +18,7 @@ const tilts = [-1.5, 1.2, -0.6, 1.8, -1.9, 0.8];
     <div class="container">
       <h2>{d.opening}</h2>
       <p>{d.intro}</p>
+      {d.introExtra && <p class="about-extra">{d.introExtra}</p>}
     </div>
   </section>
 
@@ -36,22 +37,42 @@ const tilts = [-1.5, 1.2, -0.6, 1.8, -1.9, 0.8];
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="prose" style="margin: 0">
-        <Content />
-      </div>
-    </div>
-  </section>
-
-  {d.photos.length > 0 && (
+  {d.habits.length > 0 && (
     <section class="section">
       <div class="container">
+        <div class="section-head"><h2>what gender studies gave me</h2><span class="label">three habits I bring to every project</span></div>
+        {d.habitsIntro && <p class="section-lead">{d.habitsIntro}</p>}
+        <IdeaCards items={d.habits} />
+      </div>
+    </section>
+  )}
+
+  {d.now.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <div class="section-head"><h2>right now</h2><span class="label">fall 2026</span></div>
+        <dl class="now-list">
+          {d.now.map((n) => (
+            <div class="now-row">
+              <dt class="micro">{n.label}</dt>
+              <dd>{n.link ? <a href={n.link}>{n.value} →</a> : n.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+  )}
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><h2>outside work</h2><span class="label">where I recharge</span></div>
+      {d.outside && <p class="section-lead">{d.outside}</p>}
+      {d.photos.length > 0 && (
         <div class="photo-grid">
           {d.photos.map((p, i) => (
             <figure class="polaroid" style={`margin:0; transform: rotate(${tilts[i % tilts.length]}deg)`}>
+              {p.video && <span class="clip-badge" aria-hidden="true">▶ video</span>}
               {p.video ? (
-                <span class="clip-badge" aria-hidden="true">▶ video</span>
                 <video class="about-clip" src={p.video} poster={p.src} muted loop playsinline autoplay preload="metadata" aria-label={p.alt} style={p.position ? `object-position:${p.position}` : undefined}></video>
               ) : (
                 <img src={p.src} alt={p.alt} loading="lazy" style={p.position ? `object-position:${p.position}` : undefined} />
@@ -60,9 +81,9 @@ const tilts = [-1.5, 1.2, -0.6, 1.8, -1.9, 0.8];
             </figure>
           ))}
         </div>
-      </div>
-    </section>
-  )}
+      )}
+    </div>
+  </section>
 
   <section class="section" id="contact">
     <div class="container">

@@ -35,7 +35,7 @@ const gaOn = site.gaId && !site.gaId.includes('XXXX');
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,600..700,50&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <script is:inline>document.documentElement.classList.add('js');document.documentElement.dataset.reveal='.reveal, .section-head, .card, .tools-group, .lab-card, .timeline li, .prose > *, .tldr, .case-head .container > *, .about-open .container > *, .intro .container > *, .cta-band .container > *, .contact-list li, .case-nav';</script>
+    <script is:inline>document.documentElement.classList.add('js');document.documentElement.dataset.reveal='.reveal, .idea-card, .stat, .section-lead, .now-row, .section-head, .card, .tools-group, .lab-card, .timeline li, .prose > *, .tldr, .case-head .container > *, .about-open .container > *, .intro .container > *, .cta-band .container > *, .contact-list li, .case-nav';</script>
     {gaOn && (
       <>
         <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${site.gaId}`}></script>
@@ -114,7 +114,7 @@ const gaOn = site.gaId && !site.gaId.includes('XXXX');
       const targets = Array.from(document.querySelectorAll<HTMLElement>(revealSel));
       // stagger items that sit side by side (cards, chips rows, timeline)
       targets.forEach((el) => {
-        if (el.matches('.card, .lab-card, .timeline li, .tools-group')) {
+        if (el.matches('.card, .lab-card, .timeline li, .tools-group, .idea-card, .stat')) {
           const sibs = Array.from(el.parentElement?.children ?? []);
           el.style.transitionDelay = `${(sibs.indexOf(el) % 3) * 110}ms`;
         }
@@ -122,7 +122,22 @@ const gaOn = site.gaId && !site.gaId.includes('XXXX');
           if (ev.target === el && el.classList.contains('in')) { el.classList.add('done'); el.style.transitionDelay = ''; }
         });
       });
+      const countUp = (el: HTMLElement) => {
+        el.querySelectorAll<HTMLElement>('.count').forEach((c) => {
+          const to = Number(c.dataset.to || 0);
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { c.textContent = String(to); return; }
+          const start = performance.now(), dur = 1400;
+          const tick = (now: number) => {
+            const p = Math.min(1, (now - start) / dur);
+            c.textContent = String(Math.round(to * (1 - Math.pow(1 - p, 4))));
+            if (p < 1) requestAnimationFrame(tick);
+          };
+          c.textContent = '0';
+          requestAnimationFrame(tick);
+        });
+      };
       const show = (el: HTMLElement) => {
+        if (el.classList.contains('stat')) countUp(el);
         el.classList.add('in');
         setTimeout(() => el.classList.add('done'), 1800); // safety net
       };

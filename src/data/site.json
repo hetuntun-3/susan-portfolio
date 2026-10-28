@@ -23,6 +23,13 @@
     "certified": ["Google Analytics", "Meta Social Media Marketing"]
   },
 
+  "stats": [
+    { "value": 300, "prefix": "~", "suffix": "", "label": "survey responses cleaned and analyzed", "where": "Insta360" },
+    { "value": 100, "prefix": "", "suffix": "", "label": "riders selected for a 200+ rider event", "where": "Insta360" },
+    { "value": 40, "prefix": "", "suffix": "+", "label": "nano-creators screened, 8 seeded", "where": "Dreame" },
+    { "value": 200, "prefix": "", "suffix": "+", "label": "journalists on a segmented media list", "where": "Dreame" }
+  ],
+
   "cta": {
     "line": "Hiring for a growth, product marketing, or analytics intern? I'd love to talk."
   }

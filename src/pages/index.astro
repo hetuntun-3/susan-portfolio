@@ -2,12 +2,14 @@
 import Base from '../layouts/Base.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import site from '../data/site.json';
-import { getCollection } from 'astro:content';
+import IdeaCards from '../components/IdeaCards.astro';
+import { getCollection, getEntry } from 'astro:content';
 
 const work = (await getCollection('work', (e) => !e.data.draft))
   .sort((a, b) => a.data.order - b.data.order);
 const featured = work.filter((e) => e.data.featured && !e.data.comingSoon);
 const h = site.hero;
+const about = await getEntry('pages', 'about');
 ---
 <Base>
   <!-- Screen 1: name + keywords -->
@@ -48,6 +50,21 @@ const h = site.hero;
     </div>
   </section>
 
+  <!-- Numbers that count up when they scroll into view (edit in src/data/site.json) -->
+  <section class="section">
+    <div class="container">
+      <ul class="stats">
+        {site.stats.map((s) => (
+          <li class="stat">
+            <span class="stat-num"><span>{s.prefix}</span><span class="count" data-to={s.value}>{s.value}</span><span>{s.suffix}</span></span>
+            <span class="stat-label">{s.label}</span>
+            <span class="micro">{s.where}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
   <section class="section">
     <div class="container">
       <div class="section-head">
@@ -59,6 +76,19 @@ const h = site.hero;
       </div>
     </div>
   </section>
+
+  {about && about.data.beliefs.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>how I think</h2>
+          <a class="label" href="/about">more about me →</a>
+        </div>
+        {about.data.beliefsIntro && <p class="section-lead">{about.data.beliefsIntro}</p>}
+        <IdeaCards items={about.data.beliefs} />
+      </div>
+    </section>
+  )}
 
   <section class="section">
     <div class="container">

@@ -54,6 +54,13 @@ const pages = defineCollection({
     timeline: z
       .array(z.object({ when: z.string(), where: z.string(), added: z.string(), highlight: z.boolean().default(false) }))
       .default([]),
+    introExtra: z.string().optional(),
+    beliefsIntro: z.string().optional(),
+    beliefs: z.array(z.object({ icon: z.string(), title: z.string(), body: z.string() })).default([]),
+    habitsIntro: z.string().optional(),
+    habits: z.array(z.object({ icon: z.string(), title: z.string(), body: z.string() })).default([]),
+    now: z.array(z.object({ label: z.string(), value: z.string(), link: z.string().optional() })).default([]),
+    outside: z.string().optional(),
     photos: z
       .array(z.object({ src: z.string(), alt: z.string(), caption: z.string().optional(), video: z.string().optional(), position: z.string().optional() }))
       .default([]),

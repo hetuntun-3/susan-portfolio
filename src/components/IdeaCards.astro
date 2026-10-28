@@ -1,0 +1,17 @@
+---
+import Icon from './Icon.astro';
+interface Props { items: { icon: string; title: string; body: string }[] }
+const { items } = Astro.props;
+---
+<div class="idea-grid">
+  {items.map((it, i) => (
+    <article class="idea-card">
+      <div class="idea-top">
+        <Icon name={it.icon} />
+        <span class="micro">0{i + 1}</span>
+      </div>
+      <h3>{it.title}</h3>
+      <p>{it.body}</p>
+    </article>
+  ))}
+</div>

@@ -3,6 +3,8 @@ title: about
 subtitle: a little more about me
 opening: I study why people want what they want, then I measure it.
 intro: I'm Susan Su, a Marketing Science MS candidate at Columbia Business School. Before that I studied Gender Studies at UCLA, where I learned to read the culture behind a purchase. Now I'm learning to put numbers on it, and to use AI to move faster without losing the human part.
+introExtra: I grew up speaking Mandarin and work in English, so I've spent most of my career translating, between U.S. and China teams, and between what a product does and why someone would care.
+
 timeline:
   - when: "2022"
     where: SHEIN, Fashion Trend Analyst Intern
@@ -20,6 +22,47 @@ timeline:
     where: Columbia Business School, MS Marketing Science
     added: The models and measurement to prove an insight, not just argue it
     highlight: true
+
+# Shown on the HOME page ("how I think"). icon: pattern | trust | measure | subtext | audience | story
+beliefsIntro: AI makes the what cheap. That makes the why worth more.
+beliefs:
+  - icon: pattern
+    title: AI finds the pattern. People decide what it means.
+    body: At Insta360, AI helped me organize ~300 survey responses, and I checked every number myself. The tool was fast. Knowing what counted was my job.
+  - icon: trust
+    title: When anyone can make content, trust is the edge.
+    body: At Dreame I found creators with an AI search tool, then chose them by reading their comments, not counting their followers.
+  - icon: measure
+    title: Moving fast only helps if you measure.
+    body: Ten ideas without tracking are ten guesses. Every experiment should come with a way to tell if it worked, even a discount code per creator.
+
+habitsIntro: People ask why a Gender Studies major went into marketing. To me it's the same subject, how culture shapes what people want.
+habits:
+  - icon: subtext
+    title: I read the subtext.
+    body: My "Pilates Princess" essay argued a workout aesthetic was really a signal of class and identity, then backed it with data on class prices and access.
+  - icon: audience
+    title: I ask who the message leaves out.
+    body: At Dreame, the parent paying and the student using the product were different people, so the campaign needed two voices.
+  - icon: story
+    title: I treat data as a story someone chose to tell.
+    body: A survey shows who answered. I also ask who didn't, and what the questions assumed.
+
+now:
+  - label: at columbia
+    value: Python · regression · experiment design · web scraping · qualitative research
+  - label: building
+    value: A restaurant-review analysis and a Ralph Lauren brand study
+    link: /lab
+  - label: learning
+    value: SQL, so I can pull my own data
+  - label: clubs
+    value: Board, Columbia Entrepreneurs Organization · CBS AI and Technology clubs
+  - label: recruiting
+    value: Summer 2027 · Growth/GTM, Product Marketing, Marketing Analytics
+
+outside: Surfing, scuba diving, hiking, and mixing cocktails. Mixology is a lot like marketing, you test, adjust, and watch people's faces. I speak English and Mandarin, and I'm working on my French.
+
 # Photos for "Outside work". Add a file to public/images/ and a new entry here.
 # position = which part of the photo stays in the frame (x% y%)
 photos:
@@ -39,33 +82,3 @@ photos:
     alt: Short clip of a sidecar cocktail being strained into a coupe glass
     caption: shaking a sidecar
 ---
-
-I grew up speaking Mandarin and work in English, so I've spent most of my career translating, between U.S. and China teams, and between what a product does and why someone would care.
-
-## How I think about marketing in the AI era
-
-AI makes the *what* cheap: the data pull, the first draft, the long list. That makes the *why* worth more. Three things I believe, each from something I've actually done:
-
-1. **AI finds the pattern. People decide what it means.** At Insta360 I used AI to organize about 300 survey responses, then checked every calculation myself. At Dreame, Meltwater's AI monitoring pulled in coverage that had nothing to do with us until I added keyword exclusions. The tool was fast. Knowing what counted was still my job.
-2. **When anyone can make content, trust is the edge.** At Dreame I used an AI search tool to find creators, but I chose them by reading their comments, not counting their followers. A smaller audience that actually talks back is worth more than reach that doesn't care.
-3. **Moving fast only helps if you measure.** AI lets a team ship ten ideas in the time it used to take to ship one. Without tracking, that's just ten guesses. I want every experiment to come with a way to tell whether it worked, even if it's just a discount code per creator.
-
-## What Gender Studies gave me
-
-People ask why a Gender Studies major went into marketing. To me it's the same subject: how culture shapes what people want, and who they want to become. Three habits I bring to every project:
-
-- **I read the subtext.** In my video essay on the "Pilates Princess" trend, I argued that a workout aesthetic was really a signal of class and identity. Then I backed it up with data on average class prices and regional access. Brands that only see "Pilates" miss what people are actually buying.
-- **I ask who the message is for, and who it leaves out.** The "average customer" is usually an assumption. At Dreame, the person paying for back-to-school and the person using the product were different people, so the campaign needed two voices.
-- **I treat the data as a story someone chose to tell.** A survey shows what people answered. My training makes me ask who didn't answer, and what the questions assumed. That habit makes my analysis more careful, not less rigorous.
-
-## Right now
-
-- **At Columbia:** learning Python, regression and statistical modeling, experiment design, web scraping, and qualitative research
-- **Building:** a restaurant-review analysis and a Ralph Lauren brand-perception study (see [Lab](/lab))
-- **Learning SQL**, so I can pull my own data instead of waiting for someone else's export
-- **Board member, Columbia Entrepreneurs Organization**, and a member of the CBS AI and Technology clubs
-- **Recruiting for Summer 2027 internships** in Growth/GTM, Product Marketing, and Marketing Analytics
-
-## Outside work
-
-You'll find me surfing, scuba diving, hiking, or mixing a new cocktail. Mixology turns out to be a lot like marketing: you test, adjust, and watch people's faces. I speak English and Mandarin, and I'm working on my French.
