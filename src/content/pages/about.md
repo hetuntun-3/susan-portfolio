@@ -2,7 +2,7 @@
 title: about
 subtitle: a little more about me
 opening: I study why people want what they want, then I measure it.
-intro: I'm Susan Su, a Marketing Science MS candidate at Columbia Business School. Before that I studied Gender Studies at UCLA, where I learned to read the culture behind a purchase. Now I'm learning to put numbers on it, and to use AI to move faster without losing the human part.
+intro: I'm Susan Su, a Marketing Science MS candidate at Columbia Business School. Before that I studied Gender Studies at UCLA, where I learned to question assumptions and study how culture shapes behavior. Now I'm learning to put numbers on it, and to use AI to move faster without losing the human part.
 introExtra: I grew up speaking Mandarin and work in English, so I've spent most of my career translating, between U.S. and China teams, and between what a product does and why someone would care.
 
 timeline:
@@ -11,7 +11,7 @@ timeline:
     added: Spotting a trend early, and turning it into a product story
   - when: 2022–2026
     where: UC Santa Barbara, then UCLA, BA Gender Studies
-    added: Reading the culture and identity behind what people buy
+    added: "Critical theory, social psychology, and statistics in R: how norms and culture shape behavior"
   - when: "2025"
     where: Dreame, Marketing & PR Intern
     added: "Creators, press and weekly media data: who's talking about a brand, and why"
