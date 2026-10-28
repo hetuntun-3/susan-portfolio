@@ -2,30 +2,27 @@
 import Base from '../layouts/Base.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import site from '../data/site.json';
-import IdeaCards from '../components/IdeaCards.astro';
+import Icon from '../components/Icon.astro';
 import { getCollection, getEntry } from 'astro:content';
 
 const work = (await getCollection('work', (e) => !e.data.draft))
   .sort((a, b) => a.data.order - b.data.order);
-const featured = work.filter((e) => e.data.featured && !e.data.comingSoon);
 const h = site.hero;
 const about = await getEntry('pages', 'about');
 ---
 <Base>
 <div class="home">
-  <!-- Screen 1: name + keywords -->
+  <!-- Hero: name, one short line, photo -->
   <section class="splash">
     <div class="container splash-grid">
       <div class="splash-text">
-        <p class="label splash-kicker">{h.kicker}</p>
         <h1 class="splash-name" aria-label={site.name}>
           {site.name.split('').map((c, i) => (
             <span class="ch" style={`--i:${i}`} aria-hidden="true">{c === ' ' ? '\u00a0' : c}</span>
           ))}
         </h1>
-        <ul class="splash-keywords">
-          {h.keywords.map((k) => <li>{k}</li>)}
-        </ul>
+        <p class="splash-line">{h.line}</p>
+        <a class="splash-link" href="#work">see my work ↓</a>
       </div>
       <figure class={`polaroid splash-photo${h.headshot ? '' : ' no-photo'}`} style="margin:0">
         {h.headshot ? (
@@ -36,90 +33,54 @@ const about = await getEntry('pages', 'about');
         <figcaption>susan · new york</figcaption>
       </figure>
     </div>
-    <a class="scroll-cue label" href="#intro">scroll ↓</a>
   </section>
 
-  <!-- Screen 2: the pitch -->
-  <section class="intro" id="intro">
+  <!-- Work -->
+  <section class="home-block" id="work">
+    <div class="band"><div class="container"><h2>work</h2><span class="label">case studies, newest first</span></div></div>
     <div class="container">
-      <h2 class="intro-headline">{h.headline}</h2>
-      <div class="intro-body">
-        <p class="hero-intro">{h.intro}</p>
-        <p class="label hero-avail">{h.availability}</p>
-        <div class="btn-row">
-          <a class="btn btn-primary" href="/work">See my work</a>
-        </div>
+      <div class="card-grid three">
+        {work.map((e) => <ProjectCard entry={e} />)}
       </div>
     </div>
   </section>
 
-  <!-- Numbers that count up when they scroll into view (edit in src/data/site.json) -->
-  <section class="section">
-    <div class="container">
-      <ul class="stats">
-        {site.stats.map((s) => (
-          <li class="stat">
-            <span class="stat-num"><span>{s.prefix}</span><span class="count" data-to={s.value}>{s.value}</span><span>{s.suffix}</span></span>
-            <span class="stat-label">{s.label}</span>
-            <span class="micro">{s.where}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section-head">
-        <h2>featured work</h2>
-        <a class="label" href="/work">all case studies →</a>
-      </div>
-      <div class="card-grid">
-        {featured.map((e) => <ProjectCard entry={e} />)}
-      </div>
-    </div>
-  </section>
-
+  <!-- How I think: titles only (full text lives in src/content/pages/about.md) -->
   {about && about.data.beliefs.length > 0 && (
-    <section class="section">
+    <section class="home-block">
+      <div class="band"><div class="container"><h2>how i think</h2><span class="label">{about.data.beliefsIntro}</span></div></div>
       <div class="container">
-        <div class="section-head">
-          <h2>how I think</h2>
-          <a class="label" href="/about">more about me →</a>
-        </div>
-        {about.data.beliefsIntro && <p class="section-lead">{about.data.beliefsIntro}</p>}
-        <IdeaCards items={about.data.beliefs} />
+        <ul class="think-list">
+          {about.data.beliefs.map((b) => (
+            <li class="idea-card think-item"><Icon name={b.icon} /><span>{b.title}</span></li>
+          ))}
+        </ul>
       </div>
     </section>
   )}
 
-  <section class="section">
+  <!-- Skills -->
+  <section class="home-block">
+    <div class="band"><div class="container"><h2>skills</h2><span class="label">dashed = learning now</span></div></div>
     <div class="container">
-      <div class="section-head">
-        <h2>tools</h2>
-      </div>
       <div class="tools-group">
-        <span class="micro">Tools</span>
+        <h3>Tools</h3>
         <ul class="chips">{site.skills.tools.map((s) => <li class="chip">{s}</li>)}</ul>
       </div>
       <div class="tools-group">
-        <span class="micro">Currently learning</span>
+        <h3>Learning</h3>
         <ul class="chips">{site.skills.learning.map((s) => <li class="chip learning">{s}</li>)}</ul>
       </div>
       <div class="tools-group">
-        <span class="micro">Certified</span>
+        <h3>Certified</h3>
         <ul class="chips">{site.skills.certified.map((s) => <li class="chip">{s}</li>)}</ul>
       </div>
     </div>
   </section>
 
-  <section class="cta-band">
+  <section class="home-block home-end">
     <div class="container">
-      <p>{site.cta.line}</p>
-      <div class="btn-row">
-        <a class="btn btn-primary" href={`mailto:${site.email}`} data-ga="contact_click" data-ga-method="email">Email me</a>
-        <a class="btn btn-secondary" href={site.linkedin} target="_blank" rel="noopener" data-ga="contact_click" data-ga-method="linkedin">LinkedIn</a>
-      </div>
+      <p>{site.cta.line} <a href={`mailto:${site.email}`} data-ga="contact_click" data-ga-method="email">email me →</a></p>
     </div>
   </section>
 </div>
