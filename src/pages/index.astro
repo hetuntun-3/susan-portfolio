@@ -12,6 +12,7 @@ const h = site.hero;
 const about = await getEntry('pages', 'about');
 ---
 <Base>
+<div class="home">
   <!-- Screen 1: name + keywords -->
   <section class="splash">
     <div class="container splash-grid">
@@ -42,10 +43,12 @@ const about = await getEntry('pages', 'about');
   <section class="intro" id="intro">
     <div class="container">
       <h2 class="intro-headline">{h.headline}</h2>
-      <p class="hero-intro">{h.intro}</p>
-      <p class="label hero-avail">{h.availability}</p>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="/work">See my work</a>
+      <div class="intro-body">
+        <p class="hero-intro">{h.intro}</p>
+        <p class="label hero-avail">{h.availability}</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="/work">See my work</a>
+        </div>
       </div>
     </div>
   </section>
@@ -119,4 +122,5 @@ const about = await getEntry('pages', 'about');
       </div>
     </div>
   </section>
+</div>
 </Base>

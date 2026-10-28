@@ -514,3 +514,67 @@ html.js .idea-card:is(.in, .done) .ico .dashed { opacity: 1; }
   font-size: clamp(26px, 3.2vw, 38px); line-height: 1.2; letter-spacing: -0.01em; margin: 0 0 var(--s-4);
 }
 .say-hi-link { font-family: var(--font-mono); font-size: 16px; }
+
+/* ==========================================================
+   HOME PAGE polish (scoped to .home so other pages are unchanged)
+   Layout, type, spacing and hierarchy only.
+   ========================================================== */
+
+/* section rhythm: a bit more air between blocks, consistent heads */
+.home .section { padding-top: var(--section-gap); }
+.home .section-head { margin-bottom: var(--s-7); padding-bottom: var(--s-4); }
+.home .section-head h2 { font-size: clamp(22px, 2.2vw, 28px); }
+.home .section-head .label { color: var(--muted); }
+
+/* splash: keywords and kicker read as one quiet line under the name */
+.home .splash-kicker { letter-spacing: 0.02em; margin-bottom: var(--s-5); }
+.home .splash-keywords { margin-top: var(--s-5); }
+
+/* intro: headline left, pitch right (stacks on phones) */
+.home .intro .container { display: grid; gap: var(--s-5); }
+.home .intro-headline { font-size: clamp(30px, 3.6vw, 44px); line-height: 1.12; max-width: 16ch; }
+.home .intro .hero-intro { font-size: 18px; line-height: 1.6; margin: 0 0 var(--s-4); max-width: 54ch; }
+.home .intro .hero-avail { margin-bottom: var(--s-6); }
+@media (min-width: 1024px) {
+  .home .intro .container { grid-template-columns: 5fr 6fr; gap: var(--s-8); align-items: start; }
+  .home .intro-body { padding-top: 6px; }
+}
+
+/* stats: give the numbers more room, labels calmer */
+.home .stats { margin-top: 0; }
+.home .stat-num { font-size: clamp(40px, 5vw, 60px); }
+.home .stat-label { color: var(--ink); }
+.home .stat .micro { margin-top: auto; padding-top: var(--s-2); }
+
+/* featured cards: shorter cover with a light wash of the project color,
+   so the big number sits in a colored panel instead of empty space */
+.home .card-cover { aspect-ratio: 16 / 10; }
+.home .cover-stat {
+  background: color-mix(in srgb, var(--block) 22%, var(--surface));
+  justify-content: flex-end; padding: var(--s-5) 20px;
+}
+.home .cover-stat .num { font-size: clamp(56px, 6vw, 80px); }
+.home .cover-stat .num::after { background: var(--ink); width: 32px; height: 3px; }
+.home .cover-stat .label { color: var(--ink); }
+.home .card-title { font-size: clamp(30px, 3vw, 38px); }
+.home .card-grid { gap: var(--s-7) var(--s-7); }
+
+/* how I think: lead line as a quiet intro, even card heights */
+.home .section-lead { color: var(--muted); font-size: 18px; margin-bottom: var(--s-6); }
+.home .idea-grid { gap: var(--s-5); align-items: stretch; }
+.home .idea-card { padding: var(--s-6) var(--s-5); }
+.home .idea-card h3 { font-size: 21px; }
+
+/* tools: serif group labels (like the reference), chips centered in the row */
+.home .tools-group { padding: var(--s-5) 0; }
+.home .tools-group .micro {
+  font-family: var(--font-display); font-variation-settings: 'SOFT' 50; font-weight: 600;
+  font-size: 18px; text-transform: none; letter-spacing: -0.01em; color: var(--ink);
+}
+@media (min-width: 1024px) { .home .tools-group { grid-template-columns: 240px 1fr; align-items: center; } }
+.home .tools-group:last-of-type { border-bottom: 0; }
+
+/* closing CTA: wider headline so it sits on two lines, not three */
+.home .cta-band p { max-width: 30ch; }
+.home .intro-headline { max-width: 18ch; text-wrap: balance; }
+.home .cta-band p { text-wrap: balance; }
