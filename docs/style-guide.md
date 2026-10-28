@@ -276,3 +276,20 @@ a { color: var(--accent); text-underline-offset: 3px; }
 a:hover { color: var(--accent-dark); }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 ```
+
+
+## Homepage chapter update · Oct 28, 2026
+
+Susan requested a closer, centered portrait/intro composition and a sequential uncovering effect for Introduction → Selected work → How I think → Skills. This supersedes the earlier homepage motion limits in section 6.
+
+- Keep Fraunces, IBM Plex Mono, warm paper, rust accents, Polaroid photography, and colored offset card shadows.
+- Center an approximately 816px intro/photo composition inside a 960px container; desktop gap 48–56px.
+- Give each chapter at least one viewport, allowing longer sections to grow with their content.
+- Native sticky sheets let incoming chapters cover outgoing ones; the outgoing content gently recedes by up to 3.5%, shifts 32px, and fades to 75% opacity. Wheel/touch scrolling stays native. No scroll hijacking or mandatory snapping.
+- Calculate negative sticky offsets for tall sections so their entire content remains reachable. Keyboard focus returns covered chapters to view.
+- Warm cream, pale sage, and pale lavender distinguish chapters. Small numbered footers help orientation.
+- Disable stacking and movement for reduced motion; content is readable without JavaScript. Use chapter movement instead of nested homepage entrance animations.
+- References reviewed: Refero’s Studio.Design DESIGN.md (overlapping work on neutral gallery surfaces), Intercom DESIGN.md (warm editorial rhythm), and Apple iPhone Duo DESIGN.md (distinct storytelling chapters). These informed the composition; the uncovering implementation is original.
+  - https://styles.refero.design/style/bb2e29c9-d20a-4b8d-8959-5b506f517ec4
+  - https://styles.refero.design/style/12255b63-e506-4bc1-a4cd-d05487de32f3
+  - https://styles.refero.design/style/a73148b9-449b-42cd-9f38-86ef694f500e

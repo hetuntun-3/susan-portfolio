@@ -814,3 +814,71 @@ a.pcard:hover .pmore { text-decoration: underline; text-underline-offset: 4px; }
 .writing-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
 .writing-card:hover .lab-link { color: var(--ink); }
 @media (min-width: 760px) { .writing-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Homepage chapters: warm editorial sheets, uncovered by native scrolling. */
+.chapter-home { position: relative; isolation: isolate; }
+.chapter-home .home-chapter {
+  position: relative; z-index: var(--chapter-order); min-height: 100svh;
+  background: var(--paper); padding: clamp(40px, 6vh, 72px) 0 20px;
+  display: flex; flex-direction: column; gap: 40px; scroll-margin-top: 0;
+}
+.chapter-home .splash { min-height: calc(100svh - 73px); }
+.chapter-home .chapter-content { width: 100%; flex: 1; display: flex; flex-direction: column; justify-content: center; transform-origin: center center; }
+.chapter-home .chapter-content > .container { width: 100%; }
+.chapter-home .hero-content { padding: 24px 0; }
+.chapter-home .splash-grid { max-width: 960px; gap: 32px; justify-content: center; }
+.chapter-home .splash-text { min-width: 0; }
+.chapter-home .splash-headline { font-size: clamp(29px, 3.15vw, 42px); max-width: 23ch; text-wrap: pretty; }
+.chapter-home .splash-photo { width: 190px; max-width: 100%; justify-self: center; }
+.chapter-home .hero-details { font-size: 12px; }
+.chapter-home .chapter-foot { width: 100%; display: flex; gap: 16px; align-items: center; justify-content: space-between; font: 10px/1.5 var(--font-mono); color: var(--muted); }
+.chapter-foot span { text-transform: uppercase; letter-spacing: .07em; }
+.chapter-foot a { color: var(--ink); min-height: 44px; display: inline-flex; align-items: center; white-space: nowrap; }
+.chapter-home .work-chapter { background: #F5F1E9; }
+.chapter-home .thinking-chapter { background: #EDF2EC; }
+.chapter-home .skills-chapter { background: #F0EDF5; }
+.chapter-home .home-chapter:not(.splash) { border-top: var(--rule); }
+.chapter-home .band { border-top: 0; border-bottom: 0; margin-bottom: 36px; }
+.chapter-home .band .container { align-items: flex-start; }
+.chapter-home .band h2 { font-size: clamp(32px, 4.2vw, 48px); line-height: 1.08; }
+.chapter-home .band .label { font-size: 11px; max-width: 37ch; padding-top: 8px; }
+.chapter-home .think-item.idea-card { background: var(--paper); min-height: 160px; padding: 24px; align-items: flex-start; flex-direction: column; }
+.chapter-home .think-item span { font-size: clamp(21px, 2vw, 26px); }
+.chapter-home .skills-chapter .tools-group { border-bottom: 1px solid var(--rule-soft); padding: 24px 0; }
+.chapter-home .skills-chapter .tools-group:last-child { border-bottom: 0; }
+.chapter-home .home-end { position: relative; z-index: 5; background: var(--paper); margin: 0; padding: 48px 0 0; }
+/* Chapter-level movement replaces nested reveals on the homepage. */
+html.js .chapter-home :is(.band, .think-item, .tools-group) { opacity: 1 !important; transform: none !important; transition: none !important; }
+@media (min-width: 700px) {
+  .chapter-home .splash-grid { grid-template-columns: minmax(0, 500px) 260px; gap: 48px; }
+  .chapter-home .splash-photo { width: 260px; max-width: 260px; justify-self: start; }
+  .chapter-home .hero-details { font-size: 12px; }
+  .chapter-home .chapter-foot { font-size: 11px; }
+  .chapter-home .band { margin-bottom: 48px; }
+}
+@media (min-width: 1024px) {
+  .chapter-home .splash-grid { gap: 56px; }
+  .chapter-home .hero-details { font-size: 13px; }
+  .chapter-home .think-item.idea-card { min-height: 224px; padding: 32px; gap: 32px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .chapter-home.chapters-ready .home-chapter { position: sticky; top: var(--chapter-top, 0px); }
+  .chapter-home.chapters-ready .home-chapter:not(.splash) { box-shadow: 0 -16px 40px rgb(20 20 20 / .045); }
+  .chapter-home.chapters-ready .chapter-content { transform: translateY(calc(var(--chapter-exit, 0) * -32px)) scale(calc(1 - var(--chapter-exit, 0) * .035)); opacity: calc(1 - var(--chapter-exit, 0) * .25); }
+}
+@media (max-width: 699px) {
+  .chapter-home .home-chapter { gap: 24px; padding-top: 36px; }
+  .chapter-home .splash { min-height: calc(100svh - 73px); }
+  .chapter-home .hero-content { padding: 8px 0; }
+  .chapter-home .splash-grid { max-width: 480px; gap: 28px; }
+  .chapter-home .splash-photo { width: 168px; }
+  .chapter-home .splash-name { font-size: 44px; }
+  .chapter-home .hero-details { margin-bottom: 16px; }
+  .chapter-home .band .container { gap: 12px; }
+  .chapter-home .band .label { padding-top: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chapter-home .home-chapter { position: relative; }
+  .chapter-home .chapter-content { transform: none; opacity: 1; }
+  .chapter-home .splash-photo, .chapter-home .splash-link, .chapter-home .splash-name .ch { animation: none; }
+}

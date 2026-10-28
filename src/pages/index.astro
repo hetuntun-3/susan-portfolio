@@ -11,9 +11,10 @@ const h = site.hero;
 const about = await getEntry('pages', 'about');
 ---
 <Base>
-<div class="home">
+<div class="home chapter-home">
   <!-- Hero: name, one short line, photo -->
-  <section class="splash">
+  <section class="splash home-chapter" id="intro" aria-label="Introduction" style="--chapter-order: 1">
+    <div class="chapter-content hero-content">
     <div class="container splash-grid">
       <div class="splash-text">
         <h1 class="splash-name" aria-label={site.name}>
@@ -34,20 +35,26 @@ const about = await getEntry('pages', 'about');
         <figcaption>susan · new york</figcaption>
       </figure>
     </div>
+    </div>
+    <div class="container chapter-foot"><span>01 / 04 · introduction</span><a href="#work">scroll to uncover ↓</a></div>
   </section>
 
   <!-- Work -->
-  <section class="home-block" id="work">
-    <div class="band"><div class="container"><h2>selected work</h2><span class="label">ideas → decisions → execution</span></div></div>
+  <section class="home-block home-chapter work-chapter" id="work" aria-labelledby="work-title" style="--chapter-order: 2">
+    <div class="chapter-content">
+    <div class="band"><div class="container"><h2 id="work-title">selected work</h2><span class="label">ideas → decisions → execution</span></div></div>
     <div class="container">
       <WorkProjects entries={work} />
     </div>
+    </div>
+    <div class="container chapter-foot"><span>02 / 04 · selected work</span><a href="#thinking">how i think ↓</a></div>
   </section>
 
   <!-- How I think: titles only (full text lives in src/content/pages/about.md) -->
   {about && about.data.beliefs.length > 0 && (
-    <section class="home-block">
-      <div class="band"><div class="container"><h2>how i think</h2><span class="label">{about.data.beliefsIntro}</span></div></div>
+    <section class="home-block home-chapter thinking-chapter" id="thinking" aria-labelledby="thinking-title" style="--chapter-order: 3">
+      <div class="chapter-content">
+      <div class="band"><div class="container"><h2 id="thinking-title">how i think</h2><span class="label">{about.data.beliefsIntro}</span></div></div>
       <div class="container">
         <ul class="think-list">
           {about.data.beliefs.map((b) => (
@@ -55,12 +62,15 @@ const about = await getEntry('pages', 'about');
           ))}
         </ul>
       </div>
+      </div>
+      <div class="container chapter-foot"><span>03 / 04 · how i think</span><a href="#skills">skills ↓</a></div>
     </section>
   )}
 
   <!-- Skills -->
-  <section class="home-block">
-    <div class="band"><div class="container"><h2>skills</h2><span class="label">dashed = learning now</span></div></div>
+  <section class="home-block home-chapter skills-chapter" id="skills" aria-labelledby="skills-title" style="--chapter-order: 4">
+    <div class="chapter-content">
+    <div class="band"><div class="container"><h2 id="skills-title">skills</h2><span class="label">dashed = learning now</span></div></div>
     <div class="container">
       <div class="tools-group">
         <h3>Tools</h3>
@@ -75,6 +85,8 @@ const about = await getEntry('pages', 'about');
         <ul class="chips">{site.skills.certified.map((s) => <li class="chip">{s}</li>)}</ul>
       </div>
     </div>
+    </div>
+    <div class="container chapter-foot"><span>04 / 04 · skills</span><a href={`mailto:${site.email}`}>let’s talk ↗</a></div>
   </section>
 
   <section class="home-block home-end">
@@ -83,4 +95,67 @@ const about = await getEntry('pages', 'about');
     </div>
   </section>
 </div>
+<script>
+  // Native sticky sheets retain normal wheel, touch, keyboard, and anchor scrolling.
+  const home = document.querySelector<HTMLElement>('.chapter-home');
+  if (home) {
+    const chapters = Array.from(home.querySelectorAll<HTMLElement>('.home-chapter'));
+    const motion = window.matchMedia('(prefers-reduced-motion: no-preference)');
+    const starts = new Map<HTMLElement, number>();
+    let frame = 0;
+    const paint = () => {
+      frame = 0;
+      const viewport = window.innerHeight;
+      chapters.forEach((chapter, index) => {
+        const next = chapters[index + 1];
+        const progress = next ? Math.max(0, Math.min(1, 1 - next.getBoundingClientRect().top / viewport)) : 0;
+        chapter.style.setProperty('--chapter-exit', motion.matches ? progress.toFixed(4) : '0');
+      });
+    };
+    const schedule = () => { if (!frame) frame = requestAnimationFrame(paint); };
+    const measure = () => {
+      let start = home.getBoundingClientRect().top + window.scrollY;
+      chapters.forEach((chapter) => {
+        starts.set(chapter, start);
+        start += chapter.offsetHeight;
+        // A tall chapter scrolls to its last line before the following sheet covers it.
+        chapter.style.setProperty('--chapter-top', `${Math.min(0, window.innerHeight - chapter.offsetHeight)}px`);
+      });
+      home.classList.toggle('chapters-ready', motion.matches);
+      schedule();
+    };
+    const observer = new ResizeObserver(measure);
+    chapters.forEach((chapter) => observer.observe(chapter));
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', measure, { passive: true });
+    motion.addEventListener('change', measure);
+    // Keyboard focus must never land on a link covered by a later chapter.
+    home.addEventListener('focusin', (event) => {
+      const target = event.target as HTMLElement;
+      const chapter = target.closest<HTMLElement>('.home-chapter');
+      if (!chapter || Number(chapter.style.getPropertyValue('--chapter-exit')) < 0.05) return;
+      window.scrollTo({ top: starts.get(chapter) ?? 0, behavior: 'instant' });
+    });
+    const scrollToChapter = (hash: string, behavior: ScrollBehavior) => {
+      const chapter = chapters.find((item) => `#${item.id}` === hash);
+      if (!chapter) return false;
+      window.scrollTo({ top: starts.get(chapter) ?? 0, behavior });
+      return true;
+    };
+    home.addEventListener('click', (event) => {
+      const link = (event.target as HTMLElement).closest<HTMLAnchorElement>('a[href^="#"]');
+      if (!link || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      if (scrollToChapter(link.hash, motion.matches ? 'smooth' : 'instant')) {
+        event.preventDefault();
+        history.pushState(null, '', link.hash);
+      }
+    });
+    window.addEventListener('hashchange', () => scrollToChapter(location.hash, 'instant'));
+    measure();
+    document.fonts.ready.then(() => {
+      measure();
+      if (location.hash) scrollToChapter(location.hash, 'instant');
+    });
+  }
+</script>
 </Base>
