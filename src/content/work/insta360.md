@@ -15,7 +15,7 @@ coverStat: "100"
 coverStatLabel: riders selected · 200+ rider ride · 90 km
 tldr:
   - label: Role
-    value: Brand Marketing Intern, Insta360
+    value: Marketing Intern, Insta360
   - label: Timeline
     value: Summer 2026 · event July 24–26, 2026
   - label: Event

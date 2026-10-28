@@ -20,7 +20,7 @@ tldr:
   - label: Tools
     value: Creonix (AI creator search) · Instagram · Meltwater · Canva
   - label: My output
-    value: "**40+ nano-creators** screened → **8 seeded** with product · **5-concept** social plan across **4 funnel phases** · **200+ journalist** media list · weekly Meltwater sentiment and share-of-voice reports"
+    value: "**40+ nano-creators** screened → **8 seeded** with product · **5-concept** social plan across **4 funnel phases** · **200+ journalist** media list · weekly Meltwater sentiment and share-of-voice reports vs. **6 competitors**"
   - label: Campaign
     value: "Up to 50% off · hero product: G10 wet-dry vacuum"
   - label: Status
@@ -49,7 +49,7 @@ I worked on three tracks at once: creators, social, and press.
    My manager approved the shortlist. I wrote each creator's campaign brief myself inside Dreame's brand template and do's-and-don'ts, filling in the offer, product, content themes and deliverables. **8 creators agreed** and received the G10 in exchange for content, with no fee.
 2. **Build a social plan from my own dorm life.** I'm a recent college student, and I knew dorm life is messy and chaotic, and that students respond to humor and aesthetic routines. I turned that into five concepts across a four-phase funnel. I presented them to the U.S. digital social specialist leading the campaign, and shared updates in weekly calls with the Shenzhen team.
 3. **Pitch the press.** I built and segmented a **200+ journalist** list across tech, lifestyle, and parenting, and pitched seasonal stories and product launches all summer. Few journalists replied.
-4. **Track what the press actually covers.** Every week I pulled Dreame and competitor coverage from Meltwater into a report: mentions, reach, engagement, sentiment, and top headlines.
+4. **Track what the press actually covers.** Every week I pulled coverage of Dreame and 6 competitors (Dyson, Shark, iRobot, Roborock, Tineco, Anker) from Meltwater into a report: mentions, reach, engagement, sentiment, and top headlines.
 
 ## Analysis
 

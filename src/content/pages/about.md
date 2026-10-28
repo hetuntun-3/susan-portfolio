@@ -14,7 +14,7 @@ timeline:
     where: Dreame, Marketing & PR Intern
     added: "Creators, press and weekly media data: who's talking about a brand, and why"
   - when: "2026"
-    where: Insta360, Brand Marketing Intern
+    where: Insta360, Marketing Intern
     added: Survey research and launch storytelling for a global audience
   - when: 2026–2027
     where: Columbia Business School, MS Marketing Science
