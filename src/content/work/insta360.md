@@ -1,30 +1,30 @@
 ---
 title: Insta360
-headline: "Insta360’s survey research and Paris ride"
-lead: Working from HQ, I built 8 bilingual trade-show surveys and cleaned ~300 responses, then selected 100 riders for the Paris ride and wrote 2 workshop decks with 12 creator demo videos I picked.
-description: How I built 8 bilingual trade-show surveys for Insta360, then selected 100 riders for its 200+ rider Paris event and wrote the cycling and running workshop decks.
+headline: "Insta360: four projects, one summer"
+lead: For the market research team, 8 bilingual surveys and ~300 cleaned responses. For the brand team, 100 riders and 2 workshop decks for Paris, a running plan for a film activation, and captions for 3 partner posts on Shark Awareness Day.
+description: "Four projects from my Insta360 internship: trade-show survey research, rider selection and decks for a Paris community ride, a film activation plan, and Shark Awareness Day partner posts."
 timeline: Summer 2026
-tag: Survey research · rider selection + workshop decks
+tag: Market research + brand · 4 projects
 block: insta360
 order: 1
 featured: true
 # To use a photo instead of the big number, add it to public/images/ and uncomment:
 # cover: /images/insta360-cover.jpg
 # coverAlt: Riders in yellow jerseys on the Champs-Élysées
-coverKicker: paris · jul 24–26, 2026
-coverTitle: Paris, in motion
+coverKicker: hq · summer 2026
+coverTitle: Four projects, one summer
 coverNote: 8 surveys · 100 riders selected
-summary: Survey research + rider selection
+summary: Market research + brand projects
 metrics: ["8 surveys built", "100 riders selected"]
 caseKicker: Marketing case study · July 2026
-caseSummary: Two jobs from HQ. Find out how trade-show visitors see Insta360 next to its competitors, and choose the riders for a 200+ person community ride in Paris on the Tour de France finale weekend.
+caseSummary: My summer at Insta360’s HQ. Four separate projects across two teams, market research and brand, each shown on its own below.
 caseContext: ["Marketing Intern", "HQ team · Summer 2026", "SurveyMonkey · Wenjuanxing · Excel · Canva"]
 caseOutputs:
   - { value: "100", label: "camera-equipped riders selected" }
   - { value: "2", label: "audience workshop decks prepared" }
   - { value: "8", label: "bilingual trade-show surveys built" }
   - { value: "12", label: "creator demo videos picked, 3 per camera" }
-scopeNote: My work covered survey research, rider selection, and workshop decks. Event-wide attendance is shown separately from my contributions.
+scopeNote: Four separate projects across two teams. Event-wide attendance is shown separately from my contributions.
 tldr: []
 ---
 

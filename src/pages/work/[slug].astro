@@ -22,7 +22,7 @@ const { Content } = await render(entry);
 // Lets you write **bold** inside TL;DR values in the front-matter
 const md = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-const highlightNumbers = (s: string) => md(s).replace(/(40\+|~300|\b(?:100|12|8|6|4|2)\b)/g, '<strong class="key-number">$1</strong>');
+const highlightNumbers = (s: string) => md(s).replace(/(40\+|~300|\b(?:100|12|8|6|4|3|2)\b)/g, '<strong class="key-number">$1</strong>');
 ---
 <Base title={d.headline ?? d.title} description={d.description ?? d.lead} caseSlug={entry.id}>
   <article class={visualCase ? 'visual-case' : undefined} style={`--block: var(--block-${d.block})`}>
