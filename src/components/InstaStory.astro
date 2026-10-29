@@ -67,7 +67,7 @@ import EventPosts from './EventPosts.astro';
     <p>Three partner accounts wanted to share Insta360’s shark footage. I wrote titles and captions and chose images from Insta360’s photo library for their posts, and did the first-round review of the <a href="https://www.youtube.com/watch?v=ca5yzLpq-r4" target="_blank" rel="noopener noreferrer">official video ↗</a> before final edits.</p>
     <ul class="shark-stats">
       <li><strong>21.2K</strong><span>likes on the @discoversharks post (4M followers)</span></li>
-      <li><strong>~4×</strong><span>that account’s median likes on its recent posts</span></li>
+      <li class="shark-cell"><strong>~4×</strong><span>that account’s median likes on its recent posts</span><svg class="shark-draw" viewBox="0 0 240 120" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 110C60 98 120 118 236 102" stroke-dasharray="6 9" opacity=".45"/><path d="M36 61L10 18Q22 44 24 62Q18 76 12 92L40 68Z" fill="#DCE3F7"/><path d="M112 41Q118 22 136 6Q136 26 148 42Z" fill="#DCE3F7"/><path d="M36 63C64 44 120 36 170 41C196 44 216 51 230 59C218 66 200 71 182 73L122 79C86 81 56 77 36 63Z" fill="#DCE3F7"/><path d="M52 71Q124 85 214 67" opacity=".5"/><path d="M152 75Q142 92 128 106Q152 98 172 77" fill="#DCE3F7"/><path d="M60 52L64 43L71 50"/><path d="M168 50Q165 58 168 66M175 50Q172 58 175 66M182 50Q179 58 182 66"/><circle cx="207" cy="56" r="2.6" fill="currentColor" stroke="none"/><path d="M214 67Q220 68 225 65"/><path d="M84 14V26M78 20H90M222 20V30M217 25H227"/></svg></li>
     </ul>
     <p class="work-caption"><a href="https://www.instagram.com/p/DaniDfWEQ_f/" target="_blank" rel="noopener noreferrer">See the post ↗</a> · Median from the account’s 8 most recent posts, checked Oct 2026.</p>
   </section>
@@ -88,6 +88,9 @@ import EventPosts from './EventPosts.astro';
   </section>
 </div>
 <style>
+  .shark-cell { position:relative; padding-right:44% !important; overflow:hidden; }
+  .shark-draw { position:absolute; right:10px; bottom:14px; width:44%; max-width:200px; height:auto; color:var(--ink); }
+  @media(max-width:600px) { .shark-cell { padding-right:22px !important; padding-bottom:96px !important; } .shark-draw { width:62%; right:8px; bottom:8px; } }
   .project-index { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border:var(--border); background:var(--surface); margin:40px 7px 0 0; }
   .project-index a { display:flex; flex-direction:column; gap:4px; padding:16px 18px; min-height:44px; color:var(--ink); text-decoration:none; font:400 14px/1.45 var(--font-mono); }
   .project-index a + a { border-left:var(--rule); }
