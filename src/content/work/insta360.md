@@ -1,10 +1,10 @@
 ---
 title: Insta360
-headline: "Insta360’s Paris cycling activation"
-lead: Working from HQ, I selected 100 camera-equipped riders and prepared workshop decks for cyclists and runners, supported by 18 creator demo videos.
-description: How I selected the 100 camera-equipped riders for Insta360's 200+ rider Paris event, and wrote the cycling and running workshop decks.
+headline: "Insta360’s survey research and Paris ride"
+lead: Working from HQ, I built 8 bilingual trade-show surveys and cleaned ~300 responses, then selected 100 riders for the Paris ride and wrote 2 workshop decks with 12 creator demo videos I picked.
+description: How I built 8 bilingual trade-show surveys for Insta360, then selected 100 riders for its 200+ rider Paris event and wrote the cycling and running workshop decks.
 timeline: Summer 2026
-tag: Community event · rider selection + launch decks
+tag: Survey research · rider selection + workshop decks
 block: insta360
 order: 1
 featured: true
@@ -13,17 +13,18 @@ featured: true
 # coverAlt: Riders in yellow jerseys on the Champs-Élysées
 coverKicker: paris · jul 24–26, 2026
 coverTitle: Paris, in motion
-coverNote: 100 camera riders selected · 2 workshop decks
-summary: Rider selection + workshop positioning
-metrics: ["100 riders selected", "2 audience decks"]
+coverNote: 8 surveys · 100 riders selected
+summary: Survey research + rider selection
+metrics: ["8 surveys built", "100 riders selected"]
 caseKicker: Marketing case study · July 2026
-caseSummary: A three-day Paris community activation during the Tour de France finale weekend, combining workshops, a group run, and a 90 km Hero Ride.
-caseContext: ["Marketing Intern", "HQ team · Summer 2026", "Canva · Instagram · TikTok"]
+caseSummary: Two jobs from HQ. Find out how trade-show visitors see Insta360 next to its competitors, and choose the riders for a 200+ person community ride in Paris on the Tour de France finale weekend.
+caseContext: ["Marketing Intern", "HQ team · Summer 2026", "SurveyMonkey · Wenjuanxing · Excel · Canva"]
 caseOutputs:
   - { value: "100", label: "camera-equipped riders selected" }
   - { value: "2", label: "audience workshop decks prepared" }
-  - { value: "18", label: "creator demo videos curated" }
-scopeNote: My work covered rider selection and workshop decks. Event-wide attendance is shown separately from my contributions.
+  - { value: "8", label: "bilingual trade-show surveys built" }
+  - { value: "12", label: "creator demo videos picked, 3 per camera" }
+scopeNote: My work covered survey research, rider selection, and workshop decks. Event-wide attendance is shown separately from my contributions.
 tldr: []
 ---
 

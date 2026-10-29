@@ -1,7 +1,7 @@
 ---
 title: Dreame
 headline: "Dreame’s U.S. Back-to-School campaign"
-lead: I screened 40+ nano-creators, wrote campaign briefs for 8 product-seeding partnerships, and proposed a four-phase social content plan.
+lead: I screened 40+ nano-creators, wrote campaign briefs for 8 product-seeding partnerships, proposed a four-phase social content plan, and tracked 6 competitors weekly in Meltwater.
 description: A visual look at my creator selection, product seeding, and proposed social concepts for Dreame’s U.S. Back-to-School campaign.
 timeline: Summer 2025
 tag: Back-to-School · creators, social plan, press data

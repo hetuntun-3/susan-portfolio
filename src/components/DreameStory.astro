@@ -41,6 +41,15 @@ import DormSketch from './DormSketch.astro';
     </div>
     <p class="work-caption">Portfolio reconstructions of my unlaunched social concepts. The student offer shown is historical.</p>
   </section>
+  <section class="story-section" aria-labelledby="dreame-data">
+    <h2 id="dreame-data">Also this summer: PR and media data</h2>
+    <ul class="numbers-strip">
+      <li><strong>6</strong><span>competitors tracked weekly in Meltwater, for sentiment and share of voice</span></li>
+      <li><strong>200+</strong><span>journalists segmented by tech, lifestyle, and parenting</span></li>
+      <li><strong>100+</strong><span>attendees at the San Diego flagship launch</span></li>
+      <li><strong>20+</strong><span>earned-media placements from launch outreach</span></li>
+    </ul>
+  </section>
   <section class="story-section closing" aria-labelledby="dreame-outcome">
     <h2 id="dreame-outcome">Outcome & reflection</h2>
     <p><strong class="key-number">8 creators</strong> received the G10. The social plan was shelved during a team restructure, and reach and sales results were unavailable to me.</p>
@@ -57,6 +66,13 @@ import DormSketch from './DormSketch.astro';
   </section>
 </div>
 <style>
+  .numbers-strip { list-style:none; margin:0 10px 0 0; padding:0; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); background:var(--surface); border:var(--border); box-shadow:10px 10px 0 var(--block); }
+  .numbers-strip li { padding:22px; display:flex; flex-direction:column; gap:8px; min-width:0; }
+  .numbers-strip li + li { border-left:var(--rule); }
+  .numbers-strip strong { font:700 40px/1 var(--font-display); letter-spacing:-.02em; }
+  .numbers-strip span { font:400 14px/1.6 var(--font-mono); }
+  @media(max-width:819px) { .numbers-strip { grid-template-columns:repeat(2,minmax(0,1fr)); } .numbers-strip li + li:nth-child(3) { border-left:0; } .numbers-strip li:nth-child(n+3) { border-top:var(--rule); } }
+  @media(max-width:420px) { .numbers-strip li { padding:18px 16px; } .numbers-strip strong { font-size:32px; } .numbers-strip span { font-size:13px; } }
   .concept-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:32px 24px; }
   .concept-card { min-width:0; }
   .mockup { position:relative; height:330px; padding:24px; border:var(--rule); overflow:hidden; display:flex; flex-direction:column; }

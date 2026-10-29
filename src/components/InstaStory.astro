@@ -4,7 +4,32 @@ import EventPosts from './EventPosts.astro';
 <div class="case-story container">
   <section class="story-section" aria-labelledby="insta-approach">
     <h2 id="insta-approach">Approach</h2>
-    <p>I selected riders for their riding habits and storytelling, then tailored the workshop decks to each sport. The aim was to show what people could capture, rather than list every camera feature.</p>
+    <p>I built each survey so the team could compare people who already own an Insta360 with people who don’t yet. For Paris, I selected riders for their riding habits and storytelling, then tailored the workshop decks to each sport, to show what people could capture rather than list every camera feature.</p>
+  </section>
+  <section class="story-section" aria-labelledby="insta-research">
+    <h2 id="insta-research">Research, built to compare</h2>
+    <p class="research-sub">trade-show surveys · skiing, cycling, mountain biking, diving</p>
+    <ol class="research-steps">
+      <li class="research-step">
+        <span class="step-num">01 · build</span>
+        <h3><strong class="key-number">8</strong> bilingual surveys</h3>
+        <p>Programmed in SurveyMonkey and Wenjuanxing, then QA’d before each show.</p>
+      </li>
+      <li class="step-arrow" aria-hidden="true">→</li>
+      <li class="research-step">
+        <span class="step-num">02 · clean</span>
+        <h3><strong class="key-number">~300</strong> responses</h3>
+        <p>Cleaned in Excel with AI-assisted checks, then weighted using the team’s scheme.</p>
+      </li>
+      <li class="step-arrow" aria-hidden="true">→</li>
+      <li class="research-step key">
+        <span class="step-num">03 · compare</span>
+        <h3>Buyers vs. prospects</h3>
+        <p>Brand awareness, usage, and satisfaction, each measured against competitors.</p>
+      </li>
+    </ol>
+    <p class="work-caption">Results stay with the team. This shows how the study was built.</p>
+    <p class="so-what"><span>So what:</span> Splitting buyers from prospects separates two jobs: keeping owners happy and winning new ones.</p>
   </section>
   <section class="story-section" aria-labelledby="insta-work">
     <h2 id="insta-work">One product story, adapted to two sports</h2>
@@ -39,6 +64,16 @@ import EventPosts from './EventPosts.astro';
   </section>
 </div>
 <style>
+  .research-sub { color:var(--muted); margin:-8px 0 24px !important; }
+  .research-steps { list-style:none; margin:0; padding:0 7px 0 0; display:grid; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr); gap:16px; }
+  .research-step { background:var(--surface); border:var(--border); box-shadow:7px 7px 0 var(--ink); padding:22px; display:flex; flex-direction:column; gap:10px; min-width:0; }
+  .research-step.key { background:color-mix(in srgb,var(--block) 32%,white); }
+  .step-num { font:500 12px/1.4 var(--font-mono); text-transform:uppercase; letter-spacing:.06em; color:var(--muted); }
+  .research-step h3 { font:600 24px/1.2 var(--font-display); margin:0; }
+  .research-step p { font-size:14px !important; line-height:1.65 !important; padding-top:10px; border-top:1px solid var(--rule-soft); }
+  .step-arrow { align-self:center; font:400 18px var(--font-mono); color:var(--muted); }
+  .so-what { margin-top:28px !important; padding-left:16px; border-left:3px solid var(--accent); font-weight:600 !important; }
+  .so-what span { color:var(--accent); }
   .deck-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
   .deck-card { min-width:0; }
   .deck-visual { height:330px; border:var(--rule); padding:24px; position:relative; display:flex; flex-direction:column; overflow:hidden; }
@@ -48,5 +83,6 @@ import EventPosts from './EventPosts.astro';
   .bike-deck svg { width:66%; height:110px; bottom:20px; }
   .event-links { display:flex; flex-wrap:wrap; gap:0 24px; margin-top:20px; }
   .event-links a { display:inline-flex; align-items:center; min-height:44px; font-size:15px; }
+  @media(max-width:819px) { .research-steps { grid-template-columns:minmax(0,1fr); } .step-arrow { justify-self:center; transform:rotate(90deg); } }
   @media(max-width:699px) { .deck-grid { grid-template-columns:minmax(0,1fr); gap:32px; } .deck-visual { height:310px; } .deck-visual h3 { font-size:36px; } }
 </style>
