@@ -1,7 +1,7 @@
 ---
 title: Dreame
-headline: "One season. Two audiences."
-lead: I built a creator shortlist and a four-phase social plan for Dreame’s U.S. Back-to-School campaign.
+headline: "Dreame’s U.S. Back-to-School campaign"
+lead: I screened 40+ nano-creators, wrote campaign briefs for 8 product-seeding partnerships, and proposed a four-phase social content plan.
 description: A visual look at my creator selection, product seeding, and proposed social concepts for Dreame’s U.S. Back-to-School campaign.
 timeline: Summer 2025
 tag: Back-to-School · creators, social plan, press data
@@ -16,7 +16,8 @@ coverSteps: ["pre-heat", "launch", "engage", "convert"]
 coverNote: one season, two buyers
 summary: Creator research + campaign planning
 metrics: ["8 creators seeded", "40+ screened"]
-caseKicker: Dreame · U.S. Back-to-School
+caseKicker: Marketing case study · Summer 2025
+caseSummary: A seasonal campaign promoting Dreame’s cleaning and hair-care products to U.S. parents and students preparing for the new school year.
 caseContext: ["Marketing & PR Intern", "U.S. team · Summer 2025", "Creonix · Instagram · Meltwater · Canva"]
 caseOutputs:
   - { value: "40+", label: "nano-creators screened" }
@@ -33,5 +34,3 @@ I segmented a **200+ journalist** list across tech, lifestyle, and parenting, pi
 ### What I’d change
 
 **Lead with the deal or the product proof.** In this week’s nine-headline snapshot, deals and reviews each accounted for three stories; none focused on seasonal campaigns. Next time I’d connect the press report to the pitch: a specific offer for deal writers, a review unit for product testers, and a human story for lifestyle writers.
-
-**Bring evidence to the creative pitch.** I used my own dorm-life experience to develop the concepts. Next time I’d add trend data or creator benchmarks before recommending a direction.

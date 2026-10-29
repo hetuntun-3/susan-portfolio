@@ -29,6 +29,7 @@ const work = defineCollection({
     coverStatLabel: z.string().optional(),
     description: z.string().optional(),
     caseKicker: z.string().optional(),
+    caseSummary: z.string().optional(),
     caseContext: z.array(z.string()).default([]),
     caseOutputs: z.array(z.object({ value: z.string(), label: z.string() })).default([]),
     scopeNote: z.string().optional(),

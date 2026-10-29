@@ -29,8 +29,11 @@ const md = (s: string) =>
       <div class="container">
         <a class="back-link" href="/work">← all work</a>
         {d.caseKicker && <p class="micro case-kicker">{d.caseKicker}</p>}
-        <h1>{entry.id === 'dreame' ? <>One season.<br />Two audiences.</> : d.headline}</h1>
-        {d.lead && <p class="lead">{d.lead}</p>}
+        <h1>{d.headline}</h1>
+        {visualCase ? <div class="case-intro-grid">
+          <section aria-label="Project context"><h2>The project</h2><p>{d.caseSummary}</p></section>
+          <section aria-label="My responsibility"><h2>What I did</h2><p>{d.lead}</p></section>
+        </div> : d.lead && <p class="lead">{d.lead}</p>}
       </div>
     </header>
 
@@ -71,7 +74,12 @@ const md = (s: string) =>
 <style>
   .visual-case .case-head .container { max-width:1120px; }
   .case-kicker { margin:24px 0 12px; }
-  .visual-case .case-head h1 { font-size:clamp(38px,5.5vw,64px); max-width:18ch; margin:0 0 20px; }
+  .visual-case .case-head h1 { font-size:clamp(34px,4.2vw,52px); max-width:25ch; margin:0 0 20px; }
   .visual-case .case-head .lead { max-width:64ch; }
   .visual-case .case-head { padding-bottom:28px; }
+  .case-intro-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:32px; margin-top:28px; }
+  .case-intro-grid section { border-left:3px solid var(--block); padding-left:20px; }
+  .case-intro-grid h2 { font:600 24px/1.2 var(--font-display); margin-bottom:12px; }
+  .case-intro-grid p { font-size:15px; line-height:1.75; margin:0; max-width:54ch; }
+  @media(max-width:699px) { .case-intro-grid { grid-template-columns:minmax(0,1fr); gap:24px; } .case-intro-grid p { font-size:13px; } .case-intro-grid h2 { font-size:22px; } }
 </style>

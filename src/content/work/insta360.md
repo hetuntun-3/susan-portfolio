@@ -1,7 +1,7 @@
 ---
 title: Insta360
-headline: "Paris, in motion."
-lead: I selected 100 camera-equipped riders and prepared two audience-specific workshop decks for Insta360’s Paris cycling activation.
+headline: "Insta360’s Paris cycling activation"
+lead: Working from HQ, I selected 100 camera-equipped riders and prepared workshop decks for cyclists and runners, supported by 18 creator demo videos.
 description: How I selected the 100 camera-equipped riders for Insta360's 200+ rider Paris event, and wrote the cycling and running workshop decks.
 timeline: Summer 2026
 tag: Community event · rider selection + launch decks
@@ -16,7 +16,8 @@ coverTitle: Paris, in motion
 coverNote: 100 camera riders selected · 2 workshop decks
 summary: Rider selection + workshop positioning
 metrics: ["100 riders selected", "2 audience decks"]
-caseKicker: Insta360 · Paris cycling activation
+caseKicker: Marketing case study · July 2026
+caseSummary: A three-day Paris community activation during the Tour de France finale weekend, combining workshops, a group run, and a 90 km Hero Ride.
 caseContext: ["Marketing Intern", "HQ team · Summer 2026", "Canva · Instagram · TikTok"]
 caseOutputs:
   - { value: "100", label: "camera-equipped riders selected" }
@@ -31,12 +32,6 @@ tldr: []
 **GO Ultra:** hands-free POV and bike mounting. **X5:** 360° footage with perspective chosen after filming. **Ace Pro 2:** low-light capture and a flip touchscreen. **X4 Air:** hands-free capture and an invisible selfie stick.
 
 The cycling deck covered all four cameras; the running deck focused on GO Ultra and X4 Air. Each cycling camera was paired with three creator examples.
-
-### What I’d improve
-
-**Make the selection rubric reusable.** Write down a simple score for riding frequency and story quality so teammates can screen consistently.
-
-**Adapt every product example.** The running story was rewritten, but one feature grid still showed bike mounting. Next time I’d use running-specific accessories throughout.
 
 ### Additional event reporting
 

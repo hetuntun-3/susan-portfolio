@@ -53,3 +53,9 @@
   .case-story .press-content { padding:0 20px 24px; }
   .case-story summary strong { font-size:21px; }
 }
+
+.case-story .learning-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+.case-story .learning-grid > div { padding:24px; background:color-mix(in srgb,var(--block) 18%,var(--paper)); border-top:3px solid var(--block); }
+.case-story .learning-grid h3 { font-size:24px; line-height:1.25; margin-bottom:14px; }
+.case-story .learning-grid p { font-size:13px; margin:0; }
+@media(max-width:699px) { .case-story .learning-grid { grid-template-columns:minmax(0,1fr); } }
