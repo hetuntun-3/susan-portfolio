@@ -77,12 +77,12 @@ const highlightNumbers = (s: string) => md(s).replace(/(40\+|\b(?:100|18|8|4|2)\
 <style>
   .visual-case .case-head .container { max-width:1120px; }
   .case-kicker { margin:24px 0 12px; }
-  .visual-case .case-head h1 { font-size:clamp(34px,4vw,48px); max-width:26ch; text-wrap:balance; margin:0 0 20px; }
+  .visual-case .case-head h1 { font-size:clamp(34px,4.4vw,56px); max-width:19ch; line-height:1.08; text-wrap:balance; margin:0; }
   .visual-case .case-head .lead { max-width:64ch; }
   .visual-case .case-head { padding-bottom:28px; }
-  .case-intro-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:32px; margin-top:28px; }
+  .case-intro-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0; margin-top:0; }
   .case-intro-grid section { min-width:0; }
   .case-intro-grid h2 { font:400 15px/1.6 var(--font-mono); margin-bottom:8px; color:var(--muted); }
   .case-intro-grid p { font-size:15px; line-height:1.75; margin:0; max-width:54ch; }
-  @media(max-width:699px) { .case-intro-grid { grid-template-columns:minmax(0,1fr); gap:24px; } .case-intro-grid p { font-size:14px; } .case-intro-grid h2 { font-size:14px; } }
+  @media(max-width:699px) { .case-intro-grid { grid-template-columns:minmax(0,1fr); gap:0; } .case-intro-grid p { font-size:14px; } .case-intro-grid h2 { font-size:14px; } }
 </style>
