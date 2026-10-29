@@ -25,7 +25,7 @@ const md = (s: string) =>
       <div class="container">
         <a class="back-link" href="/work">← all work</a>
         {entry.id === 'dreame' && <p class="micro dreame-kicker">Dreame · U.S. Back-to-School</p>}
-        <h1>{d.headline}</h1>
+        <h1>{entry.id === 'dreame' ? <>One season.<br />Two audiences.</> : d.headline}</h1>
         {d.lead && <p class="lead">{d.lead}</p>}
       </div>
     </header>
