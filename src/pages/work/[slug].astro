@@ -22,6 +22,7 @@ const { Content } = await render(entry);
 // Lets you write **bold** inside TL;DR values in the front-matter
 const md = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+const highlightNumbers = (s: string) => md(s).replace(/(40\+|\b(?:100|18|8|4|2)\b)/g, '<strong class="key-number">$1</strong>');
 ---
 <Base title={d.headline ?? d.title} description={d.description ?? d.lead} caseSlug={entry.id}>
   <article class={visualCase ? 'visual-case' : undefined} style={`--block: var(--block-${d.block})`}>
@@ -32,7 +33,7 @@ const md = (s: string) =>
         <h1>{d.headline?.split('Back-to-School').map((part, i) => <>{i > 0 && <span style="white-space:nowrap">Back-to-School</span>}{part}</>)}</h1>
         {visualCase ? <div class="case-intro-grid">
           <section aria-label="Project context"><h2>The project</h2><p>{d.caseSummary}</p></section>
-          <section aria-label="My responsibility"><h2>What I did</h2><p>{d.lead}</p></section>
+          <section aria-label="My responsibility"><h2>What I did</h2><p set:html={highlightNumbers(d.lead ?? '')} /></section>
         </div> : d.lead && <p class="lead">{d.lead}</p>}
       </div>
     </header>

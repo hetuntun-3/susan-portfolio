@@ -1,8 +1,12 @@
+---
+import EventPosts from './EventPosts.astro';
+---
 <div class="case-story container">
   <section class="story-section" aria-labelledby="insta-approach">
     <h2 id="insta-approach">Approach</h2>
     <p>I selected riders for their riding habits and storytelling, then tailored the workshop decks to each sport. The aim was to show what people could capture, rather than list every camera feature.</p>
   </section>
+  <EventPosts />
   <section class="story-section" aria-labelledby="insta-work">
     <h2 id="insta-work">One product story, adapted to two sports</h2>
     <div class="deck-grid">
@@ -19,8 +23,18 @@
   </section>
   <section class="story-section closing" aria-labelledby="insta-outcome">
     <h2 id="insta-outcome">Outcome & reflection</h2>
-    <p>The event brought together 200+ riders for a 90 km ride. My contribution was prepared from HQ; I did not receive data on how many selected riders posted.</p>
-    <p>Next time, I’d write down the selection rubric and agree on posting metrics before the event, so the team could learn which riders and stories performed best.</p>
+    <p>The event brought together <strong class="key-number">200+ riders</strong> for a <strong class="key-number">90 km</strong> ride. My contribution was prepared from HQ; I did not receive data on how many selected riders posted.</p>
+    <details class="case-reflection">
+      <summary>Reflection & what I’d do next <span aria-hidden="true">+</span></summary>
+      <div class="reflection-copy">
+        <h3>Make the selection rubric reusable.</h3>
+        <p>I evaluated riding habits and story quality, but the judgment wasn’t formalized. A simple written score for each signal would let teammates screen consistently and make the final selection easier to review.</p>
+        <h3>Adapt every example to the audience.</h3>
+        <p>The running story was rewritten for runners, but one feature grid still showed bike mounting. Next time I’d adapt the accessories and demonstrations as carefully as the message, using running-specific examples throughout.</p>
+        <h3>Agree on measurement before the event.</h3>
+        <p>I worked from HQ and didn’t receive data on which selected riders posted. I’d track registration source, selection scores, and post-event content so the team could compare its assumptions with what happened and improve the next shortlist.</p>
+      </div>
+    </details>
     <div class="event-links"><a href="https://www.prnewswire.com/news-releases/think-bold-ride-bold-insta360-takes-over-the-champs-elysees-with-200-rider-community-event-302833050.html" target="_blank" rel="noopener noreferrer">Official event announcement ↗</a><a href="https://www.rideapart.com/news/803889/insta360s-paris-pop-up-cycling-event-was-crazy-good-please-make-one-for-motorcyclists/" target="_blank" rel="noopener noreferrer">Event photos & recap ↗</a></div>
   </section>
 </div>

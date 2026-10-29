@@ -14,3 +14,16 @@
   .case-story h2 { font-size:28px; }
   .case-story p { font-size:14px; }
 }
+
+/* A few numbers carry emphasis; supporting paragraphs keep the same type scale. */
+.visual-case .key-number { font-weight:600; background:color-mix(in srgb,var(--block) 32%,transparent); padding:0 3px; }
+.case-story .case-reflection { max-width:78ch; margin-top:24px; border-top:1px solid var(--rule-soft); border-bottom:1px solid var(--rule-soft); }
+.case-story .case-reflection summary { display:flex; align-items:center; justify-content:space-between; gap:20px; min-height:60px; padding:14px 0; font:400 15px/1.7 var(--font-mono); cursor:pointer; list-style:none; }
+.case-reflection summary::-webkit-details-marker { display:none; }
+.case-reflection summary > span { font-size:22px; }
+.case-reflection[open] summary > span { transform:rotate(45deg); }
+.case-story .reflection-copy { padding:4px 0 24px; }
+.case-story .reflection-copy h3 { font:600 15px/1.7 var(--font-mono); margin:20px 0 8px; }
+.case-story .reflection-copy h3:first-child { margin-top:0; }
+.case-story .reflection-copy p { font-weight:400; }
+@media(max-width:699px) { .case-story .case-reflection summary,.case-story .reflection-copy h3 { font-size:14px; } }
