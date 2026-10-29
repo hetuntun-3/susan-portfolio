@@ -1,5 +1,9 @@
 ---
 import Base from '../../layouts/Base.astro';
+import DreameStory from '../../components/DreameStory.astro';
+import InstaStory from '../../components/InstaStory.astro';
+import CaseOverview from '../../components/CaseOverview.astro';
+import '../../styles/case-story.css';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -13,26 +17,32 @@ export async function getStaticPaths() {
 
 const { entry, prev, next } = Astro.props;
 const d = entry.data;
+const visualCase = entry.id === 'insta360' || entry.id === 'dreame';
 const { Content } = await render(entry);
 // Lets you write **bold** inside TL;DR values in the front-matter
 const md = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+const highlightNumbers = (s: string) => md(s).replace(/(40\+|\b(?:100|18|8|4|2)\b)/g, '<strong class="key-number">$1</strong>');
 ---
 <Base title={d.headline ?? d.title} description={d.description ?? d.lead} caseSlug={entry.id}>
-  <article class={entry.id === 'insta360' ? 'insta-case' : undefined} style={`--block: var(--block-${d.block})`}>
+  <article class={visualCase ? 'visual-case' : undefined} style={`--block: var(--block-${d.block})`}>
     <header class="case-head">
       <div class="container">
         <a class="back-link" href="/work">← all work</a>
-        <h1>{d.headline}</h1>
-        {d.lead && <p class="lead">{d.lead}</p>}
+        <div class={visualCase ? "case-title-panel" : undefined}>
+        {visualCase ? <CaseOverview context={d.caseContext} timeline={d.timeline} /> : d.caseKicker && <p class="micro case-kicker">{d.caseKicker}</p>}
+        <h1>{d.headline?.split('Back-to-School').map((part, i) => <>{i > 0 && <span style="white-space:nowrap">Back-to-School</span>}{part}</>)}</h1>
+        {visualCase && <svg class="case-flourish" viewBox="0 0 240 160" fill="none" aria-hidden="true"><path d="M10 125C60 125 58 40 120 60S181 145 230 26" stroke="currentColor" stroke-width="2" stroke-dasharray="5 7"/><circle cx="10" cy="125" r="5" fill="currentColor"/><circle cx="230" cy="26" r="5" fill="currentColor"/><path d="M156 20v40m-20-20h40m-34-14 28 28m0-28-28 28" stroke="currentColor" stroke-width="2"/></svg>}
+        </div>
+        {visualCase ? <div class="case-intro-grid">
+          <section aria-label="Project context"><h2>The project</h2><p>{d.caseSummary}</p></section>
+          <section aria-label="My responsibility"><h2>What I did</h2><p set:html={highlightNumbers(d.lead ?? '')} /></section>
+        </div> : d.lead && <p class="lead">{d.lead}</p>}
       </div>
     </header>
 
-    {entry.id === 'insta360' && <div class="container case-output-strip" aria-label="My contributions">
-      <div><strong>100</strong><span>camera riders selected</span></div>
-      <div><strong>2</strong><span>audience workshop decks</span></div>
-      <div><strong>18</strong><span>creator demos curated</span></div>
-    </div>}
+    {entry.id === 'insta360' && <InstaStory />}
+    {entry.id === 'dreame' && <DreameStory />}
     <div class="container reading">
       {d.tldr.length > 0 && (
         <section class="tldr" aria-label="TL;DR">
@@ -48,9 +58,9 @@ const md = (s: string) =>
         </section>
       )}
 
-      <div class="prose">
+      {!visualCase && <div class="prose">
         <Content />
-      </div>
+      </div>}
 
       <nav class="case-nav" aria-label="More case studies">
         {prev && (
@@ -63,3 +73,16 @@ const md = (s: string) =>
     </div>
   </article>
 </Base>
+
+<style>
+  .visual-case .case-head .container { max-width:1120px; }
+  .case-kicker { margin:24px 0 12px; }
+  .visual-case .case-head h1 { font-size:clamp(34px,4.4vw,56px); max-width:19ch; line-height:1.08; text-wrap:balance; margin:0; }
+  .visual-case .case-head .lead { max-width:64ch; }
+  .visual-case .case-head { padding-bottom:28px; }
+  .case-intro-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0; margin-top:0; }
+  .case-intro-grid section { min-width:0; }
+  .case-intro-grid h2 { font:400 15px/1.6 var(--font-mono); margin-bottom:8px; color:var(--muted); }
+  .case-intro-grid p { font-size:15px; line-height:1.75; margin:0; max-width:54ch; }
+  @media(max-width:699px) { .case-intro-grid { grid-template-columns:minmax(0,1fr); gap:0; } .case-intro-grid p { font-size:14px; } .case-intro-grid h2 { font-size:14px; } }
+</style>

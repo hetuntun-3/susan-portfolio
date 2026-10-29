@@ -1,0 +1,52 @@
+---
+import EventPosts from './EventPosts.astro';
+---
+<div class="case-story container">
+  <section class="story-section" aria-labelledby="insta-approach">
+    <h2 id="insta-approach">Approach</h2>
+    <p>I selected riders for their riding habits and storytelling, then tailored the workshop decks to each sport. The aim was to show what people could capture, rather than list every camera feature.</p>
+  </section>
+  <section class="story-section" aria-labelledby="insta-work">
+    <h2 id="insta-work">One product story, adapted to two sports</h2>
+    <div class="deck-grid">
+      <article class="deck-card">
+        <div class="deck-visual bike-deck"><h3>The ride.<br />The people.<br />The memories.</h3><svg viewBox="0 0 440 170" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 140C95 150 95 25 195 45S305 150 425 46" stroke-dasharray="6 10" opacity=".45"/><circle cx="147" cy="117" r="30" fill="#FAF8F4"/><circle cx="267" cy="117" r="30" fill="#FAF8F4"/><path d="M147 117L180 64L219 117H147L193 81H249L267 117M238 52H251L249 81M172 62H193M215 18L193 43L210 67L240 70M193 43L174 33"/><circle cx="230" cy="14" r="10" fill="#FAF8F4"/></svg></div>
+        <p class="sample-caption">Cycling: hands-free capture, bike mounting, and creator examples.</p>
+      </article>
+      <article class="deck-card">
+        <div class="deck-visual run-deck"><h3>More than<br />the distance.</h3><svg viewBox="0 0 440 170" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 141C90 74 106 164 174 103S289 160 421 56" stroke-dasharray="6 10" opacity=".45"/><circle cx="232" cy="31" r="12" fill="#FAF8F4"/><path d="M217 53L192 87L221 105L198 143M219 58L247 75L272 53M211 64L177 60L158 79M221 105L252 117L280 106M194 143L181 147M280 106L289 108"/><path d="M306 30V46M298 38H314M123 102V114M117 108H129"/></svg></div>
+        <p class="sample-caption">Running: capture the people, places, and moments along the way.</p>
+      </article>
+    </div>
+    <p class="work-caption">Recreated summaries of my workshop positioning, illustrated for this portfolio.</p>
+  </section>
+  <section class="story-section closing" aria-labelledby="insta-outcome">
+    <h2 id="insta-outcome">Outcome & reflection</h2>
+    <p>The event brought together <strong class="key-number">200+ riders</strong> for a <strong class="key-number">90 km</strong> ride. My contribution was prepared from HQ; I did not receive data on how many selected riders posted.</p>
+    <EventPosts />
+    <details class="case-reflection">
+      <summary>Reflection & what I’d do next <span aria-hidden="true">+</span></summary>
+      <div class="reflection-copy">
+        <h3>Make the selection rubric reusable.</h3>
+        <p>I evaluated riding habits and story quality, but the judgment wasn’t formalized. A simple written score for each signal would let teammates screen consistently and make the final selection easier to review.</p>
+        <h3>Adapt every example to the audience.</h3>
+        <p>The running story was rewritten for runners, but one feature grid still showed bike mounting. Next time I’d adapt the accessories and demonstrations as carefully as the message, using running-specific examples throughout.</p>
+        <h3>Agree on measurement before the event.</h3>
+        <p>I worked from HQ and didn’t receive data on which selected riders posted. I’d track registration source, selection scores, and post-event content so the team could compare its assumptions with what happened and improve the next shortlist.</p>
+      </div>
+    </details>
+    <div class="event-links"><a href="https://www.prnewswire.com/news-releases/think-bold-ride-bold-insta360-takes-over-the-champs-elysees-with-200-rider-community-event-302833050.html" target="_blank" rel="noopener noreferrer">Official event announcement ↗</a><a href="https://www.rideapart.com/news/803889/insta360s-paris-pop-up-cycling-event-was-crazy-good-please-make-one-for-motorcyclists/" target="_blank" rel="noopener noreferrer">Event photos & recap ↗</a></div>
+  </section>
+</div>
+<style>
+  .deck-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+  .deck-card { min-width:0; }
+  .deck-visual { height:330px; border:var(--rule); padding:24px; position:relative; display:flex; flex-direction:column; overflow:hidden; }
+  .bike-deck { background:#F7DE69; } .run-deck { background:#DCE9DB; }
+  .deck-visual h3 { font:600 42px/1.08 var(--font-display); letter-spacing:-.02em; margin:0; }
+  .deck-visual svg { position:absolute; width:86%; right:12px; bottom:20px; height:135px; }
+  .bike-deck svg { width:66%; height:110px; bottom:20px; }
+  .event-links { display:flex; flex-wrap:wrap; gap:0 24px; margin-top:20px; }
+  .event-links a { display:inline-flex; align-items:center; min-height:44px; font-size:15px; }
+  @media(max-width:699px) { .deck-grid { grid-template-columns:minmax(0,1fr); gap:32px; } .deck-visual { height:310px; } .deck-visual h3 { font-size:36px; } }
+</style>

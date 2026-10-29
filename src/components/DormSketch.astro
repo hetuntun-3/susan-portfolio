@@ -1,0 +1,23 @@
+---
+interface Props { messy?: boolean; cleaning?: boolean }
+const { messy = false, cleaning = false } = Astro.props;
+---
+<svg viewBox="0 0 320 190" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M25 153H295M35 153V45H285V153" />
+  <path d="M50 145V106H143V145M50 121H143M58 145V151M135 145V151" />
+  <rect x="56" y="92" width="32" height="15" rx="5" fill="#FAF8F4" />
+  <path d="M92 105V91H137V121H92" fill={messy ? '#F4C7B5' : '#CDBEF2'} />
+  <path d="M175 110H267M184 110V150M257 110V150" />
+  <path d="M191 106V82H226V106M187 107H231M245 109V93M237 85Q245 77 245 96Q245 75 254 83Q259 94 245 96Q230 96 237 85Z" />
+  <rect x="155" y="57" width="44" height="28" fill="#FAF8F4" />
+  <path d="M161 78L171 68L180 75L189 65M61 56H119M90 56V84M61 70H119M61 56V84H119V56" />
+  {messy && <g>
+    <path d="M113 137L123 131L134 136L130 148L116 151L110 144ZM156 157L163 146L174 151L166 160L153 162M204 135L213 137L208 148L199 146Z" fill="#F4C7B5" />
+    <path d="M70 102L90 91L110 104L126 96M180 128L193 132M180 132L193 128M235 154L247 150L255 156" />
+  </g>}
+  {cleaning && <g>
+    <path d="M146 155H184L178 146H151Z" fill="#CDBEF2" />
+    <path d="M167 146L189 111L200 86H209M192 105L198 108L180 139L174 136Z" fill="#FAF8F4" />
+    <path d="M217 57V70M211 64H223M145 79V88M141 83H149" />
+  </g>}
+</svg>

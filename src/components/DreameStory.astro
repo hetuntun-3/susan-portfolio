@@ -1,0 +1,80 @@
+---
+import DormSketch from './DormSketch.astro';
+---
+<div class="case-story container">
+  <section class="story-section" aria-labelledby="dreame-approach">
+    <h2 id="dreame-approach">Approach</h2>
+    <p>Parents held the budget; students shaped what felt worth buying. I prioritized creators with relevant audiences and real conversations, then built social concepts around relatable dorm life.</p>
+  </section>
+  <section class="story-section" aria-labelledby="dreame-work">
+    <h2 id="dreame-work">From dorm humor to a student offer</h2>
+    <div class="concept-grid">
+      <article class="concept-card">
+        <div class="mockup dorm-meme" aria-label="Illustrative dorm realities meme concept">
+          <div class="meme-pair"><div><span>move-in day</span><DormSketch /></div><div><span>one week later</span><DormSketch messy /></div></div>
+          <div class="mock-punchline">Tiny room.<br />Big mess.</div>
+        </div>
+        <p class="sample-caption">01 — Make the problem relatable.</p>
+      </article>
+      <article class="concept-card">
+        <div class="mockup main-character" aria-label="Illustrative main character cleaning concept">
+          <div class="mock-display">Your room.<br />Your reset.</div>
+          <DormSketch cleaning />
+        </div>
+        <p class="sample-caption">02 — Make the solution appealing.</p>
+      </article>
+      <article class="concept-card">
+        <div class="mockup survival-kit" aria-label="Illustrative dorm survival kit carousel cover">
+          <div class="mock-display">The dorm<br />survival kit.</div>
+          <svg class="kit-drawing" viewBox="0 0 360 150" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M26 43L76 33L91 111L41 121ZM38 56L65 50M42 67L70 61M135 116V65H182V116ZM139 64L147 36H171L179 64M145 35V26H173V35M222 119L230 96H273L281 119ZM235 96V79M231 82Q212 61 228 54Q243 49 246 76Q248 41 263 48Q281 56 252 81M305 114V42H338V114ZM316 49H328M318 106H326"/><path d="M104 29V43M97 36H111M292 57V67M287 62H297"/></svg>
+        </div>
+        <p class="sample-caption">03 — Give students something to save.</p>
+      </article>
+      <article class="concept-card">
+        <div class="mockup student-deal" aria-label="Illustrative student-ID offer poster concept, not a current offer">
+          <span class="deal-extra">EXTRA</span><strong class="deal-number">10<span>%</span></strong>
+          <span class="deal-detail">off with student ID</span>
+          <span class="deal-ticket">small space. smarter start. ↗</span>
+        </div>
+        <p class="sample-caption">04 — Connect interest to an offer.</p>
+      </article>
+    </div>
+    <p class="work-caption">Portfolio reconstructions of my unlaunched social concepts. The student offer shown is historical.</p>
+  </section>
+  <section class="story-section closing" aria-labelledby="dreame-outcome">
+    <h2 id="dreame-outcome">Outcome & reflection</h2>
+    <p><strong class="key-number">8 creators</strong> received the G10. The social plan was shelved during a team restructure, and reach and sales results were unavailable to me.</p>
+    <details class="case-reflection">
+      <summary>Reflection & what I’d do next <span aria-hidden="true">+</span></summary>
+      <div class="reflection-copy">
+        <h3>Test the creative instinct.</h3>
+        <p>I drew on my own dorm-life experience to develop the concepts. Next time I’d bring trend data or creator benchmarks to the pitch, then test which message and format earn a response.</p>
+        <h3>Connect creator selection to conversion.</h3>
+        <p>Audience fit and genuine engagement helped me build the shortlist, but product seeding alone doesn’t show business impact. I’d give each creator a unique link or code and agree on a reporting window before sending products.</p>
+
+      </div>
+    </details>
+  </section>
+</div>
+<style>
+  .concept-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:32px 24px; }
+  .concept-card { min-width:0; }
+  .mockup { position:relative; height:330px; padding:24px; border:var(--rule); overflow:hidden; display:flex; flex-direction:column; }
+  .dorm-meme { background:#F7DE69; }
+  .meme-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+  .meme-pair > div { border:var(--rule); background:var(--paper); }
+  .meme-pair span { display:block; padding:6px; border-bottom:var(--rule); font-size:12px; text-align:center; }
+  .meme-pair :global(svg) { display:block; width:100%; max-height:110px; }
+  .mock-punchline,.mock-display { font:600 42px/1.08 var(--font-display); margin-top:24px; letter-spacing:-.02em; }
+  .main-character { background:#DED3F3; }
+  .main-character :global(svg) { position:absolute; width:78%; right:12px; bottom:16px; }
+  .survival-kit { background:#DCE9DB; }
+  .kit-drawing { width:100%; margin:auto 0; }
+  .student-deal { background:#F4C7B5; align-items:center; justify-content:center; text-align:center; }
+  .deal-extra { font-size:12px; letter-spacing:.1em; }
+  .deal-number { font:600 104px/1 var(--font-display); letter-spacing:-.06em; }
+  .deal-number span { font-size:54px; }
+  .deal-detail { font-size:15px; margin-top:10px; }
+  .deal-ticket { border:var(--rule); padding:8px 12px; transform:rotate(-4deg); font-size:12px; margin-top:24px; background:var(--paper); }
+  @media(max-width:699px) { .concept-grid { grid-template-columns:minmax(0,1fr); } .mockup { height:310px; } .mock-punchline,.mock-display { font-size:36px; } }
+</style>

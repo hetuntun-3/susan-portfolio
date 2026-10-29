@@ -1,0 +1,32 @@
+---
+const posts = [
+  { url: 'https://www.instagram.com/reel/DbSuPXGRuoe/', label: 'Insta360 · Official event recap' },
+  { url: 'https://www.instagram.com/p/DadDQB9jM-A/', label: 'Le Peloton Cycling Club · Ride announcement' },
+];
+---
+<section class="event-posts" aria-labelledby="event-posts-title">
+  <h3 id="event-posts-title">See the event</h3>
+  <div class="event-grid">
+    {posts.map(post => <figure>
+      <div class="event-embed">
+        <blockquote class="instagram-media" data-instgrm-permalink={post.url} data-instgrm-version="14">
+          <a href={post.url} target="_blank" rel="noopener noreferrer">View {post.label} on Instagram ↗</a>
+        </blockquote>
+      </div>
+      <figcaption><a href={post.url} target="_blank" rel="noopener noreferrer">{post.label} ↗</a></figcaption>
+    </figure>)}
+  </div>
+</section>
+<script is:inline async src="https://www.instagram.com/embed.js"></script>
+<style>
+  .event-posts { margin-top:32px; }
+  h3 { font:600 26px/1.2 var(--font-display); margin:0 0 20px; }
+  .event-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; max-width:920px; }
+  figure { margin:0; min-width:0; }
+  .event-embed { min-width:0; }
+  .event-embed :global(.instagram-media) { width:100% !important; min-width:0 !important; max-width:100% !important; margin:0 !important; }
+  blockquote { padding:24px; border:var(--rule); background:var(--surface); }
+  figcaption { font:400 14px/1.7 var(--font-mono); padding-top:12px; }
+  figcaption a { display:inline-block; min-height:44px; }
+  @media(max-width:699px) { .event-grid { grid-template-columns:minmax(0,1fr); gap:24px; } }
+</style>

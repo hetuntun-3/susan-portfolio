@@ -1,0 +1,6 @@
+---
+interface Props { context: string[]; timeline: string }
+const { context, timeline } = Astro.props;
+---
+<p class="case-role">{context[0]} · {timeline}</p>
+<style>.case-role { margin:24px 0 16px; font:400 15px/1.6 var(--font-mono); color:var(--muted); } @media(max-width:699px) { .case-role { font-size:14px; } }</style>
