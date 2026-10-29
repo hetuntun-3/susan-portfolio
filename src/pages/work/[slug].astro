@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import DreameStory from '../../components/DreameStory.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -19,10 +20,11 @@ const md = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
 ---
 <Base title={d.headline ?? d.title} description={d.description ?? d.lead} caseSlug={entry.id}>
-  <article class={entry.id === 'insta360' ? 'insta-case' : undefined} style={`--block: var(--block-${d.block})`}>
+  <article class={entry.id === 'insta360' ? 'insta-case' : entry.id === 'dreame' ? 'dreame-case' : undefined} style={`--block: var(--block-${d.block})`}>
     <header class="case-head">
       <div class="container">
         <a class="back-link" href="/work">← all work</a>
+        {entry.id === 'dreame' && <p class="micro dreame-kicker">Dreame · U.S. Back-to-School</p>}
         <h1>{d.headline}</h1>
         {d.lead && <p class="lead">{d.lead}</p>}
       </div>
@@ -33,6 +35,7 @@ const md = (s: string) =>
       <div><strong>2</strong><span>audience workshop decks</span></div>
       <div><strong>18</strong><span>creator demos curated</span></div>
     </div>}
+    {entry.id === 'dreame' && <DreameStory><Content /></DreameStory>}
     <div class="container reading">
       {d.tldr.length > 0 && (
         <section class="tldr" aria-label="TL;DR">
@@ -48,9 +51,9 @@ const md = (s: string) =>
         </section>
       )}
 
-      <div class="prose">
+      {entry.id !== 'dreame' && <div class="prose">
         <Content />
-      </div>
+      </div>}
 
       <nav class="case-nav" aria-label="More case studies">
         {prev && (
@@ -63,3 +66,11 @@ const md = (s: string) =>
     </div>
   </article>
 </Base>
+
+<style>
+  .dreame-case .case-head .container { max-width:1120px; }
+  .dreame-kicker { margin:24px 0 12px; }
+  .dreame-case .case-head h1 { font-size:clamp(38px,5.5vw,64px); max-width:18ch; margin:0 0 20px; }
+  .dreame-case .case-head .lead { max-width:64ch; }
+  .dreame-case .case-head { padding-bottom:28px; }
+</style>
