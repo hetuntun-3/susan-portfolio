@@ -12,7 +12,33 @@ import DormSketch from './DormSketch.astro';
   <section class="story-section project" id="d-bts" aria-labelledby="dreame-bts">
     <p class="project-tag">01 · campaign</p>
     <h2 id="dreame-bts">Back-to-School campaign</h2>
-    <p>The brand theme was “Reset Smarter, Live Cleaner.” From my own move-in experience, I saw a second story underneath: back-to-school is emotional for two different people. Students want a fresh start; parents are letting go but still want to help. I proposed a concept that spoke to both.</p>
+    <p class="lede">Dreame’s U.S. back-to-school push, aimed at students and the parents buying for them. My work had two parts:</p>
+    <ol class="did-list">
+      <li><a href="#d-bts-partners"><span>1</span><em><strong>Partnerships</strong> with creators, student associations, and journalists</em></a></li>
+      <li><a href="#d-bts-concepts"><span>2</span><em><strong>Social post concepts</strong>, from the core idea to four post mockups</em></a></li>
+    </ol>
+
+    <h3 class="sub-head" id="d-bts-partners"><span class="sub-num">1</span>Partnerships</h3>
+    <div class="partner-grid">
+      <article class="partner-card">
+        <span class="step-num">creators</span>
+        <p class="partner-num"><strong>40+</strong><i>→</i><strong>8</strong></p>
+        <p>Screened nano creators (under 10K followers, real comment sections), then wrote briefs for 8 product-seeding partners.</p>
+      </article>
+      <article class="partner-card">
+        <span class="step-num">student associations</span>
+        <p class="partner-num"><strong>7+</strong><i>→</i><strong>1</strong></p>
+        <p>Proposed partnering with student associations near Dreame’s California stores: posts and shout-outs in exchange for product. Landed 1, with USC.</p>
+      </article>
+      <article class="partner-card">
+        <span class="step-num">journalists</span>
+        <p class="partner-num"><strong>200+</strong></p>
+        <p>Pitched the campaign to parenting, lifestyle, and tech writers from the media list I built and segmented.</p>
+      </article>
+    </div>
+
+    <h3 class="sub-head" id="d-bts-concepts"><span class="sub-num">2</span>Social post concepts</h3>
+    <p>The brand theme was “Reset Smarter, Live Cleaner.” Drawing on my own move-in, I proposed an emotional layer that spoke to both audiences:</p>
     <div class="audience-split">
       <div class="concept-band">
         <span class="step-num">my concept</span>
@@ -29,9 +55,8 @@ import DormSketch from './DormSketch.astro';
         <p>The robot vacuum becomes a quiet helper that keeps cleaning up after them, the way a parent would.</p>
       </div>
     </div>
-    <p class="work-caption">Format ideas I pitched: split-screen TikToks from the student’s and the parent’s point of view, and short clips of dorm chaos turning into a fresh start.</p>
 
-    <h3 class="sub-head">What the data said, and what I recommended</h3>
+    <p class="mini-head">The data behind it</p>
     <ol class="data-steps">
       <li><strong>26%</strong><span>of back-to-school shoppers started by early June, up from 17% in 2019</span><em>→ launch early-bird promos</em></li>
       <li><strong>~1 in 2</strong><span>families buy in phases instead of all at once</span><em>→ offer phased-purchase guidance</em></li>
@@ -39,16 +64,7 @@ import DormSketch from './DormSketch.astro';
     </ol>
     <p class="work-caption">Source: National Retail Federation, 2025 back-to-school research. I summarized it and shared these recommendations with the team.</p>
 
-    <h3 class="sub-head">Getting it in front of students</h3>
-    <p>I started with a broader creator longlist, then narrowed to nano creators (under 10K followers, real comment sections) once the brief set that limit, and wrote their briefs. Because most of Dreame’s stores were in California, I also proposed partnering with university student associations: posts and shout-outs in exchange for product. I also gave feedback on the first key visual: show the chaos of move-in, with one product as the calm helper.</p>
-    <ul class="stat-grid four">
-      <li><strong>40+</strong><span>nano creators screened</span></li>
-      <li><strong>8</strong><span>creators seeded with product</span></li>
-      <li><strong>7+</strong><span>student associations pitched</span></li>
-      <li><strong>1</strong><span>partnership landed, with USC</span></li>
-    </ul>
-
-    <h3 class="sub-head">The social plan: from dorm humor to a student offer</h3>
+    <p class="mini-head">Four posts, from dorm humor to a student offer</p>
     <div class="concept-grid">
       <article class="concept-card">
         <div class="mockup dorm-meme" aria-label="Illustrative dorm realities meme concept">
@@ -80,7 +96,7 @@ import DormSketch from './DormSketch.astro';
         <p class="sample-caption">04 — Connect interest to an offer.</p>
       </article>
     </div>
-    <p class="work-caption">Portfolio reconstructions of my unlaunched social concepts. The student offer shown is historical.</p>
+    <p class="work-caption">Portfolio reconstructions of my unlaunched concepts. The student offer shown is historical. I also suggested formats (split-screen TikToks from the student’s and parent’s view) and gave feedback on the first key visual.</p>
   </section>
 
   <section class="story-section project" id="d-pitch" aria-labelledby="dreame-pitch">
@@ -144,6 +160,23 @@ import DormSketch from './DormSketch.astro';
   </section>
 </div>
 <style>
+  .lede { font-size:16px !important; }
+  .did-list { list-style:none; padding:0; max-width:var(--read,760px); margin:16px auto 0; display:grid; gap:8px; }
+  .did-list a { display:flex; align-items:baseline; gap:14px; padding:12px 16px; border:var(--rule); background:var(--surface); color:var(--ink); text-decoration:none; font:400 15px/1.5 var(--font-mono); }
+  .did-list a:hover { background:color-mix(in srgb,var(--block) 28%,white); }
+  .did-list span, .sub-num { font:700 20px/1 var(--font-display); }
+  .did-list strong { font-weight:600; }
+  .did-list em { font-style:normal; }
+  .sub-head { display:flex; align-items:baseline; gap:12px; scroll-margin-top:24px; font-size:26px !important; padding-top:20px; border-top:1px solid var(--rule-soft); }
+  .sub-num { display:inline-grid; place-items:center; width:34px; height:34px; border:var(--border); background:var(--block); font-size:18px; flex-shrink:0; align-self:center; }
+  .mini-head { font:500 12px/1.4 var(--font-mono) !important; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); margin-top:40px !important; margin-bottom:16px !important; }
+  .partner-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; padding-right:7px; margin-top:20px; }
+  .partner-card { background:var(--surface); border:var(--border); box-shadow:7px 7px 0 var(--block); padding:22px; display:flex; flex-direction:column; gap:10px; min-width:0; }
+  .partner-num { display:flex; align-items:baseline; gap:10px; margin:0 !important; }
+  .partner-num strong { font:700 38px/1 var(--font-display); letter-spacing:-.02em; }
+  .partner-num i { font-style:normal; font:400 20px var(--font-mono); color:var(--muted); }
+  .partner-card > p:not(.partner-num) { font-size:14px !important; line-height:1.6 !important; padding-top:10px; border-top:1px solid var(--rule-soft); }
+  @media(max-width:819px) { .partner-grid { grid-template-columns:1fr; } .sub-head { font-size:22px !important; } }
   .project-index { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border:var(--border); background:var(--surface); }
   .project-index a { display:flex; flex-direction:column; gap:4px; padding:16px 18px; min-height:44px; color:var(--ink); text-decoration:none; font:400 14px/1.45 var(--font-mono); }
   .project-index a + a { border-left:var(--rule); }
