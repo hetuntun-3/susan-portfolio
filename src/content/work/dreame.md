@@ -1,29 +1,29 @@
 ---
 title: Dreame
-headline: "Dreame’s U.S. Back-to-School campaign"
-lead: I screened 40+ nano-creators, wrote campaign briefs for 8 product-seeding partnerships, proposed a four-phase social content plan, and tracked 6 competitors weekly in Meltwater.
-description: A visual look at my creator selection, product seeding, and proposed social concepts for Dreame’s U.S. Back-to-School campaign.
+headline: "Dreame: one lineup, many audiences"
+lead: Proposed a two-audience Back-to-School concept backed by NRF data, seeded 8 nano creators, and landed 1 student-association partnership. Wrote Father’s Day pitches for 3 kinds of outlets, supported 3 launches, and tracked 6 competitors weekly in Meltwater.
+description: "Four projects from my Dreame internship: a two-audience Back-to-School campaign, Father’s Day pitching for three kinds of outlets, launch PR, and weekly media monitoring."
 timeline: Summer 2025
-tag: Back-to-School · creators, social plan, press data
+tag: Campaign + PR · 4 projects
 block: dreame
 order: 2
 featured: true
 # cover: /images/dreame-cover.jpg
 # coverAlt: Concept mockup, not launched
 coverKicker: u.s. · summer 2025
-coverTitle: Back-to-school, from insight to concept
-coverSteps: ["pre-heat", "launch", "engage", "convert"]
+coverTitle: One lineup, many audiences
+coverSteps: ["students", "parents", "dads", "press"]
 coverNote: one season, two buyers
-summary: Creator research + campaign planning
-metrics: ["8 creators seeded", "40+ screened"]
+summary: Campaign + PR projects
+metrics: ["8 creators seeded", "20+ media placements"]
 caseKicker: Marketing case study · Summer 2025
-caseSummary: A seasonal campaign promoting Dreame’s cleaning and hair-care products to U.S. parents and students preparing for the new school year.
+caseSummary: My summer on Dreame’s U.S. marketing and PR team. Four separate projects, each shown on its own below.
 caseContext: ["Marketing & PR Intern", "U.S. team · Summer 2025", "Creonix · Instagram · Meltwater · Canva"]
 caseOutputs:
   - { value: "40+", label: "nano-creators screened" }
   - { value: "8", label: "creators seeded with product" }
   - { value: "4", label: "social campaign phases proposed" }
-scopeNote: Creator seeding ran. Social concepts were proposed, then shelved during a team restructuring. Reach and sales results are unavailable.
+scopeNote: Four separate projects. Creator seeding and one campus partnership ran; the social plan was shelved during a team restructuring.
 tldr: []
 ---
 
