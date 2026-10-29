@@ -1,21 +1,9 @@
 ---
 import DormSketch from './DormSketch.astro';
 ---
-<div class="dreame-story container">
-  <div class="project-context">
-    <span>Marketing & PR Intern</span><span>U.S. team · Summer 2025</span>
-    <span>Creonix · Instagram · Meltwater · Canva</span>
-  </div>
-
-  <div class="output-strip" aria-label="My contributions">
-    <div><strong>40+</strong><span>nano-creators screened</span></div>
-    <div><strong>8</strong><span>creators seeded with product</span></div>
-    <div><strong>4</strong><span>social campaign phases proposed</span></div>
-  </div>
-  <p class="scope-note"><span class="status-dot"></span>Creator seeding ran. Social concepts were proposed, then shelved during a team restructuring. Reach and sales results are unavailable.</p>
-
-  <section class="story-section" aria-labelledby="dreame-audiences">
-    <div class="story-heading"><span class="micro">01 / the insight</span><h2 id="dreame-audiences">The buyer isn’t always the user.</h2></div>
+<div class="case-story dreame-story container">
+  <section class="story-section" id="case-brief" aria-labelledby="dreame-audiences">
+    <div class="story-heading"><span class="micro">01 / the brief</span><h2 id="dreame-audiences">The buyer isn’t always the user.</h2></div>
     <div class="audience-grid">
       <div class="audience-card parent">
         <div class="audience-top"><span class="micro">Parents · the buyers</span><span class="audience-symbol" aria-hidden="true">↗</span></div>
@@ -31,8 +19,8 @@ import DormSketch from './DormSketch.astro';
     <p class="short-take">My approach: give parents a practical reason to buy, and students a reason to care.</p>
   </section>
 
-  <section class="story-section" aria-labelledby="dreame-creators">
-    <div class="story-heading"><span class="micro">02 / what shipped</span><h2 id="dreame-creators">Fit before follower count.</h2></div>
+  <section class="story-section" id="case-contribution" aria-labelledby="dreame-creators">
+    <div class="story-heading"><span class="micro">02 / my contribution</span><h2 id="dreame-creators">Fit before follower count.</h2></div>
     <div class="creator-board">
       <div class="creator-step"><span class="micro">Discovery</span><strong>40+</strong><span>creators screened</span><small>AI-assisted search + manual Instagram research</small></div>
       <div class="creator-arrow" aria-hidden="true">→</div>
@@ -42,8 +30,8 @@ import DormSketch from './DormSketch.astro';
     <p class="short-take">I also wrote each creator’s campaign brief within Dreame’s brand template: offer, product, themes, and deliverables.</p>
   </section>
 
-  <section class="story-section" aria-labelledby="dreame-creative">
-    <div class="story-heading"><span class="micro">03 / the proposed creative</span><h2 id="dreame-creative">From “that’s my dorm” to “that’s my deal.”</h2></div>
+  <section class="story-section" id="case-work" aria-labelledby="dreame-creative">
+    <div class="story-heading"><span class="micro">03 / visual work</span><h2 id="dreame-creative">From “that’s my dorm” to “that’s my deal.”</h2></div>
     <p class="reconstruction-note">Original portfolio reconstructions of my proposed concepts. These are illustrative mockups, not published Dreame campaign assets.</p>
     <div class="concept-grid">
       <article class="concept-card">
@@ -88,9 +76,9 @@ import DormSketch from './DormSketch.astro';
     <p class="scope-note">Sample copy and original illustrations created for this portfolio. The historical offer is shown as part of an unlaunched concept; it is not a current promotion.</p>
   </section>
 
-  <section class="story-section outcome" aria-labelledby="dreame-outcome">
-    <span class="micro">the honest outcome</span><h2 id="dreame-outcome">An executed seeding program.<br />A proposed social journey.</h2>
-    <p>My internship ended before the creator posts went live. I can show the selection work and creative thinking, but cannot claim reach, conversions, or sales lift.</p>
+  <section class="story-section outcome" id="case-outcome" aria-labelledby="dreame-outcome">
+    <div class="story-heading"><span class="micro">04 / outcome & next step</span><h2 id="dreame-outcome">An executed seeding program.<br />A proposed social journey.</h2></div>
+    <p>Eight creators received the G10. My internship ended before their posts went live, so downstream reach and sales results were unavailable to me.</p>
     <div class="next-test"><span class="micro">What I’d test next</span><p>Give each creator a unique code or tracked link, then compare conversion—not just content output.</p></div>
   </section>
 
@@ -108,27 +96,7 @@ import DormSketch from './DormSketch.astro';
 </div>
 
 <style>
-  .dreame-story { max-width: 1120px; }
-  .project-context { display:flex; flex-wrap:wrap; gap:8px 24px; font:11px/1.6 var(--font-mono); color:var(--muted); margin-bottom:28px; }
-  .output-strip { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border:var(--border); background:var(--block-dreame); }
-  .output-strip > div { padding:28px; display:flex; flex-direction:column; gap:12px; border-right:var(--rule); }
-  .output-strip > div:last-child { border:0; }
-  .output-strip strong { font:650 clamp(40px,5vw,64px)/1 var(--font-display); }
-  .output-strip span { font:12px/1.5 var(--font-mono); max-width:23ch; }
-  .scope-note { margin:16px 0 0; color:var(--muted); font:11px/1.65 var(--font-mono); }
-  .status-dot { display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--accent); margin-right:7px; }
-  .story-section { margin-top:80px; }
-  .story-heading { margin-bottom:24px; max-width:750px; }
-  .story-heading .micro { display:block; margin-bottom:12px; }
-  h2 { font-size:clamp(28px,3.3vw,40px); line-height:1.15; text-wrap:pretty; }
-  .audience-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
-  .audience-card { border:var(--border); padding:28px; display:flex; flex-direction:column; gap:24px; }
   .parent { background:#F9E8DB; } .student { background:#E9E2F7; }
-  .audience-top { display:flex; justify-content:space-between; align-items:center; gap:12px; }
-  .audience-symbol { font:40px/1 var(--font-display); }
-  .audience-card h3 { font-size:clamp(24px,2.5vw,30px); max-width:18ch; line-height:1.2; }
-  .audience-bottom { display:flex; flex-direction:column; gap:6px; font-size:12px; margin-top:auto; }
-  .short-take { font-size:13px; max-width:75ch; margin:20px 0 0; }
   .creator-board { display:grid; grid-template-columns:minmax(0,1fr) 60px minmax(0,1fr); border:var(--border); background:var(--surface); padding:32px; align-items:center; }
   .creator-step { display:flex; flex-direction:column; gap:10px; align-items:flex-start; }
   .creator-step strong { font:650 72px/1 var(--font-display); letter-spacing:-.04em; }
@@ -138,7 +106,6 @@ import DormSketch from './DormSketch.astro';
   .creator-step.selected strong { background:var(--block-dreame); padding:8px 22px; border-radius:50%; transform:rotate(-8deg); }
   .criteria { display:flex; flex-wrap:wrap; list-style:none; margin:16px 0 0; padding:0; gap:8px; }
   .criteria li { border:var(--rule); padding:6px 10px; font-size:11px; }
-  .reconstruction-note { font-size:12px; color:var(--muted); max-width:80ch; margin:0 0 24px; }
   .concept-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:32px 24px; }
   .concept-card { min-width:0; }
   .mockup { position:relative; height:352px; padding:24px; border:var(--border); overflow:hidden; display:flex; flex-direction:column; }
@@ -167,35 +134,13 @@ import DormSketch from './DormSketch.astro';
   .concept-caption .micro { font-size:10px; }
   .concept-caption h3 { font-size:23px; line-height:1.2; margin:8px 0; max-width:26ch; }
   .concept-caption p { font-size:12px; margin:0; }
-  .outcome { border-left:4px solid var(--block-dreame); padding-left:28px; }
-  .outcome h2 { margin:12px 0 20px; }
-  .outcome > p { max-width:75ch; font-size:13px; }
-  .next-test { background:#EFEAF7; padding:20px 24px; margin-top:24px; }
-  .next-test p { font-size:13px; margin:8px 0 0; max-width:75ch; }
-  .press-details { margin:64px 0 0; border:var(--border); background:var(--surface); }
-  summary { padding:22px 24px; display:flex; justify-content:space-between; gap:16px; align-items:center; cursor:pointer; list-style:none; min-height:72px; }
-  summary::-webkit-details-marker { display:none; }
-  summary > span:first-child { display:flex; flex-direction:column; gap:6px; }
-  summary strong { font:600 23px/1.2 var(--font-display); }
-  .details-plus { font:28px/1 var(--font-mono); }
-  details[open] .details-plus { transform:rotate(45deg); }
-  .press-content { padding:0 24px 28px; }
-  .press-lead { font:600 26px/1.2 var(--font-display); padding-top:24px; border-top:var(--rule); }
   .press-bars { display:grid; gap:12px; margin:24px 0; }
   .press-row { display:grid; grid-template-columns:minmax(140px,1fr) minmax(0,2fr) 18px; gap:16px; align-items:center; font-size:12px; }
   .press-track { height:12px; background:#F2EFE9; }
   .press-track > span { display:block; height:100%; background:var(--block-dreame); }
   .press-row:last-child strong { color:var(--accent); }
-  .supporting-copy :global(h3) { font-size:22px; margin:28px 0 12px; }
-  .supporting-copy :global(p) { font-size:13px; max-width:80ch; }
   @media(max-width:699px) {
-    .project-context { font-size:10px; gap:6px 16px; }
-    .output-strip > div { padding:18px 12px; }
-    .output-strip span { font-size:10px; }
-    .output-strip strong { font-size:40px; }
-    .story-section { margin-top:56px; }
-    .audience-grid,.concept-grid { grid-template-columns:minmax(0,1fr); }
-    .audience-card { padding:24px; }
+    .concept-grid { grid-template-columns:minmax(0,1fr); }
     .creator-board { padding:24px 18px; grid-template-columns:minmax(0,1fr) 32px minmax(0,1fr); gap:8px; }
     .creator-step strong { font-size:54px; }
     .creator-step .micro { font-size:9px; }
@@ -204,9 +149,6 @@ import DormSketch from './DormSketch.astro';
     .creator-arrow { font-size:24px; }
     .creator-step.selected strong { padding:6px 16px; }
     .mockup { height:340px; }
-    .outcome { padding-left:20px; }
     .press-row { grid-template-columns:130px minmax(0,1fr) 14px; gap:10px; font-size:10px; }
-    summary { padding:20px; } .press-content { padding:0 20px 24px; }
-    summary strong { font-size:21px; }
   }
 </style>

@@ -1,0 +1,21 @@
+---
+interface Props {
+  context: string[];
+  outputs: { value: string; label: string }[];
+  scopeNote?: string;
+}
+const { context, outputs, scopeNote } = Astro.props;
+---
+<div class="case-story case-overview container">
+  <div class="project-context">{context.map(item => <span>{item}</span>)}</div>
+  <div class="output-strip" aria-label="My contributions">
+    {outputs.map(item => <div><strong>{item.value}</strong><span>{item.label}</span></div>)}
+  </div>
+  {scopeNote && <p class="scope-note"><span class="status-dot"></span>{scopeNote}</p>}
+  <nav class="story-nav" aria-label="Case study sections">
+    <a href="#case-brief">01 · Brief</a>
+    <a href="#case-contribution">02 · My contribution</a>
+    <a href="#case-work">03 · Visual work</a>
+    <a href="#case-outcome">04 · Outcome</a>
+  </nav>
+</div>

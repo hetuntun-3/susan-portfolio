@@ -16,6 +16,13 @@ coverSteps: ["pre-heat", "launch", "engage", "convert"]
 coverNote: one season, two buyers
 summary: Creator research + campaign planning
 metrics: ["8 creators seeded", "40+ screened"]
+caseKicker: Dreame · U.S. Back-to-School
+caseContext: ["Marketing & PR Intern", "U.S. team · Summer 2025", "Creonix · Instagram · Meltwater · Canva"]
+caseOutputs:
+  - { value: "40+", label: "nano-creators screened" }
+  - { value: "8", label: "creators seeded with product" }
+  - { value: "4", label: "social campaign phases proposed" }
+scopeNote: Creator seeding ran. Social concepts were proposed, then shelved during a team restructuring. Reach and sales results are unavailable.
 tldr: []
 ---
 

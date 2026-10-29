@@ -28,6 +28,10 @@ const work = defineCollection({
     coverStat: z.string().optional(), // legacy, unused
     coverStatLabel: z.string().optional(),
     description: z.string().optional(),
+    caseKicker: z.string().optional(),
+    caseContext: z.array(z.string()).default([]),
+    caseOutputs: z.array(z.object({ value: z.string(), label: z.string() })).default([]),
+    scopeNote: z.string().optional(),
     tldr: z.array(z.object({ label: z.string(), value: z.string() })).default([]),
   }),
 });

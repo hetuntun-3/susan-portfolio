@@ -1,6 +1,9 @@
 ---
 import Base from '../../layouts/Base.astro';
 import DreameStory from '../../components/DreameStory.astro';
+import InstaStory from '../../components/InstaStory.astro';
+import CaseOverview from '../../components/CaseOverview.astro';
+import '../../styles/case-story.css';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -14,27 +17,25 @@ export async function getStaticPaths() {
 
 const { entry, prev, next } = Astro.props;
 const d = entry.data;
+const visualCase = entry.id === 'insta360' || entry.id === 'dreame';
 const { Content } = await render(entry);
 // Lets you write **bold** inside TL;DR values in the front-matter
 const md = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
 ---
 <Base title={d.headline ?? d.title} description={d.description ?? d.lead} caseSlug={entry.id}>
-  <article class={entry.id === 'insta360' ? 'insta-case' : entry.id === 'dreame' ? 'dreame-case' : undefined} style={`--block: var(--block-${d.block})`}>
+  <article class={visualCase ? 'visual-case' : undefined} style={`--block: var(--block-${d.block})`}>
     <header class="case-head">
       <div class="container">
         <a class="back-link" href="/work">← all work</a>
-        {entry.id === 'dreame' && <p class="micro dreame-kicker">Dreame · U.S. Back-to-School</p>}
+        {d.caseKicker && <p class="micro case-kicker">{d.caseKicker}</p>}
         <h1>{entry.id === 'dreame' ? <>One season.<br />Two audiences.</> : d.headline}</h1>
         {d.lead && <p class="lead">{d.lead}</p>}
       </div>
     </header>
 
-    {entry.id === 'insta360' && <div class="container case-output-strip" aria-label="My contributions">
-      <div><strong>100</strong><span>camera riders selected</span></div>
-      <div><strong>2</strong><span>audience workshop decks</span></div>
-      <div><strong>18</strong><span>creator demos curated</span></div>
-    </div>}
+    {visualCase && <CaseOverview context={d.caseContext} outputs={d.caseOutputs} scopeNote={d.scopeNote} />}
+    {entry.id === 'insta360' && <InstaStory><Content /></InstaStory>}
     {entry.id === 'dreame' && <DreameStory><Content /></DreameStory>}
     <div class="container reading">
       {d.tldr.length > 0 && (
@@ -51,7 +52,7 @@ const md = (s: string) =>
         </section>
       )}
 
-      {entry.id !== 'dreame' && <div class="prose">
+      {!visualCase && <div class="prose">
         <Content />
       </div>}
 
@@ -68,9 +69,9 @@ const md = (s: string) =>
 </Base>
 
 <style>
-  .dreame-case .case-head .container { max-width:1120px; }
-  .dreame-kicker { margin:24px 0 12px; }
-  .dreame-case .case-head h1 { font-size:clamp(38px,5.5vw,64px); max-width:18ch; margin:0 0 20px; }
-  .dreame-case .case-head .lead { max-width:64ch; }
-  .dreame-case .case-head { padding-bottom:28px; }
+  .visual-case .case-head .container { max-width:1120px; }
+  .case-kicker { margin:24px 0 12px; }
+  .visual-case .case-head h1 { font-size:clamp(38px,5.5vw,64px); max-width:18ch; margin:0 0 20px; }
+  .visual-case .case-head .lead { max-width:64ch; }
+  .visual-case .case-head { padding-bottom:28px; }
 </style>
