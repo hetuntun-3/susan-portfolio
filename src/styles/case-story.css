@@ -64,3 +64,22 @@
   .case-story .case-reflection summary { padding:14px; }
   .case-story .reflection-copy { padding:20px 16px; }
 }
+
+/* Centered reading column: text blocks sit in a centered column; visuals keep the full width. */
+.case-story { --read: 760px; }
+.case-story .story-section > h2,
+.case-story .story-section > p,
+.case-story .story-section > .project-tag,
+.case-story .story-section > .case-reflection,
+.case-story .story-section > .event-links,
+.case-story .story-section > .shark-stats,
+.case-story .story-section > .numbers-strip ~ p { max-width:var(--read); margin-left:auto !important; margin-right:auto !important; }
+.case-story .story-section > .shark-stats { margin-right:auto !important; }
+.case-story .story-section > .so-what { max-width:calc(var(--read) - 19px); }
+.case-story .closing { max-width:calc(var(--read) + 64px); margin-left:auto; margin-right:auto !important; }
+.case-story .closing > p, .case-story .closing > .case-reflection { max-width:none; }
+.case-story > .story-section:first-child { border-left:0; padding-left:0; }
+.case-story > .story-section:first-child > h2 { border-left:5px solid var(--block); padding-left:16px; }
+.project-index { max-width:var(--read); margin-left:auto !important; margin-right:auto !important; }
+@media(max-width:699px) { .case-story .closing { max-width:none; } }
+.case-story .story-section > .event-posts { max-width:var(--read); margin-left:auto; margin-right:auto; }
