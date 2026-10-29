@@ -29,8 +29,11 @@ const highlightNumbers = (s: string) => md(s).replace(/(40\+|\b(?:100|18|8|4|2)\
     <header class="case-head">
       <div class="container">
         <a class="back-link" href="/work">← all work</a>
+        <div class={visualCase ? "case-title-panel" : undefined}>
         {visualCase ? <CaseOverview context={d.caseContext} timeline={d.timeline} /> : d.caseKicker && <p class="micro case-kicker">{d.caseKicker}</p>}
         <h1>{d.headline?.split('Back-to-School').map((part, i) => <>{i > 0 && <span style="white-space:nowrap">Back-to-School</span>}{part}</>)}</h1>
+        {visualCase && <svg class="case-flourish" viewBox="0 0 240 160" fill="none" aria-hidden="true"><path d="M10 125C60 125 58 40 120 60S181 145 230 26" stroke="currentColor" stroke-width="2" stroke-dasharray="5 7"/><circle cx="10" cy="125" r="5" fill="currentColor"/><circle cx="230" cy="26" r="5" fill="currentColor"/><path d="M156 20v40m-20-20h40m-34-14 28 28m0-28-28 28" stroke="currentColor" stroke-width="2"/></svg>}
+        </div>
         {visualCase ? <div class="case-intro-grid">
           <section aria-label="Project context"><h2>The project</h2><p>{d.caseSummary}</p></section>
           <section aria-label="My responsibility"><h2>What I did</h2><p set:html={highlightNumbers(d.lead ?? '')} /></section>

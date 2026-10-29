@@ -4,8 +4,8 @@ const posts = [
   { url: 'https://www.instagram.com/p/DadDQB9jM-A/', label: 'Le Peloton Cycling Club · Ride announcement' },
 ];
 ---
-<section class="story-section event-posts" aria-labelledby="event-posts-title">
-  <h2 id="event-posts-title">See the event</h2>
+<section class="event-posts" aria-labelledby="event-posts-title">
+  <h3 id="event-posts-title">See the event</h3>
   <div class="event-grid">
     {posts.map(post => <figure>
       <div class="event-embed">
@@ -19,6 +19,8 @@ const posts = [
 </section>
 <script is:inline async src="https://www.instagram.com/embed.js"></script>
 <style>
+  .event-posts { margin-top:32px; }
+  h3 { font:600 26px/1.2 var(--font-display); margin:0 0 20px; }
   .event-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; max-width:920px; }
   figure { margin:0; min-width:0; }
   .event-embed { min-width:0; }
