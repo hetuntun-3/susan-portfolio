@@ -1,61 +1,16 @@
-/* Shared reading rhythm for the portfolio's visual case studies. */
+/* Recruiter reading view: restrained headings and a consistent body style. */
 .case-story { max-width:1120px; }
-.case-story .project-context { display:flex; flex-wrap:wrap; gap:8px 24px; font:11px/1.6 var(--font-mono); color:var(--muted); margin-bottom:28px; }
-.case-story .output-strip { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border:var(--border); background:var(--block); }
-.case-story .output-strip > div { padding:28px; display:flex; flex-direction:column; gap:12px; border-right:var(--rule); }
-.case-story .output-strip > div:last-child { border:0; }
-.case-story .output-strip strong { font:650 clamp(40px,5vw,64px)/1 var(--font-display); }
-.case-story .output-strip span { font:12px/1.5 var(--font-mono); max-width:23ch; }
-.case-story .scope-note { margin:16px 0 0; color:var(--muted); font:11px/1.65 var(--font-mono); }
-.case-story .status-dot { display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--accent); margin-right:7px; }
-.case-story .story-nav { display:flex; flex-wrap:wrap; gap:0 28px; margin-top:24px; padding-bottom:16px; border-bottom:1px solid var(--rule-soft); }
-.case-story .story-nav a { display:inline-flex; align-items:center; min-height:44px; font:11px/1.5 var(--font-mono); color:var(--ink); }
-.case-story .story-section { margin-top:72px; scroll-margin-top:28px; }
-.case-story .story-heading { margin-bottom:24px; max-width:750px; }
-.case-story .story-heading .micro { display:block; margin-bottom:12px; }
-.case-story h2 { font-size:clamp(28px,3.3vw,40px); line-height:1.15; text-wrap:pretty; }
-.case-story .audience-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
-.case-story .audience-card { border:var(--border); padding:28px; display:flex; flex-direction:column; gap:24px; }
-.case-story .audience-top { display:flex; justify-content:space-between; align-items:center; gap:12px; }
-.case-story .audience-symbol { font:40px/1 var(--font-display); }
-.case-story .audience-card h3 { font-size:clamp(24px,2.5vw,30px); max-width:18ch; line-height:1.2; }
-.case-story .audience-bottom { display:flex; flex-direction:column; gap:6px; font-size:12px; margin-top:auto; }
-.case-story .short-take { font-size:13px; max-width:75ch; margin:20px 0 0; }
-.case-story .reconstruction-note { font-size:12px; color:var(--muted); max-width:80ch; margin:0 0 24px; }
-.case-story .outcome { border-left:4px solid var(--block); padding-left:28px; }
-.case-story .outcome h2 { margin:0 0 20px; }
-.case-story .outcome > p { max-width:75ch; font-size:13px; }
-.case-story .next-test { background:color-mix(in srgb,var(--block) 28%,var(--paper)); padding:20px 24px; margin-top:24px; }
-.case-story .next-test p { font-size:13px; margin:8px 0 0; max-width:75ch; }
-.case-story .press-details { margin:64px 0 0; border:var(--border); background:var(--surface); }
-.case-story summary { padding:22px 24px; display:flex; justify-content:space-between; gap:16px; align-items:center; cursor:pointer; list-style:none; min-height:72px; }
-.case-story summary::-webkit-details-marker { display:none; }
-.case-story summary > span:first-child { display:flex; flex-direction:column; gap:6px; }
-.case-story summary strong { font:600 23px/1.2 var(--font-display); }
-.case-story .details-plus { font:28px/1 var(--font-mono); }
-.case-story details[open] .details-plus { transform:rotate(45deg); }
-.case-story .press-content { padding:0 24px 28px; }
-.case-story .press-lead { font:600 26px/1.2 var(--font-display); padding-top:24px; border-top:var(--rule); }
-.case-story .supporting-copy h3 { font-size:22px; margin:28px 0 12px; }
-.case-story .supporting-copy p,.case-story .supporting-copy li { font-size:13px; max-width:80ch; }
+.case-story .story-section { margin-top:64px; }
+.case-story .story-section:first-child { margin-top:28px; }
+.case-story h2 { font:600 32px/1.2 var(--font-display); margin:0 0 20px; text-wrap:balance; }
+.case-story p { font:400 15px/1.8 var(--font-mono); max-width:78ch; margin:0; }
+.case-story p + p { margin-top:16px; }
+.case-story .sample-caption { margin:12px 0 0; }
+.case-story .work-caption { margin:24px 0 0; color:var(--muted); }
+.case-story .closing { padding-top:32px; border-top:1px solid var(--rule-soft); }
 @media(max-width:699px) {
-  .case-story .project-context { font-size:10px; gap:6px 16px; }
-  .case-story .output-strip > div { padding:18px 12px; }
-  .case-story .output-strip span { font-size:10px; }
-  .case-story .output-strip strong { font-size:40px; }
-  .case-story .story-nav { column-gap:20px; }
-  .case-story .story-nav a { font-size:10px; }
-  .case-story .story-section { margin-top:52px; }
-  .case-story .audience-grid { grid-template-columns:minmax(0,1fr); }
-  .case-story .audience-card { padding:24px; }
-  .case-story .outcome { padding-left:20px; }
-  .case-story summary { padding:20px; }
-  .case-story .press-content { padding:0 20px 24px; }
-  .case-story summary strong { font-size:21px; }
+  .case-story .story-section { margin-top:48px; }
+  .case-story .story-section:first-child { margin-top:20px; }
+  .case-story h2 { font-size:28px; }
+  .case-story p { font-size:14px; }
 }
-
-.case-story .learning-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
-.case-story .learning-grid > div { padding:24px; background:color-mix(in srgb,var(--block) 18%,var(--paper)); border-top:3px solid var(--block); }
-.case-story .learning-grid h3 { font-size:24px; line-height:1.25; margin-bottom:14px; }
-.case-story .learning-grid p { font-size:13px; margin:0; }
-@media(max-width:699px) { .case-story .learning-grid { grid-template-columns:minmax(0,1fr); } }

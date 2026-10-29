@@ -28,7 +28,7 @@ const md = (s: string) =>
     <header class="case-head">
       <div class="container">
         <a class="back-link" href="/work">← all work</a>
-        {d.caseKicker && <p class="micro case-kicker">{d.caseKicker}</p>}
+        {visualCase ? <CaseOverview context={d.caseContext} timeline={d.timeline} /> : d.caseKicker && <p class="micro case-kicker">{d.caseKicker}</p>}
         <h1>{d.headline}</h1>
         {visualCase ? <div class="case-intro-grid">
           <section aria-label="Project context"><h2>The project</h2><p>{d.caseSummary}</p></section>
@@ -37,9 +37,8 @@ const md = (s: string) =>
       </div>
     </header>
 
-    {visualCase && <CaseOverview context={d.caseContext} outputs={d.caseOutputs} scopeNote={d.scopeNote} />}
-    {entry.id === 'insta360' && <InstaStory><Content /></InstaStory>}
-    {entry.id === 'dreame' && <DreameStory><Content /></DreameStory>}
+    {entry.id === 'insta360' && <InstaStory />}
+    {entry.id === 'dreame' && <DreameStory />}
     <div class="container reading">
       {d.tldr.length > 0 && (
         <section class="tldr" aria-label="TL;DR">
@@ -74,12 +73,12 @@ const md = (s: string) =>
 <style>
   .visual-case .case-head .container { max-width:1120px; }
   .case-kicker { margin:24px 0 12px; }
-  .visual-case .case-head h1 { font-size:clamp(34px,4.2vw,52px); max-width:25ch; margin:0 0 20px; }
+  .visual-case .case-head h1 { font-size:clamp(34px,4vw,48px); max-width:26ch; text-wrap:balance; margin:0 0 20px; }
   .visual-case .case-head .lead { max-width:64ch; }
   .visual-case .case-head { padding-bottom:28px; }
   .case-intro-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:32px; margin-top:28px; }
-  .case-intro-grid section { border-left:3px solid var(--block); padding-left:20px; }
-  .case-intro-grid h2 { font:600 24px/1.2 var(--font-display); margin-bottom:12px; }
+  .case-intro-grid section { min-width:0; }
+  .case-intro-grid h2 { font:400 15px/1.6 var(--font-mono); margin-bottom:8px; color:var(--muted); }
   .case-intro-grid p { font-size:15px; line-height:1.75; margin:0; max-width:54ch; }
-  @media(max-width:699px) { .case-intro-grid { grid-template-columns:minmax(0,1fr); gap:24px; } .case-intro-grid p { font-size:13px; } .case-intro-grid h2 { font-size:22px; } }
+  @media(max-width:699px) { .case-intro-grid { grid-template-columns:minmax(0,1fr); gap:24px; } .case-intro-grid p { font-size:14px; } .case-intro-grid h2 { font-size:14px; } }
 </style>
