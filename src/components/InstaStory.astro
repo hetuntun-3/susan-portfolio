@@ -102,7 +102,7 @@ import EventPosts from './EventPosts.astro';
   .shark-stats li + li { border-left:var(--rule); }
   .shark-stats strong { font:700 40px/1 var(--font-display); letter-spacing:-.02em; }
   .shark-stats span { font:400 14px/1.6 var(--font-mono); }
-  @media(max-width:819px) { .project-index { grid-template-columns:repeat(2,minmax(0,1fr)); } .project-index a:nth-child(3) { border-left:0; } .project-index a:nth-child(n+3) { border-top:var(--rule); } }
+  @media(max-width:819px) { .project-index { grid-template-columns:repeat(2,minmax(0,1fr)); } .project-index a + a:nth-child(3) { border-left:0; } .project-index a:nth-child(n+3) { border-top:var(--rule); } }
   @media(max-width:420px) { .shark-stats li { padding:18px 16px; } .shark-stats strong { font-size:32px; } }
   .research-sub { color:var(--muted); margin:-8px 0 24px !important; }
   .research-steps { list-style:none; margin:0; padding:0 7px 0 0; display:grid; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr); gap:16px; }
