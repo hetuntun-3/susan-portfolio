@@ -29,7 +29,7 @@ tldr: []
 
 ### The supporting work
 
-I segmented a **200+ journalist** list across tech, lifestyle, and parenting, pitched seasonal stories and launches, and produced weekly Meltwater reports covering Dreame and **6 competitors**.
+I segmented a **600+ journalist** list across tech, lifestyle, and parenting, pitched seasonal stories and launches, and produced weekly Meltwater reports covering Dreame and **6 competitors**.
 
 ### What I’d change
 
