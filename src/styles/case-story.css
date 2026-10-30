@@ -90,3 +90,37 @@
 .case-story > .story-section:not(.closing) > h2::after { min-width:24px; }
 .case-story > .story-section:not(.closing) > .project-tag { max-width:none !important; text-align:center; }
 @media(max-width:699px) { .case-story > .story-section:not(.closing) > h2 { gap:14px; } }
+
+/* ===== Case type + color system (shared by Insta360 and Dreame) =====
+   Serif: 56 banner title · 32 section · 24 sub-head · 40 numbers.
+   Mono: 15 body · 13 small · 12 uppercase labels. Weights 400 and 600.
+   Fills: the project's block color, one wash of it, white. Shadows: block color only, 6px small / 10px large. */
+.case-story {
+  --wash: color-mix(in srgb, var(--block) 32%, white);
+  --sh-lg: 10px 10px 0 var(--block);
+  --sh-sm: 6px 6px 0 var(--block);
+  --f-h3: 600 24px/1.25 var(--font-display);
+  --f-num: 600 40px/1 var(--font-display);
+  --f-body: 400 15px/1.75 var(--font-mono);
+  --f-small: 400 13px/1.65 var(--font-mono);
+  --f-label: 400 12px/1.4 var(--font-mono);
+}
+.visual-case .case-intro-grid { box-shadow: var(--sh-lg); }
+.visual-case .case-role { font: var(--f-body); }
+.case-story .key-number, .visual-case .key-number { background: var(--wash); }
+.case-story .mockup, .case-story .deck-visual { box-shadow: var(--sh-sm); }
+.case-story .case-reflection summary { background: var(--wash); font: var(--f-body); }
+.case-story .reflection-copy h3 { font: 600 15px/1.7 var(--font-mono); }
+
+/* project index (01–04) */
+.case-story .project-index { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border:var(--border); background:var(--surface); }
+.case-story .project-index a { display:flex; flex-direction:column; gap:6px; padding:16px 18px; min-height:44px; color:var(--ink); text-decoration:none; font:var(--f-small); transition:background .2s; }
+.case-story .project-index a + a { border-left:var(--rule); }
+.case-story .project-index a:hover { background:var(--wash); }
+.case-story .project-index span { font:var(--f-h3); }
+.case-story .project { scroll-margin-top:72px; }
+@media(max-width:819px) {
+  .case-story .project-index { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .case-story .project-index a + a:nth-child(3) { border-left:0; }
+  .case-story .project-index a:nth-child(n+3) { border-top:var(--rule); }
+}

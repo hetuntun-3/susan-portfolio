@@ -1,13 +1,18 @@
 ---
 import EventPosts from './EventPosts.astro';
+import ChapterBar from './ChapterBar.astro';
+const chapters = [
+  { id: 'p-research', n: '01', name: 'Trade-show survey research', short: 'Survey research' },
+  { id: 'p-paris', n: '02', name: 'Paris community ride', short: 'Paris ride' },
+  { id: 'p-shark', n: '03', name: 'Shark Awareness Day', short: 'Shark Day' },
+  { id: 'p-film', n: '04', name: 'Film red-carpet activation', short: 'Film activation' },
+];
 ---
-<div class="case-story container">
+<div class="case-story container insta-story">
   <nav class="project-index" aria-label="Projects on this page">
-    <a href="#p-research"><span>01</span>Trade-show survey research</a>
-    <a href="#p-paris"><span>02</span>Paris community ride</a>
-    <a href="#p-shark"><span>03</span>Shark Awareness Day</a>
-    <a href="#p-film"><span>04</span>Film red-carpet activation</a>
+    {chapters.map((c) => <a href={`#${c.id}`}><span>{c.n}</span>{c.name}</a>)}
   </nav>
+  <ChapterBar caseName="Insta360" chapters={chapters} />
 
   <section class="story-section project" id="p-research" aria-labelledby="insta-research">
     <p class="project-tag">01 · market research team</p>
@@ -61,7 +66,7 @@ import EventPosts from './EventPosts.astro';
     <p>Three partner accounts wanted to share Insta360’s shark footage. I wrote titles and captions and chose images from Insta360’s photo library for their posts, and did the first-round review of the <a href="https://www.youtube.com/watch?v=ca5yzLpq-r4" target="_blank" rel="noopener noreferrer">official video ↗</a> before final edits.</p>
     <ul class="shark-stats">
       <li><strong>21.2K</strong><span>likes on the @discoversharks post (4M followers)</span></li>
-      <li class="shark-cell"><strong>~4×</strong><span>that account’s median likes on its recent posts</span><svg class="shark-draw" viewBox="0 0 240 120" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 110C60 98 120 118 236 102" stroke-dasharray="6 9" opacity=".45"/><path d="M36 61L10 18Q22 44 24 62Q18 76 12 92L40 68Z" fill="#DCE3F7"/><path d="M112 41Q118 22 136 6Q136 26 148 42Z" fill="#DCE3F7"/><path d="M36 63C64 44 120 36 170 41C196 44 216 51 230 59C218 66 200 71 182 73L122 79C86 81 56 77 36 63Z" fill="#DCE3F7"/><path d="M52 71Q124 85 214 67" opacity=".5"/><path d="M152 75Q142 92 128 106Q152 98 172 77" fill="#DCE3F7"/><path d="M60 52L64 43L71 50"/><path d="M168 50Q165 58 168 66M175 50Q172 58 175 66M182 50Q179 58 182 66"/><circle cx="207" cy="56" r="2.6" fill="currentColor" stroke="none"/><path d="M214 67Q220 68 225 65"/><path d="M84 14V26M78 20H90M222 20V30M217 25H227"/></svg></li>
+      <li class="shark-cell"><strong>~4×</strong><span>that account’s median likes on its recent posts</span><svg class="shark-draw" viewBox="0 0 240 120" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 110C60 98 120 118 236 102" stroke-dasharray="6 9" opacity=".45"/><path d="M36 61L10 18Q22 44 24 62Q18 76 12 92L40 68Z" fill="#FFFFFF"/><path d="M112 41Q118 22 136 6Q136 26 148 42Z" fill="#FFFFFF"/><path d="M36 63C64 44 120 36 170 41C196 44 216 51 230 59C218 66 200 71 182 73L122 79C86 81 56 77 36 63Z" fill="#FFFFFF"/><path d="M52 71Q124 85 214 67" opacity=".5"/><path d="M152 75Q142 92 128 106Q152 98 172 77" fill="#FFFFFF"/><path d="M60 52L64 43L71 50"/><path d="M168 50Q165 58 168 66M175 50Q172 58 175 66M182 50Q179 58 182 66"/><circle cx="207" cy="56" r="2.6" fill="currentColor" stroke="none"/><path d="M214 67Q220 68 225 65"/><path d="M84 14V26M78 20H90M222 20V30M217 25H227"/></svg></li>
     </ul>
     <p class="work-caption"><a href="https://www.instagram.com/p/DaniDfWEQ_f/" target="_blank" rel="noopener noreferrer">See the post ↗</a> · Median from the account’s 8 most recent posts, checked Oct 2026.</p>
   </section>
@@ -88,44 +93,46 @@ import EventPosts from './EventPosts.astro';
   </section>
 </div>
 <style>
-  .shark-cell { position:relative; padding-right:44% !important; overflow:hidden; }
-  .shark-draw { position:absolute; right:10px; bottom:14px; width:44%; max-width:200px; height:auto; color:var(--ink); }
-  @media(max-width:600px) { .shark-cell { padding-right:22px !important; padding-bottom:96px !important; } .shark-draw { width:62%; right:8px; bottom:8px; } }
-  .project-index { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border:var(--border); background:var(--surface); margin:40px 7px 0 0; }
-  .project-index a { display:flex; flex-direction:column; gap:4px; padding:16px 18px; min-height:44px; color:var(--ink); text-decoration:none; font:400 14px/1.45 var(--font-mono); }
-  .project-index a + a { border-left:var(--rule); }
-  .project-index a:hover { background:color-mix(in srgb,var(--block) 28%,white); }
-  .project-index span { font:700 22px/1 var(--font-display); }
-  .case-story .project { scroll-margin-top:24px; border-left:0 !important; padding-left:0 !important; }
+  /* Uses the shared case system in case-story.css: serif 24/32/40, mono 12/13/15, fills = yellow block / yellow wash / white. */
+  .project-tag, .step-num { font:var(--f-label) !important; text-transform:uppercase; letter-spacing:.07em; color:var(--muted); }
+  .project-tag { margin:0 0 10px !important; }
+  .case-story .project-index { margin:40px 0 0 !important; }
+  .case-story .project { border-left:0 !important; padding-left:0 !important; }
   .case-story .project > p + p, .case-story .project > p + ul, .case-story .project > p + ol, .case-story .project > p + div { margin-top:24px; }
-  .project-tag { font:500 12px/1.4 var(--font-mono) !important; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); margin:0 0 10px !important; }
   .case-story .project > ol, .case-story .project > .deck-grid, .case-story .project > ul { margin-top:24px; }
-  .shark-stats { list-style:none; padding:0; margin:24px 10px 0 0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); max-width:640px; background:var(--surface); border:var(--border); box-shadow:10px 10px 0 var(--block); }
-  .shark-stats li { padding:22px; display:flex; flex-direction:column; gap:8px; }
-  .shark-stats li + li { border-left:var(--rule); }
-  .shark-stats strong { font:700 40px/1 var(--font-display); letter-spacing:-.02em; }
-  .shark-stats span { font:400 14px/1.6 var(--font-mono); }
-  @media(max-width:819px) { .project-index { grid-template-columns:repeat(2,minmax(0,1fr)); } .project-index a + a:nth-child(3) { border-left:0; } .project-index a:nth-child(n+3) { border-top:var(--rule); } }
-  @media(max-width:420px) { .shark-stats li { padding:18px 16px; } .shark-stats strong { font-size:32px; } }
-  .research-sub { color:var(--muted); margin:-8px 0 24px !important; }
-  .research-steps { list-style:none; margin:0; padding:0 7px 0 0; display:grid; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr); gap:16px; }
-  .research-step { background:var(--surface); border:var(--border); box-shadow:7px 7px 0 var(--ink); padding:22px; display:flex; flex-direction:column; gap:10px; min-width:0; }
-  .research-step.key { background:color-mix(in srgb,var(--block) 32%,white); }
-  .step-num { font:500 12px/1.4 var(--font-mono); text-transform:uppercase; letter-spacing:.06em; color:var(--muted); }
-  .research-step h3 { font:600 24px/1.2 var(--font-display); margin:0; }
-  .research-step p { font-size:14px !important; line-height:1.65 !important; padding-top:10px; border-top:1px solid var(--rule-soft); }
-  .step-arrow { align-self:center; font:400 18px var(--font-mono); color:var(--muted); }
+
+  /* 01 survey steps */
+  .research-steps { list-style:none; margin:0; padding:0 6px 0 0; display:grid; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr); gap:16px; }
+  .research-step { background:var(--surface); border:var(--border); box-shadow:var(--sh-sm); padding:22px; display:flex; flex-direction:column; gap:10px; min-width:0; }
+  .research-step.key { background:var(--wash); }
+  .research-step h3 { font:var(--f-h3); margin:0; }
+  .research-step p { font:var(--f-small) !important; padding-top:10px; border-top:1px solid var(--rule-soft); }
+  .step-arrow { align-self:center; font:var(--f-body); color:var(--muted); }
   .so-what { margin-top:28px !important; padding-left:16px; border-left:3px solid var(--accent); font-weight:600 !important; }
   .so-what span { color:var(--accent); }
-  .deck-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+
+  /* 02 Paris decks: block yellow + white, like Dreame's posts */
+  .deck-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; padding-right:6px; }
   .deck-card { min-width:0; }
-  .deck-visual { height:330px; border:var(--rule); padding:24px; position:relative; display:flex; flex-direction:column; overflow:hidden; }
-  .bike-deck { background:#F7DE69; } .run-deck { background:#DCE9DB; }
+  .case-story .deck-visual { height:330px; border:var(--border); padding:24px; position:relative; display:flex; flex-direction:column; overflow:hidden; }
+  .bike-deck { background:var(--block); } .run-deck { background:var(--surface); }
   .deck-visual h3 { font:600 42px/1.08 var(--font-display); letter-spacing:-.02em; margin:0; }
   .deck-visual svg { position:absolute; width:86%; right:12px; bottom:20px; height:135px; }
   .bike-deck svg { width:66%; height:110px; bottom:20px; }
   .event-links { display:flex; flex-wrap:wrap; gap:0 24px; margin-top:20px; }
-  .event-links a { display:inline-flex; align-items:center; min-height:44px; font-size:15px; }
+  .event-links a { display:inline-flex; align-items:center; min-height:44px; font:var(--f-body); }
+
+  /* 03 shark stats */
+  .shark-stats { list-style:none; padding:0; margin:24px 10px 0 0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); max-width:640px; background:var(--surface); border:var(--border); box-shadow:var(--sh-lg); }
+  .shark-stats li { padding:22px; display:flex; flex-direction:column; gap:8px; }
+  .shark-stats li + li { border-left:var(--rule); }
+  .shark-stats strong { font:var(--f-num); letter-spacing:-.02em; }
+  .shark-stats span { font:var(--f-small); }
+  .shark-cell { position:relative; padding-right:44% !important; overflow:hidden; }
+  .shark-draw { position:absolute; right:10px; bottom:14px; width:44%; max-width:200px; height:auto; color:var(--ink); }
+
   @media(max-width:819px) { .research-steps { grid-template-columns:minmax(0,1fr); } .step-arrow { justify-self:center; transform:rotate(90deg); } }
-  @media(max-width:699px) { .deck-grid { grid-template-columns:minmax(0,1fr); gap:32px; } .deck-visual { height:310px; } .deck-visual h3 { font-size:36px; } }
+  @media(max-width:699px) { .deck-grid { grid-template-columns:minmax(0,1fr); gap:32px; } .case-story .deck-visual { height:310px; } .deck-visual h3 { font-size:36px; } }
+  @media(max-width:600px) { .shark-cell { padding-right:22px !important; padding-bottom:96px !important; } .shark-draw { width:62%; right:8px; bottom:8px; } }
+  @media(max-width:420px) { .shark-stats li { padding:18px 16px; } .shark-stats strong { font-size:32px; } }
 </style>

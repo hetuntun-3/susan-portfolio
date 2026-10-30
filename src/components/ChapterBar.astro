@@ -1,0 +1,68 @@
+---
+// Slim sticky bar for case pages: appears once the 01–04 project index scrolls away,
+// highlights the project you're reading, and shows reading progress.
+// Needs a sibling `.project-index` and a `.closing` section inside the same `.case-story`.
+interface Props { caseName: string; chapters: { id: string; n: string; short: string }[] }
+const { caseName, chapters } = Astro.props;
+---
+<nav class="chapter-bar" aria-label="Jump to a project" hidden>
+  <div class="chapter-inner">
+    <span class="chapter-case">{caseName}</span>
+    <ol>
+      {chapters.map((c) => <li><a href={`#${c.id}`} data-chapter={c.id}><span>{c.n}</span>{c.short}</a></li>)}
+    </ol>
+  </div>
+  <span class="chapter-progress" aria-hidden="true"></span>
+</nav>
+
+<style>
+  .chapter-bar { position:fixed; z-index:40; top:0; left:0; right:0; background:var(--paper); border-bottom:var(--rule); transform:translateY(-101%); transition:transform .35s cubic-bezier(.165,.84,.44,1); }
+  .chapter-bar.on { transform:none; }
+  .chapter-bar[hidden] { display:block; visibility:hidden; }
+  .chapter-inner { max-width:var(--container,1120px); margin:0 auto; padding:0 48px; display:flex; align-items:center; gap:24px; height:52px; }
+  .chapter-case { font:var(--f-h3); white-space:nowrap; padding-right:20px; border-right:var(--rule); }
+  .chapter-bar ol { list-style:none; margin:0; padding:0; display:flex; gap:4px; overflow-x:auto; scrollbar-width:none; }
+  .chapter-bar ol::-webkit-scrollbar { display:none; }
+  .chapter-bar a { display:flex; align-items:baseline; gap:8px; padding:7px 12px; border:1.5px solid transparent; color:var(--muted); text-decoration:none; font:var(--f-small); white-space:nowrap; transition:color .2s, background .2s, border-color .2s; }
+  .chapter-bar a span { font-weight:600; }
+  .chapter-bar a:hover { color:var(--ink); }
+  .chapter-bar a[aria-current="true"] { color:var(--ink); background:var(--wash); border-color:var(--ink); }
+  .chapter-progress { position:absolute; left:0; bottom:-1px; height:2px; width:100%; background:var(--accent); transform-origin:left; transform:scaleX(var(--p,0)); }
+  @media(max-width:819px) { .chapter-inner { padding:0 16px; gap:12px; } .chapter-case { display:none; } }
+  @media (prefers-reduced-motion: reduce) { .chapter-bar { transition:none; } }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.chapter-bar').forEach((bar) => {
+    const root = bar.closest('.case-story');
+    const index = root?.querySelector<HTMLElement>('.project-index');
+    const closing = root?.querySelector<HTMLElement>('.closing');
+    if (!root || !index || !closing) return;
+    const links = Array.from(bar.querySelectorAll<HTMLAnchorElement>('a[data-chapter]'));
+    const sections = links.map((a) => document.getElementById(a.dataset.chapter!)).filter(Boolean) as HTMLElement[];
+    bar.hidden = false;
+    let shown = false;
+    const setBar = (on: boolean) => {
+      if (on === shown) return;
+      shown = on;
+      bar.classList.toggle('on', on);
+      if (on) bar.style.visibility = 'visible';
+      else setTimeout(() => { if (!shown) bar.style.visibility = 'hidden'; }, 360);
+    };
+    const update = () => {
+      setBar(index.getBoundingClientRect().bottom < 0 && closing.getBoundingClientRect().top > window.innerHeight * 0.5);
+      const y = window.innerHeight * 0.35;
+      let current = 0;
+      sections.forEach((s, i) => { if (s.getBoundingClientRect().top < y) current = i; });
+      links.forEach((a, i) => a.setAttribute('aria-current', i === current ? 'true' : 'false'));
+      const list = bar.querySelector('ol')!, li = links[current].parentElement!;
+      if (li.offsetLeft < list.scrollLeft || li.offsetLeft + li.offsetWidth > list.scrollLeft + list.clientWidth) list.scrollLeft = li.offsetLeft - 8;
+      const start = sections[0].offsetTop, end = closing.offsetTop - window.innerHeight * 0.5;
+      bar.style.setProperty('--p', String(Math.min(1, Math.max(0, (window.scrollY - start) / (end - start)))));
+    };
+    let ticking = false;
+    window.addEventListener('resize', update);
+    window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { update(); ticking = false; }); } }, { passive: true });
+    update();
+  });
+</script>

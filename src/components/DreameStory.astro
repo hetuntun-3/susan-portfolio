@@ -1,5 +1,6 @@
 ---
 import DormSketch from './DormSketch.astro';
+import ChapterBar from './ChapterBar.astro';
 const chapters = [
   { id: 'd-bts', n: '01', name: 'Back-to-School campaign', short: 'Back-to-School' },
   { id: 'd-pitch', n: '02', name: 'Father’s Day pitching', short: 'Father’s Day' },
@@ -12,16 +13,7 @@ const chapters = [
     {chapters.map((c) => <a href={`#${c.id}`}><span>{c.n}</span>{c.name}</a>)}
   </nav>
 
-  <!-- Slim chapter bar: appears once the index above scrolls away, highlights the current project -->
-  <nav class="chapter-bar" aria-label="Jump to a project" hidden>
-    <div class="chapter-inner">
-      <span class="chapter-case">Dreame</span>
-      <ol>
-        {chapters.map((c) => <li><a href={`#${c.id}`} data-chapter={c.id}><span>{c.n}</span>{c.short}</a></li>)}
-      </ol>
-    </div>
-    <span class="chapter-progress" aria-hidden="true"></span>
-  </nav>
+  <ChapterBar caseName="Dreame" chapters={chapters} />
 
   <section class="story-section project" id="d-bts" aria-labelledby="dreame-bts">
     <p class="project-tag">01 · campaign</p>
@@ -199,16 +191,6 @@ const chapters = [
      Mono: 15 body · 13 small · 12 uppercase labels. Weights: 400 and 600 only.
      Fills: lavender block, one lavender wash, white, plus accent tint on the offer post.
      Shadows: 10px for big panels, 6px for small cards, always lavender. */
-  .dreame-story {
-    --wash: color-mix(in srgb, var(--block) 32%, white);
-    --sh-lg: 10px 10px 0 var(--block);
-    --sh-sm: 6px 6px 0 var(--block);
-    --f-h3: 600 24px/1.25 var(--font-display);
-    --f-num: 600 40px/1 var(--font-display);
-    --f-body: 400 15px/1.75 var(--font-mono);
-    --f-small: 400 13px/1.65 var(--font-mono);
-    --f-label: 400 12px/1.4 var(--font-mono);
-  }
   .lede { font:var(--f-body) !important; }
   .step-num, .project-tag, .mini-head { font:var(--f-label) !important; text-transform:uppercase; letter-spacing:.07em; color:var(--muted); }
   .project-tag { margin:0 0 10px !important; }
@@ -232,28 +214,7 @@ const chapters = [
   .partner-num i { font-style:normal; font:var(--f-body); color:var(--muted); }
   .partner-card > p:not(.partner-num) { font:var(--f-small) !important; padding-top:10px; border-top:1px solid var(--rule-soft); }
 
-  /* project index (top of page) */
-  .project-index { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border:var(--border); background:var(--surface); }
-  .project-index a { display:flex; flex-direction:column; gap:6px; padding:16px 18px; min-height:44px; color:var(--ink); text-decoration:none; font:var(--f-small); transition:background .2s; }
-  .project-index a + a { border-left:var(--rule); }
-  .project-index a:hover { background:var(--wash); }
-  .project-index span { font:var(--f-h3); }
   .case-story .project { scroll-margin-top:72px; }
-
-  /* sticky chapter bar */
-  .chapter-bar { position:fixed; z-index:40; top:0; left:0; right:0; background:var(--paper); border-bottom:var(--rule); transform:translateY(-101%); transition:transform .35s cubic-bezier(.165,.84,.44,1); }
-  .chapter-bar.on { transform:none; }
-  .chapter-bar[hidden] { display:block; visibility:hidden; }
-  .chapter-inner { max-width:var(--container,1120px); margin:0 auto; padding:0 48px; display:flex; align-items:center; gap:24px; height:52px; }
-  .chapter-case { font:var(--f-h3); white-space:nowrap; padding-right:20px; border-right:var(--rule); }
-  .chapter-bar ol { list-style:none; margin:0; padding:0; display:flex; gap:4px; overflow-x:auto; scrollbar-width:none; }
-  .chapter-bar ol::-webkit-scrollbar { display:none; }
-  .chapter-bar a { display:flex; align-items:baseline; gap:8px; padding:7px 12px; border:1.5px solid transparent; color:var(--muted); text-decoration:none; font:var(--f-small); white-space:nowrap; transition:color .2s, background .2s, border-color .2s; }
-  .chapter-bar a span { font-weight:600; }
-  .chapter-bar a:hover { color:var(--ink); }
-  .chapter-bar a[aria-current="true"] { color:var(--ink); background:var(--wash); border-color:var(--ink); }
-  .chapter-progress { position:absolute; left:0; bottom:-1px; height:2px; width:100%; background:var(--accent); transform-origin:left; transform:scaleX(var(--p,0)); }
-  @media(max-width:819px) { .chapter-inner { padding:0 16px; gap:12px; } .chapter-case { display:none; } }
 
   /* concept + audience tabs */
   .audience-split { display:grid; grid-template-columns:1fr 1fr; background:var(--surface); border:var(--border); box-shadow:var(--sh-lg); margin-right:10px; }
@@ -360,7 +321,6 @@ const chapters = [
   }
 
   @media(max-width:819px) {
-    .project-index { grid-template-columns:repeat(2,minmax(0,1fr)); } .project-index a + a:nth-child(3) { border-left:0; } .project-index a:nth-child(n+3) { border-top:var(--rule); }
     .partner-grid { grid-template-columns:1fr; }
     .audience-split { grid-template-columns:1fr; } .audience-split .side + .side { border-left:0; border-top:var(--rule); }
     .audience-split.tabbed .side + .side { border-top:0; }
@@ -376,38 +336,6 @@ const chapters = [
 <script>
   const root = document.querySelector<HTMLElement>('.dreame-story');
   if (root) {
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    /* ---- sticky chapter bar ---- */
-    const bar = root.querySelector<HTMLElement>('.chapter-bar')!;
-    const index = root.querySelector<HTMLElement>('.project-index')!;
-    const closing = root.querySelector<HTMLElement>('.closing')!;
-    const links = Array.from(bar.querySelectorAll<HTMLAnchorElement>('a[data-chapter]'));
-    const sections = links.map((a) => document.getElementById(a.dataset.chapter!)!);
-    bar.hidden = false;
-    let indexGone = false, pastEnd = false;
-    const setBar = () => {
-      const on = indexGone && !pastEnd;
-      bar.classList.toggle('on', on);
-      bar.style.visibility = on ? 'visible' : '';
-      if (!on) setTimeout(() => { if (!bar.classList.contains('on')) bar.style.visibility = 'hidden'; }, 360);
-    };
-    new IntersectionObserver(([e]) => { indexGone = !e.isIntersecting && e.boundingClientRect.top < 0; setBar(); }).observe(index);
-    new IntersectionObserver(([e]) => { pastEnd = e.isIntersecting && e.boundingClientRect.top < window.innerHeight * 0.5; setBar(); }, { threshold: [0, 0.3] }).observe(closing);
-    const markActive = () => {
-      const y = window.innerHeight * 0.35;
-      let current = 0;
-      sections.forEach((s, i) => { if (s.getBoundingClientRect().top < y) current = i; });
-      links.forEach((a, i) => a.setAttribute('aria-current', i === current ? 'true' : 'false'));
-      const active = links[current];
-      if (bar.classList.contains('on')) active.scrollIntoView({ block: 'nearest', inline: 'nearest' });
-      const start = sections[0].offsetTop, end = closing.offsetTop - window.innerHeight * 0.5;
-      bar.style.setProperty('--p', String(Math.min(1, Math.max(0, (window.scrollY - start) / (end - start)))));
-    };
-    let ticking = false;
-    window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { markActive(); ticking = false; }); } }, { passive: true });
-    markActive();
-
     /* ---- audience tabs ---- */
     const split = root.querySelector<HTMLElement>('.audience-split')!;
     const tabsEl = split.querySelector<HTMLElement>('.audience-tabs')!;
@@ -483,6 +411,5 @@ const chapters = [
       const dx = e.changedTouches[0].clientX - x0; x0 = null;
       if (Math.abs(dx) > 40) show(at + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
     });
-    void reduce;
   }
 </script>

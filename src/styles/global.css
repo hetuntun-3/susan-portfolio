@@ -853,3 +853,53 @@ a.pcard:hover .pmore { text-decoration: underline; text-underline-offset: 4px; }
   @keyframes crumb-in { from { opacity: 0; transform: translateX(-8px); } }
 }
 @media (max-width: 639px) { .crumb-trail > a, .crumb-trail > span[aria-hidden]:first-child { display: none; } }
+
+/* ---------- home: smoother scrolling (preview/dreame-ui) ----------
+   Native scroll only (no scroll-hijacking). Motion is tied to scroll position with
+   CSS scroll-driven animations, so it moves exactly as fast as the reader scrolls.
+   Browsers without support keep the timed reveal; reduced-motion turns it all off.
+   Easing and durations follow refero: 200–300ms, cubic-bezier(.4,0,.2,1). */
+:root { --ease-std: cubic-bezier(.4, 0, .2, 1); }
+
+/* 1 · section bands stick while you read their section, then the next one pushes them off */
+.home .home-block > .band { position: sticky; top: 0; z-index: 6; background: var(--paper); }
+
+/* 2 · project cards: refero-style hover — cover content eases in, the ride path flows, tags lift */
+.pcard .pc-type { transition: scale .3s var(--ease-std); transform-origin: 50% 60%; }
+a.pcard:hover .pc-type, a.pcard:focus-visible .pc-type { scale: 1.03; }
+a.pcard { transition: transform .3s var(--ease-std), box-shadow .3s var(--ease-std); }
+.pc-steps li { transition: translate .25s var(--ease-std); }
+a.pcard:hover .pc-steps li { translate: 0 -3px; }
+a.pcard:hover .pc-steps li:nth-child(2) { transition-delay: .04s; }
+a.pcard:hover .pc-steps li:nth-child(3) { transition-delay: .08s; }
+a.pcard:hover .pc-steps li:nth-child(4) { transition-delay: .12s; }
+
+@media (prefers-reduced-motion: no-preference) {
+  a.pcard:hover .ride-path path { animation: path-flow 1.4s linear infinite; }
+  @keyframes path-flow { to { stroke-dashoffset: -30; } }
+
+  @supports (animation-timeline: scroll()) {
+    /* 3 · hero hands off to the work: text lifts and fades, the polaroid drifts and tilts */
+    .home .splash-text { animation: hero-out linear both; animation-timeline: scroll(root); animation-range: 0 75vh; }
+    .home .splash-photo {
+      animation: photoin 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) 0.35s both, photo-drift linear both;
+      animation-timeline: auto, scroll(root);
+      animation-range: normal, 0 90vh;
+    }
+    @keyframes hero-out { to { translate: 0 -70px; opacity: .1; } }
+    @keyframes photo-drift { to { translate: 0 -120px; rotate: -4deg; scale: .92; } }
+
+    /* 4 · cards, idea cards and skill rows rise with the scroll instead of on a timer */
+    html.js .home :is(.pcard, .think-item, .tools-group):not(.done) { opacity: 1; transform: none; transition-property: transform, box-shadow; }
+    .home .pcard, .home .think-item, .home .tools-group {
+      animation: rise-in linear both; animation-timeline: view(); animation-range: entry 0% entry 80%;
+    }
+    .home .selected-grid > :nth-child(2), .home .think-list > :nth-child(2) { animation-range: entry 8% entry 88%; }
+    .home .think-list > :nth-child(3) { animation-range: entry 16% entry 96%; }
+    @keyframes rise-in { from { opacity: 0; translate: 0 64px; scale: .97; } }
+
+    /* bands slide their note in as they stick */
+    .home .home-block > .band .label { animation: note-in linear both; animation-timeline: view(); animation-range: entry 40% entry 100%; }
+    @keyframes note-in { from { opacity: 0; translate: 24px 0; } }
+  }
+}
