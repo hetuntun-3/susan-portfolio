@@ -16,6 +16,8 @@ const nav = [
   { href: '/about', label: 'about' },
 ];
 const isActive = (href: string) => path === href || path.startsWith(href + '/');
+const caseNames: Record<string, string> = { insta360: 'Insta360', dreame: 'Dreame' };
+const caseName = caseSlug ? caseNames[caseSlug] : undefined;
 const gaOn = site.gaId && !site.gaId.includes('XXXX');
 ---
 <!doctype html>
@@ -32,7 +34,7 @@ const gaOn = site.gaId && !site.gaId.includes('XXXX');
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,600..700,50&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,600..700,50&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <script is:inline>document.documentElement.classList.add('js');document.documentElement.dataset.reveal='.reveal, .idea-card, .stat, .section-lead, .now-row, .section-head, .card, .tools-group, .lab-card, .timeline li, .prose > *, .tldr, .case-head .container > *, .about-open .container > *, .intro .container > *, .cta-band .container > *, .contact-list li, .say-hi-line, .case-nav, .think-item, .band';</script>
@@ -53,7 +55,10 @@ const gaOn = site.gaId && !site.gaId.includes('XXXX');
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="container">
-        <a class="wordmark" href="/">{site.wordmark}</a>
+        <div class="crumbs">
+          <a class="wordmark" href="/">{site.wordmark}</a>
+          {caseName && <span class="crumb-trail" aria-label="You are here"><span aria-hidden="true">/</span><a href="/work">work</a><span aria-hidden="true">/</span><span class="crumb-current">{caseName}</span></span>}
+        </div>
         <nav class="nav" aria-label="Main">
           {nav.map((n) => (
             <a href={n.href} aria-current={isActive(n.href) ? 'page' : undefined}>{n.label}</a>
@@ -65,7 +70,10 @@ const gaOn = site.gaId && !site.gaId.includes('XXXX');
     </header>
     <div class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Menu">
       <div class="mobile-nav-top">
-        <a class="wordmark" href="/">{site.wordmark}</a>
+        <div class="crumbs">
+          <a class="wordmark" href="/">{site.wordmark}</a>
+          {caseName && <span class="crumb-trail" aria-label="You are here"><span aria-hidden="true">/</span><a href="/work">work</a><span aria-hidden="true">/</span><span class="crumb-current">{caseName}</span></span>}
+        </div>
         <button class="menu-btn close-btn" type="button">close</button>
       </div>
       <a class="m-link" href="/" aria-current={path === '/' ? 'page' : undefined}>home</a>

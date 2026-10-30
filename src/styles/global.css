@@ -825,3 +825,31 @@ a.pcard:hover .pmore { text-decoration: underline; text-underline-offset: 4px; }
   .home .splash-photo { width: 260px; max-width: 260px; justify-self: start; }
 }
 @media (min-width: 1024px) { .home .splash-grid { gap: 56px; } }
+
+/* ---------- page transitions (preview/dreame-ui) ----------
+   Cross-document View Transitions: the header stays put, the page crossfades,
+   and a project's cover morphs into the case banner. Browsers without support
+   (and reduced-motion users) just load the page normally. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+}
+.site-header { view-transition-name: site-header; }
+.pcard[href="/work/insta360"] .pcover, body[data-case="insta360"] .case-title-panel { view-transition-name: cover-insta360; }
+.pcard[href="/work/dreame"] .pcover, body[data-case="dreame"] .case-title-panel { view-transition-name: cover-dreame; }
+::view-transition-group(*) { animation-duration: .5s; animation-timing-function: cubic-bezier(.65, 0, .35, 1); }
+::view-transition-old(root) { animation: vt-out .22s ease-in both; }
+::view-transition-new(root) { animation: vt-in .38s cubic-bezier(.165, .84, .44, 1) .08s both; }
+@keyframes vt-out { to { opacity: 0; } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(14px); } }
+
+/* breadcrumb in the header on case pages: susan su / work / Dreame */
+.crumbs { display: flex; align-items: baseline; gap: 10px; min-width: 0; }
+.crumb-trail { display: flex; align-items: baseline; gap: 10px; font: 400 14px/1 var(--font-mono); color: var(--muted); white-space: nowrap; }
+.crumb-trail a { color: var(--muted); text-decoration: none; }
+.crumb-trail a:hover { color: var(--ink); text-decoration: underline; }
+.crumb-current { color: var(--ink); }
+@media (prefers-reduced-motion: no-preference) {
+  .crumb-current { animation: crumb-in .5s cubic-bezier(.165, .84, .44, 1) .15s both; }
+  @keyframes crumb-in { from { opacity: 0; transform: translateX(-8px); } }
+}
+@media (max-width: 639px) { .crumb-trail > a, .crumb-trail > span[aria-hidden]:first-child { display: none; } }
