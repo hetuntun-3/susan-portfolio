@@ -46,7 +46,7 @@ const gaOn = site.gaId && !site.gaId.includes('XXXX');
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,600..700,50&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <script is:inline>document.documentElement.classList.add('js');document.documentElement.dataset.reveal='.reveal, .idea-card, .stat, .section-lead, .now-row, .section-head, .card, .tools-group, .lab-card, .timeline li, .prose > *, .tldr, .case-head .container > *, .about-open .container > *, .intro .container > *, .cta-band .container > *, .contact-list li, .say-hi-line, .case-nav, .think-item, .band';</script>
+    <script is:inline>document.documentElement.classList.add('js');document.documentElement.dataset.reveal='.photo-grid > figure, .reveal, .idea-card, .stat, .section-lead, .now-row, .section-head, .card, .tools-group, .lab-card, .timeline li, .prose > *, .tldr, .case-head .container > *, .intro .container > *, .cta-band .container > *, .contact-list li, .say-hi-line, .case-nav, .think-item, .band';</script>
     {gaOn && (
       <>
         <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${site.gaId}`}></script>
@@ -131,7 +131,10 @@ const gaOn = site.gaId && !site.gaId.includes('XXXX');
       const targets = Array.from(document.querySelectorAll<HTMLElement>(revealSel));
       // stagger items that sit side by side (cards, chips rows, timeline)
       targets.forEach((el) => {
-        if (el.matches('.card, .lab-card, .timeline li, .tools-group, .idea-card, .stat')) {
+        if (el.matches('.photo-grid > figure')) {
+          const sibs = Array.from(el.parentElement?.children ?? []);
+          el.style.transitionDelay = `${(sibs.indexOf(el) % 4) * 160}ms`;
+        } else if (el.matches('.card, .lab-card, .timeline li, .tools-group, .idea-card, .stat')) {
           const sibs = Array.from(el.parentElement?.children ?? []);
           el.style.transitionDelay = `${(sibs.indexOf(el) % 3) * 110}ms`;
         }

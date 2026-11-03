@@ -409,14 +409,14 @@ a.lab-card:hover { color: var(--ink); transform: translate(-3px, -3px); box-shad
    Keep this selector list in sync with it. */
 @media (prefers-reduced-motion: no-preference) {
   html.js :is(.reveal, .idea-card, .stat, .section-lead, .now-row, .section-head, .card, .tools-group, .lab-card, .timeline li, .prose > *, .tldr,
-    .case-head .container > *, .about-open .container > *, .intro .container > *, .cta-band .container > *,
+    .case-head .container > *, .intro .container > *, .cta-band .container > *,
     .contact-list li, .say-hi-line, .case-nav, .think-item, .band):not(.done) {
     opacity: 0;
     transform: translateY(12px);
     transition: opacity 0.35s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
   html.js :is(.reveal, .idea-card, .stat, .section-lead, .now-row, .section-head, .card, .tools-group, .lab-card, .timeline li, .prose > *, .tldr,
-    .case-head .container > *, .about-open .container > *, .intro .container > *, .cta-band .container > *,
+    .case-head .container > *, .intro .container > *, .cta-band .container > *,
     .contact-list li, .say-hi-line, .case-nav, .think-item, .band).in:not(.done) {
     opacity: 1; transform: none;
   }
@@ -951,3 +951,36 @@ a.pcard:hover .pc-steps li:nth-child(4) { transition-delay: .12s; }
   .splash-drawing { order: -1; justify-self: start; max-width: 150px; margin-bottom: calc(-1 * var(--s-3)) !important; }
 }
 @media (max-width: 640px) { .splash-drawing { max-width: 130px; } }
+
+/* ---------- entrance motion v2 (Nov 3): slower, staged ----------
+   Home: name letters → headline → intro → details → link, drawing fades in alongside.
+   About: headline → bio paragraphs → languages, photo fades in beside it.
+   About, below the fold: "outside work" and the photos rise in slowly as you scroll. */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes soft-in { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+  @keyframes draw-in { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+  @keyframes photo-soft { from { opacity: 0; transform: translateY(28px) rotate(-1deg); } to { opacity: 1; transform: rotate(2deg); } }
+
+  .home .splash-name .ch { animation: rise 1.15s cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: calc(var(--i) * 70ms + 150ms); }
+  .home .splash-headline { animation: soft-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.75s both; }
+  .home .splash-intro { animation: soft-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) 1.05s both; }
+  .home .hero-details { animation: soft-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) 1.3s both; }
+  .home .splash-link { animation: soft-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) 1.5s both; }
+  .home .splash-drawing { animation: draw-in 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.55s both; }
+
+  .about-open h2 { animation: soft-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both; }
+  .about-open-text > p:nth-of-type(1) { animation: soft-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both; }
+  .about-open-text > p:nth-of-type(2) { animation: soft-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.6s both; }
+  .about-open-text > p:nth-of-type(3) { animation: soft-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.75s both; }
+  .about-open-text > p:nth-of-type(4) { animation: soft-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.9s both; }
+  .about-open-text > .lang-list { animation: soft-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) 1.05s both; }
+  .about-photo { animation: photo-soft 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both; }
+
+  /* about, below the fold: slower scroll reveal (photos keep their tilt, so they move with `translate`) */
+  html.js .about-open ~ .section :is(.section-head, .section-lead):not(.done),
+  html.js .about-open ~ .say-hi .say-hi-line:not(.done) { transition-duration: 0.9s, 0.9s; transform: translateY(22px); }
+  html.js .about-open ~ .section :is(.section-head, .section-lead).in:not(.done),
+  html.js .about-open ~ .say-hi .say-hi-line.in:not(.done) { transform: none; }
+  html.js .photo-grid > figure:not(.done) { opacity: 0; translate: 0 32px; transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), translate 1s cubic-bezier(0.22, 1, 0.36, 1); }
+  html.js .photo-grid > figure.in:not(.done) { opacity: 1; translate: 0 0; }
+}

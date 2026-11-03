@@ -1,6 +1,6 @@
 ---
 title: Dreame
-headline: "Dreame: one lineup, many audiences"
+headline: "Dreame"
 lead: Proposed a two-audience Back-to-School concept backed by NRF data, seeded 8 nano creators, and landed a campus partnership with USC. Wrote Father’s Day pitches for 3 kinds of outlets, supported 3 launches, and tracked 6 competitors weekly in Meltwater.
 description: "Four projects from my Dreame internship: a two-audience Back-to-School campaign, Father’s Day pitching for three kinds of outlets, launch PR, and weekly media monitoring."
 timeline: Summer 2025
