@@ -1,7 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
 import TitleBar from '../components/TitleBar.astro';
-import IdeaCards from '../components/IdeaCards.astro';
 import site from '../data/site.json';
 import { getEntry } from 'astro:content';
 
@@ -23,14 +22,6 @@ const tilts = [-1.5, 1.2, -0.6, 1.8, -1.9, 0.8];
     </div>
   </section>
 
-  {d.habits.length > 0 && (
-    <section class="section">
-      <div class="container">
-        <div class="section-head"><h2>three habits I bring to every project</h2></div>
-        <IdeaCards items={d.habits} />
-      </div>
-    </section>
-  )}
 
   <section class="section">
     <div class="container">

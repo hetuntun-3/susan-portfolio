@@ -3,7 +3,7 @@ title: about
 subtitle: a little more about me
 opening: I study why people want what they want, then I measure it.
 intro: |-
-  I started in Gender Studies, learning to question what feels natural and to ask why people want what they want. In college I organized Queer Prom and Pride Week and promoted them on social media. It was my first marketing work, and it showed me that marketing is a way to share ideas with more people.
+  I started in Gender Studies, learning to question what feels natural and to ask why people want what they want. My essay on the "Pilates Princess" trend, for example, argued that a workout aesthetic was really a signal of class and identity. In college I organized Queer Prom and Pride Week and promoted them on social media. It was my first marketing work, and it showed me that marketing is a way to share ideas with more people.
 
   That pulled me toward branding, the most creative part of the job. But creative work is hard to measure, and I wanted to know whether my ideas actually worked. So now I'm studying Marketing Science at Columbia, using data to test my insights, find out if I was right or wrong, and show the results.
 
