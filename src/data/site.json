@@ -5,16 +5,16 @@
   "linkedin": "https://www.linkedin.com/in/shan-susan-su",
   "resumePdf": "/Susan-Su-Resume.pdf",
   "gaId": "G-XXXXXXXXXX",
-  "description": "Susan Su: Columbia Marketing Science MS. I find why customers buy, then test it with data. Open to Summer 2027 internships in Growth/GTM, Product Marketing, and Marketing Analytics.",
+  "description": "Susan Su: Columbia Marketing Science MS. I find why customers buy, then test it with data. Open to Summer 2027 internships in Growth & GTM, Product Marketing, and Marketing Analytics.",
 
   "hero": {
     "line": "i'm susan -- a marketer who finds why customers buy, then tests it with data. ms marketing science at columbia business school, open to summer 2027 internships in growth, product marketing, and marketing analytics.",
-    "sub": "ms marketing science @ columbia business school · open to summer 2027 internships in growth, product marketing & marketing analytics.",
+    "sub": "ms marketing science @ columbia business school · open to summer 2027 internships in growth & gtm, product marketing & marketing analytics.",
     "kicker": "MS Marketing Science · Columbia Business School",
     "keywords": ["cultural insight", "consumer data", "AI"],
     "headline": "I find why customers buy, then test it with data.",
     "intro": "AI makes content and analysis cheap. I think that makes two things worth more: knowing why people want what they want, and earning their trust. Gender Studies trained the first; Columbia is giving me the tools to measure it.",
-    "availability": "Open to Summer 2027 internships in Growth/GTM, Product Marketing, and Marketing Analytics.",
+    "availability": "Open to Summer 2027 internships in Growth & GTM, Product Marketing, and Marketing Analytics.",
     "headshot": "/images/headshot.jpg",
     "headshotAlt": "Susan Su in a yellow shirt, laughing with her arms out"
   },
@@ -33,6 +33,6 @@
   ],
 
   "cta": {
-    "line": "Hiring for a growth, product marketing, or analytics intern? I'd love to talk."
+    "line": "Hiring for a growth & GTM, product marketing, or analytics intern? I'd love to talk."
   }
 }

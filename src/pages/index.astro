@@ -23,7 +23,7 @@ const about = await getEntry('pages', 'about');
         </h1>
         <p class="splash-headline">{h.headline}</p>
         {h.intro && <p class="splash-intro">{h.intro}</p>}
-        <div class="hero-details"><p>{h.kicker}</p><p>Open to summer 2027 internships</p><p class="hero-roles">Growth / Product Marketing / Marketing Analytics</p></div>
+        <div class="hero-details"><p>{h.kicker}</p><p>Open to summer 2027 internships</p><p class="hero-roles">Growth &amp; GTM / Product Marketing / Marketing Analytics</p></div>
         <a class="splash-link" href="#work">see my work ↓</a>
       </div>
       <figure class={`polaroid splash-photo${h.headshot ? '' : ' no-photo'}`} style="margin:0">
@@ -39,7 +39,7 @@ const about = await getEntry('pages', 'about');
 
   <!-- Work -->
   <section class="home-block" id="work">
-    <div class="band"><div class="container"><h2>selected work</h2><span class="label">ideas → decisions → execution</span></div></div>
+    <div class="band"><div class="container"><h2>selected work</h2><span class="label">research → positioning → channels → measure</span></div></div>
     <div class="container">
       <WorkProjects entries={work} />
     </div>

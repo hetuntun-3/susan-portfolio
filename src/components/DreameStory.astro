@@ -1,17 +1,25 @@
 ---
 import DormSketch from './DormSketch.astro';
 import ChapterBar from './ChapterBar.astro';
+import GtmLoop from './GtmLoop.astro';
 const chapters = [
   { id: 'd-bts', n: '01', name: 'Back-to-School campaign', short: 'Back-to-School' },
   { id: 'd-pitch', n: '02', name: 'Father’s Day pitching', short: 'Father’s Day' },
   { id: 'd-launch', n: '03', name: 'Launch PR', short: 'Launch PR' },
   { id: 'd-monitor', n: '04', name: 'Media monitoring', short: 'Monitoring' },
 ];
+const gtm = [
+  { stage: 'Research', role: 'analytics', text: 'NRF trend data behind a two-audience insight', href: '#d-bts-concepts' },
+  { stage: 'Positioning', role: 'product marketing', text: 'Confidence for students, care from afar for parents', href: '#d-bts-concepts' },
+  { stage: 'Channels', role: 'growth & gtm', text: '8 creators, a USC campus partnership, 600 journalists', href: '#d-bts-partners' },
+  { stage: 'Measure', role: 'analytics', text: 'Weekly sentiment and share of voice vs. 6 competitors', href: '#d-monitor' },
+];
 ---
 <div class="case-story container dreame-story">
   <nav class="project-index" aria-label="Projects on this page">
     {chapters.map((c) => <a href={`#${c.id}`}><span>{c.n}</span>{c.name}</a>)}
   </nav>
+  <GtmLoop stages={gtm} />
 
   <ChapterBar caseName="Dreame" chapters={chapters} />
 

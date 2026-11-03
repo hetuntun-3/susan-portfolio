@@ -14,7 +14,7 @@ featured: true
 coverKicker: shenzhen hq · summer 2026
 coverTitle: Insta360
 coverNote: 8 surveys · 100 riders selected
-summary: Market research + brand projects
+summary: Research, positioning, and launch channels
 metrics: ["8 surveys built", "100 riders selected"]
 caseKicker: Marketing case study · July 2026
 caseSummary: My summer at Insta360’s Shenzhen HQ. Four separate projects across two teams, market research and brand, each shown on its own below.

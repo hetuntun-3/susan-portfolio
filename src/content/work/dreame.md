@@ -13,7 +13,7 @@ featured: true
 coverKicker: u.s. · summer 2025
 coverTitle: Dreame
 coverSteps: ["students", "parents", "dads", "press"]
-summary: Campaign + PR projects
+summary: Positioning, creators, PR, and media data
 metrics: ["8 creators seeded"]
 caseKicker: Marketing case study · Summer 2025
 caseSummary: My summer on Dreame’s U.S. marketing and PR team. Four separate projects, each shown on its own below.

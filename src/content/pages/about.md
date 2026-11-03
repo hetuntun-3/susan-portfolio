@@ -66,7 +66,7 @@ now:
   - label: clubs
     value: Events AVP, Columbia Entrepreneurs Organization · member, CBS AI and Technology clubs
   - label: recruiting
-    value: Summer 2027 · Growth/GTM, Product Marketing, Marketing Analytics
+    value: Summer 2027 · Growth & GTM, Product Marketing, Marketing Analytics
 
 # Last line of the About page (the email link sits under it)
 sayHi: Want a hiking buddy, a dive partner, or a bartender for your startup's next party? Say hi.
