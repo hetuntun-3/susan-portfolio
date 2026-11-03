@@ -984,3 +984,9 @@ a.pcard:hover .pc-steps li:nth-child(4) { transition-delay: .12s; }
   html.js .photo-grid > figure:not(.done) { opacity: 0; translate: 0 32px; transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), translate 1s cubic-bezier(0.22, 1, 0.36, 1); }
   html.js .photo-grid > figure.in:not(.done) { opacity: 1; translate: 0 0; }
 }
+
+/* case pages: back to top link above prev/next */
+.back-top { max-width: var(--reading); margin: var(--s-8) auto 0; text-align: center; }
+.back-top a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; font: 13px/1 var(--font-mono); color: var(--ink); border: var(--border); background: var(--surface); text-decoration: none; }
+.back-top a:hover { background: var(--accent-tint); }
+.back-top + .case-nav { margin-top: var(--s-6); }

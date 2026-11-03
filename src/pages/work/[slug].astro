@@ -62,6 +62,7 @@ const highlightNumbers = (s: string) => md(s).replace(/(40\+|~300|\b(?:100|12|8|
         <Content />
       </div>}
 
+      <p class="back-top"><a href="#top" onclick="event.preventDefault();window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})">↑ back to top</a></p>
       <nav class="case-nav" aria-label="More case studies">
         {prev && (
           <a class="prev" href={`/work/${prev.id}`}><span class="label">← previous case</span>{prev.data.title}</a>
