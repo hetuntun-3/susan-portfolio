@@ -7,6 +7,10 @@ import { getEntry } from 'astro:content';
 const about = await getEntry('pages', 'about');
 if (!about) throw new Error('Missing src/content/pages/about.md');
 const d = about.data;
+// Bio paragraphs: escape text, then turn [label](https://...) into a link that opens in a new tab.
+const esc = (t: string) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const inlineLinks = (t: string) => esc(t).replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
+  (_m, label, url) => `<a href="${url}" target="_blank" rel="noopener noreferrer">${label} ↗</a>`);
 // fixed tilts so photos look the same on every load
 const tilts = [-1.5, 1.2, -0.6, 1.8, -1.9, 0.8];
 ---
@@ -16,7 +20,7 @@ const tilts = [-1.5, 1.2, -0.6, 1.8, -1.9, 0.8];
   <section class="about-open">
     <div class="container">
       <h2>{d.opening}</h2>
-      {d.intro && d.intro.split(/\n\s*\n/).map((para) => <p>{para}</p>)}
+      {d.intro && d.intro.split(/\n\s*\n/).map((para) => <p set:html={inlineLinks(para)} />)}
       {d.introExtra && <p class="about-extra">{d.introExtra}</p>}
       {d.languages.length > 0 && <ul class="lang-list" aria-label="Languages">{d.languages.map((l) => <li>{l}</li>)}</ul>}
     </div>
