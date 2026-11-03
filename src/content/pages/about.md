@@ -3,11 +3,13 @@ title: about
 subtitle: a little more about me
 opening: I study why people want what they want, then I measure it.
 intro: |-
-  I started in Gender Studies, learning to question what feels natural and to ask why people want what they want. In college I organized [Queer Prom and Pride Week](https://www.instagram.com/p/CrJxVvaPA5B/) and promoted them on social media. It was my first marketing work, and it showed me that marketing is a way to share ideas with more people. From there I started studying social media itself and how people behave online. My ["Pilates Princess" video essay](https://youtu.be/z5ZQB3-qQ9s), for example, argued that a workout aesthetic was really a signal of class and identity.
+  I started in Gender Studies, where I learned to question what feels natural and ask where desire comes from. In college, I organized [Queer Prom and Pride Week](https://www.instagram.com/p/CrJxVvaPA5B/) and promoted them on social media. That was my first taste of marketing: seeing how ideas could reach people and bring them together. I became curious about how culture shapes what people aspire to. My [“Pilates Princess” video essay](https://youtu.be/z5ZQB3-qQ9s), for example, explores how a workout aesthetic can signal class and identity.
 
-  That pulled me toward branding, the most creative part of the job. But creative work is hard to measure, and I wanted to know whether my ideas actually worked. So now I'm studying Marketing Science at Columbia, using data to test my insights, find out if I was right or wrong, and show the results.
+  That curiosity led me into branding and consumer marketing at Dreame and Insta360. I loved the creative side, but wanted to understand what happened after an idea went out into the world. Did it change behavior? Did it drive results? Now I'm studying Marketing Science at Columbia, learning to turn insights about people into hypotheses, experiments, and measurable growth.
 
-  AI ties it together. It helps me turn loose creative ideas into a clear structure and a plan I can act on. What it doesn't do is ask what it assumed, or whose data is missing. That part is still my job.
+  AI helps me move faster from insight to action, whether through consumer research, data analysis, or automation. But faster answers aren't always better ones. Someone still has to question the assumptions, notice whose perspective is missing, and decide what the evidence actually means.
+
+  That's where my liberal arts background and analytical training come together.
 languages:
   - Mandarin
   - English
