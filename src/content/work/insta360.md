@@ -11,14 +11,14 @@ featured: true
 # To use a photo instead of the big number, add it to public/images/ and uncomment:
 # cover: /images/insta360-cover.jpg
 # coverAlt: Riders in yellow jerseys on the Champs-Élysées
-coverKicker: hq · summer 2026
+coverKicker: shenzhen hq · summer 2026
 coverTitle: Insta360
 coverNote: 8 surveys · 100 riders selected
 summary: Market research + brand projects
 metrics: ["8 surveys built", "100 riders selected"]
 caseKicker: Marketing case study · July 2026
-caseSummary: My summer at Insta360’s HQ. Four separate projects across two teams, market research and brand, each shown on its own below.
-caseContext: ["Marketing Intern", "HQ team · Summer 2026", "SurveyMonkey · Wenjuanxing · Excel · Canva"]
+caseSummary: My summer at Insta360’s Shenzhen HQ. Four separate projects across two teams, market research and brand, each shown on its own below.
+caseContext: ["Marketing Intern", "Shenzhen HQ · Summer 2026", "SurveyMonkey · Wenjuanxing · Excel · Canva"]
 caseOutputs:
   - { value: "100", label: "camera-equipped riders selected" }
   - { value: "2", label: "audience workshop decks prepared" }
