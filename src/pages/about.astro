@@ -19,13 +19,14 @@ const tilts = [-1.5, 1.2, -0.6, 1.8, -1.9, 0.8];
       <h2>{d.opening}</h2>
       {d.intro && d.intro.split(/\n\s*\n/).map((para) => <p>{para}</p>)}
       {d.introExtra && <p class="about-extra">{d.introExtra}</p>}
+      {d.languages.length > 0 && <ul class="lang-list" aria-label="Languages">{d.languages.map((l) => <li>{l}</li>)}</ul>}
     </div>
   </section>
 
   {d.habits.length > 0 && (
     <section class="section">
       <div class="container">
-        <div class="section-head"><h2>three habits I bring to every project</h2><span class="label">from gender studies, used in marketing</span></div>
+        <div class="section-head"><h2>three habits I bring to every project</h2></div>
         <IdeaCards items={d.habits} />
       </div>
     </section>

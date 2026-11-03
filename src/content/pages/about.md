@@ -8,7 +8,10 @@ intro: |-
   That pulled me toward branding, the most creative part of the job. But creative work is hard to measure, and I wanted to know whether my ideas actually worked. So now I'm studying Marketing Science at Columbia, using data to test my insights, find out if I was right or wrong, and show the results.
 
   AI ties it together. It helps me turn loose creative ideas into a clear structure and a plan I can act on. What it doesn't do is ask what it assumed, or whose data is missing. That part is still my job.
-introExtra: I speak Mandarin and English, and I've worked between U.S. and China teams at both internships.
+languages:
+  - Mandarin
+  - English
+  - French (learning)
 timeline:
   - when: "2022"
     where: SHEIN, Fashion Trend Analyst Intern
@@ -72,7 +75,7 @@ now:
 # Last line of the About page (the email link sits under it)
 sayHi: Want a hiking buddy, a dive partner, or a bartender for your team's next party? Say hi.
 
-outside: Surfing, scuba diving, hiking, and mixing cocktails. Mixology is a lot like marketing, you test, adjust, and watch people's faces. I speak English and Mandarin, and I'm working on my French.
+outside: Surfing, scuba diving, hiking, and mixing cocktails. Mixology is a lot like marketing, you test, adjust, and watch people's faces.
 
 # Photos for "Outside work". Add a file to public/images/ and a new entry here.
 # position = which part of the photo stays in the frame (x% y%)
