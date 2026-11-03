@@ -2,9 +2,13 @@
 title: about
 subtitle: a little more about me
 opening: I study why people want what they want, then I measure it.
-intro: I'm Susan Su, a Marketing Science MS candidate at Columbia Business School. Before that I studied Gender Studies at UCLA, where I learned to question assumptions and study how culture shapes behavior. Now I'm learning to put numbers on it, and to use AI to move faster without losing the human part.
-introExtra: I grew up speaking Mandarin and work in English, so I've spent most of my career translating, between U.S. and China teams, and between what a product does and why someone would care.
+intro: |-
+  I started in Gender Studies, learning to question what feels natural and to ask why people want what they want. In college I organized Queer Prom and Pride Week and promoted them on social media. It was my first marketing work, and it showed me that marketing is a way to share ideas with more people.
 
+  That pulled me toward branding, the most creative part of the job. But creative work is hard to measure, and I wanted to know whether my ideas actually worked. So now I'm studying Marketing Science at Columbia, using data to test my insights, find out if I was right or wrong, and show the results.
+
+  AI ties it together. It helps me turn loose creative ideas into a clear structure and a plan I can act on. What it doesn't do is ask what it assumed, or whose data is missing. That part is still my job.
+introExtra: I speak Mandarin and English, and I've worked between U.S. and China teams at both internships.
 timeline:
   - when: "2022"
     where: SHEIN, Fashion Trend Analyst Intern
@@ -40,10 +44,7 @@ beliefs:
     title: Use AI to think faster, not less.
     body: I built this site with Claude and ChatGPT. They drafted and organized; I briefed, pushed back, and edited until it sounded like me.
 
-habitsIntro: |-
-  People ask why a Gender Studies major went into marketing. Gender Studies taught me that much of what feels natural (what's beautiful, successful, or normal) is shaped by culture. Marketing asks the same question: why do people want what they want?
-
-  AI now tells us what people do, fast. It doesn't ask what it assumed, whose data is missing, or why a pattern exists. Those are the questions I was trained to ask.
+habitsIntro: ""
 habits:
   - icon: subtext
     title: I read the subtext.
@@ -69,7 +70,7 @@ now:
     value: Summer 2027 · Growth & GTM, Product Marketing, Marketing Analytics
 
 # Last line of the About page (the email link sits under it)
-sayHi: Want a hiking buddy, a dive partner, or a bartender for your startup's next party? Say hi.
+sayHi: Want a hiking buddy, a dive partner, or a bartender for your team's next party? Say hi.
 
 outside: Surfing, scuba diving, hiking, and mixing cocktails. Mixology is a lot like marketing, you test, adjust, and watch people's faces. I speak English and Mandarin, and I'm working on my French.
 
