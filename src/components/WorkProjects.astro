@@ -11,6 +11,6 @@ const { entries } = Astro.props;
   <aside class="upcoming-project" aria-label="Upcoming project">
     <span class="micro upcoming-label">In progress</span>
     <h3>{entry.data.title.replace('Coming soon: ', '')}</h3>
-    <span class="label">Columbia · coming soon</span>
+    <span class="label">{entry.data.tag}</span>
   </aside>
 ))}
