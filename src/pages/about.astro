@@ -48,21 +48,6 @@ const tilts = [-1.5, 1.2, -0.6, 1.8, -1.9, 0.8];
   </section>
 
 
-  {d.now.length > 0 && (
-    <section class="section">
-      <div class="container">
-        <div class="section-head"><h2>right now</h2><span class="label">fall 2026</span></div>
-        <dl class="now-list">
-          {d.now.map((n) => (
-            <div class="now-row">
-              <dt class="micro">{n.label}</dt>
-              <dd>{n.link ? <a href={n.link}>{n.value} →</a> : n.value}</dd>
-            </div>
-          ))}
-        </dl>
-      </div>
-    </section>
-  )}
 
   <section class="section">
     <div class="container">
