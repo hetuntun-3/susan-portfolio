@@ -18,11 +18,19 @@ const tilts = [-1.5, 1.2, -0.6, 1.8, -1.9, 0.8];
   <TitleBar title={d.title} subtitle={d.subtitle} />
 
   <section class="about-open">
-    <div class="container">
+    <div class="container about-open-grid">
+      <div class="about-open-text">
       <h2>{d.opening}</h2>
       {d.intro && d.intro.split(/\n\s*\n/).map((para) => <p set:html={inlineLinks(para)} />)}
       {d.introExtra && <p class="about-extra">{d.introExtra}</p>}
       {d.languages.length > 0 && <ul class="lang-list" aria-label="Languages">{d.languages.map((l) => <li>{l}</li>)}</ul>}
+      </div>
+      {site.hero.headshot && (
+        <figure class="polaroid about-photo" style="margin:0">
+          <img src={site.hero.headshot} alt={site.hero.headshotAlt} />
+          <figcaption>susan · new york</figcaption>
+        </figure>
+      )}
     </div>
   </section>
 

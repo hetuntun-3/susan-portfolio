@@ -921,3 +921,27 @@ a.pcard:hover .pc-steps li:nth-child(4) { transition-delay: .12s; }
 .about-open h2 { font-family: var(--font-display); font-variation-settings: 'SOFT' 50; font-size: clamp(29px, 3.15vw, 42px); line-height: 1.15; font-weight: 600; letter-spacing: -0.015em; max-width: 23ch; text-wrap: pretty; }
 .about-open p, .about-open + .section .section-lead, .section .section-lead { font: 15px/1.65 var(--font-mono); }
 .about-open p { max-width: 62ch; }
+
+/* home: hand-drawn portrait that "boils" (3 frames swapped in steps) */
+.splash-drawing { width: 100%; max-width: 230px; justify-self: center; }
+.boil-frames { display: grid; }
+.boil-frames .bf { grid-area: 1 / 1; width: 100%; height: auto; display: block; }
+.boil-frames .bf1, .boil-frames .bf2 { visibility: hidden; }
+@media (prefers-reduced-motion: no-preference) {
+  .boil-frames .bf { visibility: hidden; animation: boil 0.48s steps(1, end) infinite; }
+  .boil-frames .bf1 { animation-delay: -0.16s; }
+  .boil-frames .bf2 { animation-delay: -0.32s; }
+  @keyframes boil { 0% { visibility: visible; } 33.34% { visibility: hidden; } }
+}
+@media (min-width: 1024px) { .splash-drawing { max-width: 270px; justify-self: end; margin-right: 10px !important; } }
+@media (max-width: 640px) { .splash-drawing { max-width: 170px; } }
+
+/* about: real photo next to the bio */
+.about-open-grid { display: grid; gap: var(--s-7); }
+.about-photo { max-width: 300px; transform: rotate(2deg); justify-self: center; }
+.about-photo img { aspect-ratio: 3 / 4; object-position: center; }
+@media (min-width: 900px) {
+  .about-open-grid { grid-template-columns: minmax(0, 1fr) 300px; align-items: start; gap: var(--s-8); }
+  .about-photo { position: sticky; top: 96px; margin-top: 8px !important; justify-self: end; }
+}
+@media (max-width: 640px) { .about-photo { max-width: 240px; } }

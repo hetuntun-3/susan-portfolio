@@ -26,13 +26,10 @@ const about = await getEntry('pages', 'about');
         <div class="hero-details"><p>{h.kicker}</p><p>Open to summer 2027 internships</p><p class="hero-roles">Growth &amp; GTM / Product Marketing / Marketing Analytics</p></div>
         <a class="splash-link" href="#work">see my work ↓</a>
       </div>
-      <figure class={`polaroid splash-photo${h.headshot ? '' : ' no-photo'}`} style="margin:0">
-        {h.headshot ? (
-          <img src={h.headshot} alt={h.headshotAlt} />
-        ) : (
-          <div class="ph">headshot<br />coming soon</div>
-        )}
-        <figcaption>susan · new york</figcaption>
+      <figure class="splash-drawing" style="margin:0">
+        <span class="boil-frames" role="img" aria-label="Line drawing of Susan in a yellow shirt, head down, hands in her pockets">
+          {[0, 1, 2].map((i) => <img class={`bf bf${i}`} src={`/images/portrait-f${i}.webp`} alt="" width="520" height="987" fetchpriority={i === 0 ? 'high' : undefined} />)}
+        </span>
       </figure>
     </div>
   </section>
