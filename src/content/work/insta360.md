@@ -12,7 +12,7 @@ featured: true
 # cover: /images/insta360-cover.jpg
 # coverAlt: Riders in yellow jerseys on the Champs-Élysées
 coverKicker: hq · summer 2026
-coverTitle: Four projects, one summer
+coverTitle: Insta360
 coverNote: 8 surveys · 100 riders selected
 summary: Market research + brand projects
 metrics: ["8 surveys built", "100 riders selected"]

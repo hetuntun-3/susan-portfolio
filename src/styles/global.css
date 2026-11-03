@@ -903,3 +903,11 @@ a.pcard:hover .pc-steps li:nth-child(4) { transition-delay: .12s; }
     @keyframes note-in { from { opacity: 0; translate: 24px 0; } }
   }
 }
+
+/* home: short intro under the headline, and belief cards with their proof line */
+.home .splash-intro { max-width: 46ch; margin: 0 0 var(--s-5); font: 15px/1.65 var(--font-mono); color: var(--ink); text-wrap: pretty; }
+.think-item.idea-card { align-items: flex-start; }
+.think-text { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.think-text p { margin: 0; font: 13px/1.6 var(--font-mono); color: var(--muted); }
+.think-text a { white-space: nowrap; }
+.section-lead:has(+ .section-lead) { margin-bottom: var(--s-4); }

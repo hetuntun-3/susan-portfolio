@@ -24,19 +24,26 @@ timeline:
     highlight: true
 
 # Shown on the HOME page ("how I think"). icon: pattern | trust | measure | subtext | audience | story
-beliefsIntro: AI makes the what cheap. That makes the why worth more.
+beliefsIntro: ""
 beliefs:
   - icon: pattern
     title: AI finds the pattern. People decide what it means.
-    body: At Insta360, AI helped me organize ~300 survey responses, and I checked every number myself. The tool was fast. Knowing what counted was my job.
+    body: At Dreame, an AI tool flagged active creators. Reading their comments told me which audiences were real.
+    link: /work/dreame
+    linkLabel: Dreame
   - icon: trust
     title: When anyone can make content, trust is the edge.
-    body: At Dreame I found creators with an AI search tool, then chose them by reading their comments, not counting their followers.
+    body: At Insta360, I picked 100 camera-equipped riders for a 200+ rider community ride, so people could try the product on a ride they cared about.
+    link: /work/insta360
+    linkLabel: Insta360
   - icon: measure
-    title: Moving fast only helps if you measure.
-    body: Ten ideas without tracking are ten guesses. Every experiment should come with a way to tell if it worked, even a discount code per creator.
+    title: Use AI to think faster, not less.
+    body: I built this site with Claude and ChatGPT. They drafted and organized; I briefed, pushed back, and edited until it sounded like me.
 
-habitsIntro: People ask why a Gender Studies major went into marketing. To me it's the same subject, how culture shapes what people want.
+habitsIntro: |-
+  People ask why a Gender Studies major went into marketing. Gender Studies taught me that much of what feels natural (what's beautiful, successful, or normal) is shaped by culture. Marketing asks the same question: why do people want what they want?
+
+  AI now tells us what people do, fast. It doesn't ask what it assumed, whose data is missing, or why a pattern exists. Those are the questions I was trained to ask.
 habits:
   - icon: subtext
     title: I read the subtext.
@@ -45,8 +52,8 @@ habits:
     title: I ask who the message leaves out.
     body: At Dreame, the parent paying and the student using the product were different people, so the campaign needed two voices.
   - icon: story
-    title: I treat data as a story someone chose to tell.
-    body: A survey shows who answered. I also ask who didn't, and what the questions assumed.
+    title: I treat data, and AI output, as a story someone chose to tell.
+    body: A survey shows who answered. A model shows what it was trained on. I ask who's missing and what was assumed.
 
 now:
   - label: at columbia

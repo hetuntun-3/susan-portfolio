@@ -73,7 +73,7 @@ const pages = defineCollection({
       .default([]),
     introExtra: z.string().optional(),
     beliefsIntro: z.string().optional(),
-    beliefs: z.array(z.object({ icon: z.string(), title: z.string(), body: z.string() })).default([]),
+    beliefs: z.array(z.object({ icon: z.string(), title: z.string(), body: z.string(), link: z.string().optional(), linkLabel: z.string().optional() })).default([]),
     habitsIntro: z.string().optional(),
     habits: z.array(z.object({ icon: z.string(), title: z.string(), body: z.string() })).default([]),
     now: z.array(z.object({ label: z.string(), value: z.string(), link: z.string().optional() })).default([]),

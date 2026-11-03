@@ -22,6 +22,7 @@ const about = await getEntry('pages', 'about');
           ))}
         </h1>
         <p class="splash-headline">{h.headline}</p>
+        {h.intro && <p class="splash-intro">{h.intro}</p>}
         <div class="hero-details"><p>{h.kicker}</p><p>Open to summer 2027 internships</p><p class="hero-roles">Growth / Product Marketing / Marketing Analytics</p></div>
         <a class="splash-link" href="#work">see my work ↓</a>
       </div>
@@ -47,11 +48,11 @@ const about = await getEntry('pages', 'about');
   <!-- How I think: titles only (full text lives in src/content/pages/about.md) -->
   {about && about.data.beliefs.length > 0 && (
     <section class="home-block">
-      <div class="band"><div class="container"><h2>how i think</h2><span class="label">{about.data.beliefsIntro}</span></div></div>
+      <div class="band"><div class="container"><h2>how i think</h2></div></div>
       <div class="container">
         <ul class="think-list">
           {about.data.beliefs.map((b) => (
-            <li class="idea-card think-item"><Icon name={b.icon} /><span>{b.title}</span></li>
+            <li class="idea-card think-item"><Icon name={b.icon} /><div class="think-text"><span>{b.title}</span><p>{b.body}{b.link && <> <a href={b.link}>{b.linkLabel ?? 'see the case'} →</a></>}</p></div></li>
           ))}
         </ul>
       </div>
