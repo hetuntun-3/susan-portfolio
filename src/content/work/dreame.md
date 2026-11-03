@@ -12,7 +12,6 @@ featured: true
 # coverAlt: Concept mockup, not launched
 coverKicker: u.s. · summer 2025
 coverTitle: Dreame
-coverSteps: ["students", "parents", "dads", "press"]
 summary: Positioning, creators, PR, and media data
 metrics: ["8 creators seeded"]
 caseKicker: Marketing case study · Summer 2025

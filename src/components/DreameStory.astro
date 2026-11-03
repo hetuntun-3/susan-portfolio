@@ -1,7 +1,7 @@
 ---
 import DormSketch from './DormSketch.astro';
 import ChapterBar from './ChapterBar.astro';
-import GtmLoop from './GtmLoop.astro';
+import CaseMap from './CaseMap.astro';
 const chapters = [
   { id: 'd-bts', n: '01', name: 'Back-to-School campaign', short: 'Back-to-School' },
   { id: 'd-pitch', n: '02', name: 'Father’s Day pitching', short: 'Father’s Day' },
@@ -14,12 +14,12 @@ const gtm = [
   { stage: 'Channels', role: 'growth & gtm', text: '8 creators, a USC campus partnership, 600 journalists', href: '#d-bts-partners' },
   { stage: 'Measure', role: 'analytics', text: 'Weekly sentiment and share of voice vs. 6 competitors', href: '#d-monitor' },
 ];
+// Which GTM stages (0 Research · 1 Positioning · 2 Channels · 3 Measure) each project touched.
+const coverage: Record<string, number[]> = { 'd-bts':[0,1,2], 'd-pitch':[1,2], 'd-launch':[2], 'd-monitor':[3] };
+const mapProjects = chapters.map((c) => ({ id: c.id, n: c.n, name: c.name, stages: coverage[c.id] ?? [] }));
 ---
 <div class="case-story container dreame-story">
-  <nav class="project-index" aria-label="Projects on this page">
-    {chapters.map((c) => <a href={`#${c.id}`}><span>{c.n}</span>{c.name}</a>)}
-  </nav>
-  <GtmLoop stages={gtm} />
+  <CaseMap stages={gtm} projects={mapProjects} />
 
   <ChapterBar caseName="Dreame" chapters={chapters} />
 

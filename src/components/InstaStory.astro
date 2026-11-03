@@ -1,7 +1,7 @@
 ---
 import EventPosts from './EventPosts.astro';
 import ChapterBar from './ChapterBar.astro';
-import GtmLoop from './GtmLoop.astro';
+import CaseMap from './CaseMap.astro';
 const chapters = [
   { id: 'p-research', n: '01', name: 'Trade-show survey research', short: 'Survey research' },
   { id: 'p-paris', n: '02', name: 'Paris community ride', short: 'Paris ride' },
@@ -14,12 +14,12 @@ const gtm = [
   { stage: 'Channels', role: 'growth & gtm', text: 'A 200+ rider community ride; posts for 3 partner accounts', href: '#p-paris' },
   { stage: 'Measure', role: 'analytics', text: 'A partner post at ~4× that account’s median likes', href: '#p-shark' },
 ];
+// Which GTM stages (0 Research · 1 Positioning · 2 Channels · 3 Measure) each project touched.
+const coverage: Record<string, number[]> = { 'p-research':[0], 'p-paris':[1,2], 'p-shark':[2,3], 'p-film':[2] };
+const mapProjects = chapters.map((c) => ({ id: c.id, n: c.n, name: c.name, stages: coverage[c.id] ?? [] }));
 ---
 <div class="case-story container insta-story">
-  <nav class="project-index" aria-label="Projects on this page">
-    {chapters.map((c) => <a href={`#${c.id}`}><span>{c.n}</span>{c.name}</a>)}
-  </nav>
-  <GtmLoop stages={gtm} />
+  <CaseMap stages={gtm} projects={mapProjects} />
   <ChapterBar caseName="Insta360" chapters={chapters} />
 
   <section class="story-section project" id="p-research" aria-labelledby="insta-research">
@@ -105,7 +105,6 @@ const gtm = [
   /* Uses the shared case system in case-story.css: serif 24/32/40, mono 12/13/15, fills = yellow block / yellow wash / white. */
   .project-tag, .step-num { font:var(--f-label) !important; text-transform:uppercase; letter-spacing:.07em; color:var(--muted); }
   .project-tag { margin:0 0 10px !important; }
-  .case-story .project-index { margin:40px 0 0 !important; }
   .case-story .project { border-left:0 !important; padding-left:0 !important; }
   .case-story .project > p + p, .case-story .project > p + ul, .case-story .project > p + ol, .case-story .project > p + div { margin-top:24px; }
   .case-story .project > ol, .case-story .project > .deck-grid, .case-story .project > ul { margin-top:24px; }

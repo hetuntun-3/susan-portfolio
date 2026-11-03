@@ -1,0 +1,111 @@
+---
+// One map at the top of a case page: the GTM loop (columns) × the projects on the page (rows).
+// Replaces the separate 01–04 project index + GTM loop strip.
+// - Stage headers: stage, one fact from the page, the role it shows. Click → that fact's section.
+// - Project rows: number + name (click → project section), with a mark in each stage it touches.
+// Phone: stage cards (2 × 2) and a project list with stage pills.
+// ChapterBar looks for `.case-map` to know when this has scrolled away.
+interface Stage { stage: string; role: string; text: string; href: string }
+interface Project { id: string; n: string; name: string; stages: number[] } // stages = 0-based stage indexes
+interface Props { stages: Stage[]; projects: Project[] }
+const { stages, projects } = Astro.props;
+---
+<section class="case-map" aria-labelledby="case-map-title">
+  <p class="map-head"><span id="case-map-title">the gtm loop</span><span>what each project covered</span></p>
+
+  <div class="map-grid">
+    <div class="map-row map-stages">
+      <span class="map-corner">projects on this page</span>
+      {stages.map((s, i) => (
+        <a class="map-stage" href={s.href}>
+          <span class="map-stage-top"><span class="map-n">{String(i + 1).padStart(2, '0')}</span><span class="map-name">{s.stage}</span></span>
+          <span class="map-text">{s.text}</span>
+          <span class="map-role">{s.role}</span>
+        </a>
+      ))}
+    </div>
+    {projects.map((p) => (
+      <a class="map-row map-project" href={`#${p.id}`}>
+        <span class="map-pname"><span class="map-pn">{p.n}</span>{p.name}</span>
+        {stages.map((s, i) => (
+          <span class="map-cell">
+            {p.stages.includes(i)
+              ? <span class="map-dot"><span class="sr-only">{s.stage}</span></span>
+              : <span class="map-empty" aria-hidden="true"></span>}
+          </span>
+        ))}
+      </a>
+    ))}
+  </div>
+
+  <!-- phone layout -->
+  <div class="map-mobile">
+    <ol class="m-stages">
+      {stages.map((s, i) => (
+        <li><a href={s.href}>
+          <span class="map-stage-top"><span class="map-n">{String(i + 1).padStart(2, '0')}</span><span class="map-name">{s.stage}</span></span>
+          <span class="map-text">{s.text}</span>
+          <span class="map-role">{s.role}</span>
+        </a></li>
+      ))}
+    </ol>
+    <ol class="m-projects">
+      {projects.map((p) => (
+        <li><a href={`#${p.id}`}>
+          <span class="map-pname"><span class="map-pn">{p.n}</span>{p.name}</span>
+          <span class="m-pills">{p.stages.map((i) => <span>{stages[i].stage}</span>)}</span>
+        </a></li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .case-map { margin:40px 0 0; }
+  :global(.case-story) .map-head { max-width:none !important; width:100%; }
+  .map-head { display:flex; flex-wrap:wrap; justify-content:space-between; gap:4px 16px; margin:0 0 12px !important; font:var(--f-label) !important; text-transform:uppercase; letter-spacing:.07em; color:var(--muted); }
+  .map-head span:first-child { color:var(--ink); font-weight:600; }
+
+  .map-grid { border:var(--border); background:var(--surface); box-shadow:var(--sh-sm); margin-right:6px; }
+  .map-row { display:grid; grid-template-columns:minmax(0,1.35fr) repeat(4,minmax(0,1fr)); color:var(--ink); text-decoration:none; }
+  .map-row + .map-row { border-top:var(--rule); }
+  .map-row > * + * { border-left:var(--rule); }
+
+  .map-corner { display:flex; flex-direction:column; justify-content:flex-end; gap:4px; padding:16px 18px; font:var(--f-label); text-transform:uppercase; letter-spacing:.07em; color:var(--muted); }
+  .map-stage { display:flex; flex-direction:column; gap:10px; padding:16px; color:var(--ink); text-decoration:none; transition:background .2s cubic-bezier(.4,0,.2,1); }
+  .map-stage:hover, .map-stage:focus-visible { background:var(--wash); }
+  .map-stage-top { display:flex; gap:8px; align-items:baseline; }
+  .map-n, .map-pn { font:var(--f-label); color:var(--muted); }
+  .map-name { font:var(--f-h3); font-size:20px; }
+  .map-text { font:var(--f-small); flex:1; }
+  .map-role { align-self:flex-start; font:var(--f-label); font-size:11px; text-transform:uppercase; letter-spacing:.06em; padding:3px 7px; background:var(--wash); border:1px solid var(--rule-soft, currentColor); }
+
+  .map-project { transition:background .2s cubic-bezier(.4,0,.2,1); }
+  .map-project:hover, .map-project:focus-visible { background:var(--wash); }
+  .map-pname { display:flex; gap:10px; align-items:baseline; padding:13px 18px; font:var(--f-small); font-weight:600; }
+  .map-project:hover .map-pname { text-decoration:underline; text-underline-offset:4px; }
+  .map-cell { display:flex; align-items:center; justify-content:center; }
+  .map-dot { width:14px; height:14px; border-radius:50%; background:var(--block); border:1.5px solid var(--ink); }
+  .map-empty { width:10px; height:1.5px; background:var(--rule-soft, #d8d4cc); }
+
+  .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+
+  .map-mobile { display:none; }
+  @media (max-width:819px) {
+    .map-grid { display:none; }
+    .map-mobile { display:flex; flex-direction:column; gap:16px; }
+    .m-stages, .m-projects { list-style:none; margin:0; padding:0; }
+    .m-stages { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); border:var(--border); background:var(--surface); }
+    .m-stages li:nth-child(even) { border-left:var(--rule); }
+    .m-stages li:nth-child(n+3) { border-top:var(--rule); }
+    .m-stages a { height:100%; display:flex; flex-direction:column; gap:8px; padding:14px; color:var(--ink); text-decoration:none; }
+    .m-projects { border:var(--border); background:var(--surface); }
+    .m-projects li + li { border-top:var(--rule); }
+    .m-projects a { display:flex; flex-direction:column; gap:8px; padding:12px 14px; color:var(--ink); text-decoration:none; }
+    .m-projects .map-pname { padding:0; }
+    .m-pills { display:flex; flex-wrap:wrap; gap:4px; }
+    .m-pills span { font:var(--f-label); font-size:11px; padding:2px 7px; background:var(--wash); border:1px solid var(--ink); }
+  }
+  @media (max-width:420px) { .m-stages { grid-template-columns:minmax(0,1fr); } .m-stages li:nth-child(even) { border-left:0; } .m-stages li + li { border-top:var(--rule); } }
+  @media (prefers-reduced-motion: reduce) { .map-stage, .map-project { transition:none; } }
+</style>

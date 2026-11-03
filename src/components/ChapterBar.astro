@@ -1,7 +1,7 @@
 ---
-// Slim sticky bar for case pages: appears once the 01–04 project index scrolls away,
+// Slim sticky bar for case pages: appears once the case map (or 01–04 project index) scrolls away,
 // highlights the project you're reading, and shows reading progress.
-// Needs a sibling `.project-index` and a `.closing` section inside the same `.case-story`.
+// Needs a sibling `.case-map` (or `.project-index`) and a `.closing` section inside the same `.case-story`.
 interface Props { caseName: string; chapters: { id: string; n: string; short: string }[] }
 const { caseName, chapters } = Astro.props;
 ---
@@ -35,7 +35,7 @@ const { caseName, chapters } = Astro.props;
 <script>
   document.querySelectorAll<HTMLElement>('.chapter-bar').forEach((bar) => {
     const root = bar.closest('.case-story');
-    const index = root?.querySelector<HTMLElement>('.project-index');
+    const index = root?.querySelector<HTMLElement>('.case-map, .project-index');
     const closing = root?.querySelector<HTMLElement>('.closing');
     if (!root || !index || !closing) return;
     const links = Array.from(bar.querySelectorAll<HTMLAnchorElement>('a[data-chapter]'));

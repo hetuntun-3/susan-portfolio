@@ -1,59 +1,68 @@
 ---
-// Project card used on Home and /work.
-// Cover: a real photo if `cover` is set (only approved images), otherwise a
-// typography cover built from verified facts in the case file (coverKicker / coverTitle / coverSteps / coverNote).
+// Project card used on Home and /work, in four stacked rows:
+// time → company → cover visual (a photo if `cover` is set, otherwise the case's line drawing) → role / theme.
+import InstaCover from './covers/InstaCover.astro';
+import DreameCover from './covers/DreameCover.astro';
 interface Props {
   entry: {
     id: string;
     data: {
       title: string; timeline: string; tag: string; block: string; comingSoon: boolean;
       cover?: string; coverAlt?: string; coverPosition?: string;
-      coverKicker?: string; coverTitle?: string; coverSteps?: string[]; coverNote?: string;
-      summary?: string; metrics?: string[];
+      summary?: string; caseContext?: string[];
     };
   };
 }
 const { entry } = Astro.props;
 const d = entry.data;
 const style = `--block: var(--block-${d.block})`;
+const role = d.caseContext?.[0];
 const Tag = d.comingSoon ? 'div' : 'a';
 ---
 <Tag
-  class={`card pcard${d.comingSoon ? ' soon' : ''}`}
+  class={`card pcard pcard-v2${d.comingSoon ? ' soon' : ''}`}
   href={d.comingSoon ? undefined : `/work/${entry.id}`}
   aria-disabled={d.comingSoon ? 'true' : undefined}
   style={style}
 >
-  <div class="project-heading"><h3 class="card-title">{d.title}</h3><span class="label">{d.timeline}</span></div>
-
+  <span class="pc-time">{d.timeline}</span>
+  <h3 class="pc-company card-title">{d.title}</h3>
   <div class="pcover">
     {d.cover ? (
       <img src={d.cover} alt={d.coverAlt ?? ''} loading="lazy" style={d.coverPosition ? `object-position:${d.coverPosition}` : undefined} />
     ) : (
-      <div class={`pc-type pc-${entry.id}`} aria-hidden="true">
-        {d.coverKicker && <span class="pc-kicker">{d.coverKicker}</span>}
-        {d.coverTitle && <span class="pc-title">{d.coverTitle}</span>}
-        {entry.id === 'insta360' && <>
-          <span class="rider-stamp"><strong>100</strong><span>camera riders</span></span>
-          <svg class="ride-path" viewBox="0 0 500 90" fill="none"><path d="M8 70C80 70 85 5 170 20S285 100 350 50S420 4 490 20" stroke="currentColor" stroke-width="2" stroke-dasharray="8 7"/><circle cx="8" cy="70" r="5" fill="currentColor"/><circle cx="490" cy="20" r="5" fill="currentColor"/></svg>
-        </>}
-        {d.coverSteps && d.coverSteps.length > 0 && (
-          <ol class="pc-steps">{d.coverSteps.map((s) => <li>{s}</li>)}</ol>
-        )}
-        {d.coverNote && <span class="pc-note">{d.coverNote}</span>}
+      <div class={`pc-art pc-${entry.id}`}>
+        {entry.id === 'insta360' && <InstaCover />}
+        {entry.id === 'dreame' && <DreameCover />}
       </div>
     )}
   </div>
-
-  <div class="pbody">
-    <p class="psum">{d.summary ?? d.tag}</p>
-    {d.metrics && d.metrics.length > 0 && (
-      <ul class="pmetrics">{d.metrics.map((m) => <li>{m}</li>)}</ul>
-    )}
-    {d.comingSoon ? (
-      <span class="badge progress">In progress</span>
-    ) : (
-      <span class="pmore">explore the case →</span>
-    )}
-  </div>
+  <p class="pc-theme">
+    <span>{role ? <>{role}{' '}<span class="pc-slash">/</span>{' '}</> : null}{d.summary ?? d.tag}</span>
+    {!d.comingSoon && <span class="pc-arrow" aria-hidden="true">→</span>}
+  </p>
 </Tag>
+
+<style>
+  /* overrides the older .pcard rules in global.css */
+  .pcard-v2 { display:flex; flex-direction:column; }
+  .pcard-v2 > * { padding:0 !important; margin:0; }
+  .pcard-v2 > * + * { border-top:var(--border, 1.5px solid var(--ink)); }
+  .pcard-v2 .pc-time { padding:18px 22px !important; font:15px/1.3 var(--font-mono); }
+  .pcard-v2 .pc-company { padding:16px 22px 18px !important; font-family:var(--font-display); font-variation-settings:'SOFT' 50; font-weight:700; font-size:clamp(40px, 4.4vw, 56px) !important; line-height:1; letter-spacing:-0.02em; }
+  .pcard-v2 .pcover { aspect-ratio:8 / 5 !important; height:auto !important; background:var(--block); }
+  .pc-art { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; padding:6% 4%; color:var(--ink); transition:scale .3s cubic-bezier(.4,0,.2,1); transform-origin:50% 60%; }
+  .pc-art :global(svg) { width:100%; height:100%; }
+  a.pcard-v2:hover .pc-art, a.pcard-v2:focus-visible .pc-art { scale:1.03; }
+  .pcard-v2 .pc-theme { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; padding:18px 22px 22px !important; font:15px/1.5 var(--font-mono); }
+  .pc-slash { color:var(--muted); }
+  .pc-arrow { flex:none; transition:translate .25s cubic-bezier(.4,0,.2,1); }
+  a.pcard-v2:hover .pc-arrow, a.pcard-v2:focus-visible .pc-arrow { translate:4px 0; }
+  a.pcard-v2:hover .pc-company, a.pcard-v2:focus-visible .pc-company { text-decoration:underline; text-decoration-color:var(--accent); text-decoration-thickness:3px; text-underline-offset:8px; }
+  @media (max-width:480px) {
+    .pcard-v2 .pc-time { padding:14px 18px !important; font-size:13px; }
+    .pcard-v2 .pc-company { padding:12px 18px 14px !important; font-size:40px !important; }
+    .pcard-v2 .pc-theme { padding:14px 18px 18px !important; font-size:14px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .pc-art, .pc-arrow { transition:none; } }
+</style>
