@@ -28,7 +28,3 @@ I generated the first version with AI from a single prompt. Before I call it min
 - **Who decides the tier.** Right now the model adds up the points *and* picks the tier. Tiers should be computed in code, so the thresholds behave the same every time.
 - **The weights.** 40 / 25 / 20 / 15 is an untested assumption.
 - **Real runs.** It hasn't been run end to end yet. Next: a set of sample leads with the tier I expect for each, then compare.
-
-## What's next
-
-The ICP is written straight into the prompt today. I want to move it into one settings step, so the same workflow can be pointed at any company's ICP. Clay stays as the worked example.

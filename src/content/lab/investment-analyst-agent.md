@@ -8,8 +8,6 @@ skills: [n8n, Claude API, SEC EDGAR data]
 summary: An n8n workflow that screens 24 companies, has an AI agent research the top 6, and flags which clear a 12% annual return.
 ---
 
-Built in a Columbia Business School AI Club workshop. Part 2 of the workshop is coming up, so this page will change.
-
 ## How it works
 
 1. **Data.** Pulls 10-K figures from SEC filings and current prices from Yahoo.
