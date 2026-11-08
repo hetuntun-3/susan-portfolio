@@ -1,8 +1,8 @@
 ---
 title: Insta360
 headline: "Insta360"
-lead: For the market research team, 8 bilingual surveys and ~300 cleaned responses. For the brand team, 100 riders and 2 workshop decks for Paris, captions for 3 partner posts on Shark Awareness Day, and a running plan for a film activation.
-description: "Four projects from my Insta360 internship: trade-show survey research, rider selection and decks for a Paris community ride, a film activation plan, and Shark Awareness Day partner posts."
+lead: For the market research team, 8 bilingual surveys and ~300 cleaned responses. For the brand team, 100 riders and 2 workshop decks for Paris, captions for 3 partner posts on Shark Awareness Day, and a running plan for the How to Rob a Bank film collab.
+description: "Four projects from my Insta360 internship: trade-show survey research, rider selection and decks for a Paris community ride, event plans for the How to Rob a Bank film collab, and Shark Awareness Day partner posts."
 timeline: Summer 2026
 tag: Market research + brand · 4 projects
 block: insta360
